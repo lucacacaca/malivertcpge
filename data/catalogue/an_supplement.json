@@ -1,0 +1,1532 @@
+{
+ "version": 1,
+ "modeles": [
+  {
+   "cle": "an2.vitesse_milieu",
+   "formule": "physique.pcsi.1.1.f02",
+   "enonce": "La lumière se propage dans un verre d'indice $n = {n}$. Calcule sa vitesse $v$ dans ce verre ($c = 3{,}00\\times10^8\\ \\mathrm{m\\,s^{-1}}$).",
+   "variables": [
+    {
+     "nom": "n",
+     "min": 1.33,
+     "max": 1.9,
+     "chiffres": 3,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    }
+   ],
+   "calcul": "3.00e8/n",
+   "symbole": "v",
+   "unite": "10^8\\,\\mathrm{m\\,s^{-1}}",
+   "facteur": 100000000.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.lambda_milieu",
+   "formule": "physique.pcsi.1.1.f02",
+   "enonce": "Une radiation de longueur d'onde dans le vide $\\lambda_0 = {l0}$ entre dans l'eau d'indice $n = {n}$. Calcule sa longueur d'onde $\\lambda$ dans l'eau.",
+   "variables": [
+    {
+     "nom": "l0",
+     "min": 400,
+     "max": 750,
+     "chiffres": 3,
+     "facteur": 1e-09,
+     "unite": "\\mathrm{nm}",
+     "entier": false
+    },
+    {
+     "nom": "n",
+     "min": 1.3,
+     "max": 1.36,
+     "chiffres": 3,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    }
+   ],
+   "calcul": "l0/n",
+   "symbole": "\\lambda",
+   "unite": "\\mathrm{nm}",
+   "facteur": 1e-09,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.vergence",
+   "formule": "physique.pcsi.1.1.f06",
+   "enonce": "Une lentille a une distance focale image $f' = {fp}$. Calcule sa vergence $V$.",
+   "variables": [
+    {
+     "nom": "fp",
+     "min": 5,
+     "max": 50,
+     "chiffres": 2,
+     "facteur": 0.01,
+     "unite": "\\mathrm{cm}",
+     "entier": false
+    }
+   ],
+   "calcul": "1/fp",
+   "symbole": "V",
+   "unite": "\\delta",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.accolees",
+   "formule": "physique.pcsi.1.1.f11",
+   "enonce": "Deux lentilles minces accolées : $f'_1 = {f1}$ et $f'_2 = {f2}$. Calcule la distance focale $f'$ de l'association.",
+   "variables": [
+    {
+     "nom": "f1",
+     "min": 10,
+     "max": 40,
+     "chiffres": 2,
+     "facteur": 0.01,
+     "unite": "\\mathrm{cm}",
+     "entier": false
+    },
+    {
+     "nom": "f2",
+     "min": 10,
+     "max": 40,
+     "chiffres": 2,
+     "facteur": 0.01,
+     "unite": "\\mathrm{cm}",
+     "entier": false
+    }
+   ],
+   "calcul": "1/(1/f1 + 1/f2)",
+   "symbole": "f'",
+   "unite": "\\mathrm{cm}",
+   "facteur": 0.01,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.newton",
+   "formule": "physique.pcsi.1.1.f09",
+   "enonce": "Lentille convergente $f' = {fp}$. L'objet est à $\\overline{FA} = -{x}$ du foyer objet. Calcule $\\overline{F'A'}$ par la relation de Newton.",
+   "variables": [
+    {
+     "nom": "fp",
+     "min": 5,
+     "max": 20,
+     "chiffres": 2,
+     "facteur": 0.01,
+     "unite": "\\mathrm{cm}",
+     "entier": false
+    },
+    {
+     "nom": "x",
+     "min": 5,
+     "max": 40,
+     "chiffres": 2,
+     "facteur": 0.01,
+     "unite": "\\mathrm{cm}",
+     "entier": false
+    }
+   ],
+   "calcul": "fp^2/x",
+   "symbole": "\\overline{F'A'}",
+   "unite": "\\mathrm{cm}",
+   "facteur": 0.01,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.dmin",
+   "formule": "physique.pcsi.1.1.f10",
+   "enonce": "On veut projeter l'image d'un objet sur un écran avec une lentille de focale $f' = {fp}$. Quelle est la distance objet-écran minimale $D_{\\min}$ ?",
+   "variables": [
+    {
+     "nom": "fp",
+     "min": 5,
+     "max": 50,
+     "chiffres": 2,
+     "facteur": 0.01,
+     "unite": "\\mathrm{cm}",
+     "entier": false
+    }
+   ],
+   "calcul": "4*fp",
+   "symbole": "D_{\\min}",
+   "unite": "\\mathrm{cm}",
+   "facteur": 0.01,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.dispersion",
+   "formule": "physique.pcsi.1.1.f13",
+   "enonce": "Fibre de longueur $L = {L}$, cœur $n_c = 1{,}50$, gaine $n_g = {ng}$. Calcule l'écart de durée de parcours $\\Delta t$ entre le rayon axial et le plus incliné.",
+   "variables": [
+    {
+     "nom": "L",
+     "min": 1.0,
+     "max": 10,
+     "chiffres": 2,
+     "facteur": 1000.0,
+     "unite": "\\mathrm{km}",
+     "entier": false
+    },
+    {
+     "nom": "ng",
+     "min": 1.46,
+     "max": 1.49,
+     "chiffres": 3,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    }
+   ],
+   "calcul": "L*1.50/3.00e8*(1.50/ng - 1)",
+   "symbole": "\\Delta t",
+   "unite": "\\mathrm{ns}",
+   "facteur": 1e-09,
+   "tolerance": 0.04
+  },
+  {
+   "cle": "an2.debit_charge",
+   "formule": "physique.pcsi.1.2.f01",
+   "enonce": "Un courant constant d'intensité $I = {I}$ circule pendant $\\Delta t = {t}$. Quelle charge $Q$ a traversé une section du fil ?",
+   "variables": [
+    {
+     "nom": "I",
+     "min": 0.1,
+     "max": 5.0,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{A}",
+     "entier": false
+    },
+    {
+     "nom": "t",
+     "min": 1,
+     "max": 60,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{s}",
+     "entier": false
+    }
+   ],
+   "calcul": "I*t",
+   "symbole": "Q",
+   "unite": "\\mathrm{C}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.puissance",
+   "formule": "physique.pcsi.1.2.f04",
+   "enonce": "Un dipôle en convention récepteur a $u = {u}$ à ses bornes et est traversé par $i = {i}$. Calcule la puissance reçue.",
+   "variables": [
+    {
+     "nom": "u",
+     "min": 1,
+     "max": 24,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{V}",
+     "entier": false
+    },
+    {
+     "nom": "i",
+     "min": 10,
+     "max": 900,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{mA}",
+     "entier": false
+    }
+   ],
+   "calcul": "u*i",
+   "symbole": "\\mathcal{P}",
+   "unite": "\\mathrm{W}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.charge_q",
+   "formule": "physique.pcsi.1.2.f06",
+   "enonce": "Un condensateur de capacité $C = {C}$ est sous la tension $u = {u}$. Calcule sa charge $q$.",
+   "variables": [
+    {
+     "nom": "C",
+     "min": 1,
+     "max": 470,
+     "chiffres": 2,
+     "facteur": 1e-06,
+     "unite": "\\mathrm{\\mu F}",
+     "entier": false
+    },
+    {
+     "nom": "u",
+     "min": 1,
+     "max": 30,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{V}",
+     "entier": false
+    }
+   ],
+   "calcul": "C*u",
+   "symbole": "q",
+   "unite": "\\mathrm{mC}",
+   "facteur": 0.001,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.bobine_u",
+   "formule": "physique.pcsi.1.2.f07",
+   "enonce": "Dans une bobine d'inductance $L = {L}$, l'intensité augmente régulièrement de $\\Delta i = {di}$ en $\\Delta t = {dt}$. Calcule la tension $u$ à ses bornes.",
+   "variables": [
+    {
+     "nom": "L",
+     "min": 10,
+     "max": 500,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{mH}",
+     "entier": false
+    },
+    {
+     "nom": "di",
+     "min": 0.1,
+     "max": 2.0,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{A}",
+     "entier": false
+    },
+    {
+     "nom": "dt",
+     "min": 1,
+     "max": 50,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{ms}",
+     "entier": false
+    }
+   ],
+   "calcul": "L*di/dt",
+   "symbole": "u",
+   "unite": "\\mathrm{V}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.thevenin",
+   "formule": "physique.pcsi.1.2.f09",
+   "enonce": "Générateur de f.é.m. $E = {E}$ et de résistance interne $r = {r}$ débitant $i = {i}$. Calcule la tension $u$ à ses bornes.",
+   "variables": [
+    {
+     "nom": "E",
+     "min": 4.5,
+     "max": 12,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{V}",
+     "entier": false
+    },
+    {
+     "nom": "r",
+     "min": 0.5,
+     "max": 5.0,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\Omega",
+     "entier": false
+    },
+    {
+     "nom": "i",
+     "min": 0.1,
+     "max": 1.0,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{A}",
+     "entier": false
+    }
+   ],
+   "calcul": "E - r*i",
+   "symbole": "u",
+   "unite": "\\mathrm{V}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.energie_l",
+   "formule": "physique.pcsi.1.2.f08",
+   "enonce": "Une bobine d'inductance $L = {L}$ est parcourue par $i = {i}$. Calcule l'énergie qu'elle stocke.",
+   "variables": [
+    {
+     "nom": "L",
+     "min": 10,
+     "max": 500,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{mH}",
+     "entier": false
+    },
+    {
+     "nom": "i",
+     "min": 0.1,
+     "max": 3.0,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{A}",
+     "entier": false
+    }
+   ],
+   "calcul": "0.5*L*i^2",
+   "symbole": "\\mathcal{E}_L",
+   "unite": "\\mathrm{mJ}",
+   "facteur": 0.001,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.tau_rl",
+   "formule": "physique.pcsi.1.3.f04",
+   "enonce": "Circuit RL série : $L = {L}$, $R = {R}$. Calcule le temps caractéristique $\\tau$.",
+   "variables": [
+    {
+     "nom": "L",
+     "min": 10,
+     "max": 500,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{mH}",
+     "entier": false
+    },
+    {
+     "nom": "R",
+     "min": 10,
+     "max": 1000,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\Omega",
+     "entier": false
+    }
+   ],
+   "calcul": "L/R",
+   "symbole": "\\tau",
+   "unite": "\\mathrm{ms}",
+   "facteur": 0.001,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.decharge",
+   "formule": "physique.pcsi.1.3.f03",
+   "enonce": "Un condensateur chargé sous $E = {E}$ se décharge dans une résistance, $\\tau = {tau}$. Calcule $u_C$ à la date $t = {t}$.",
+   "variables": [
+    {
+     "nom": "E",
+     "min": 5,
+     "max": 15,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{V}",
+     "entier": false
+    },
+    {
+     "nom": "tau",
+     "min": 2.0,
+     "max": 10,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{ms}",
+     "entier": false
+    },
+    {
+     "nom": "t",
+     "min": 0.5,
+     "max": 10,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{ms}",
+     "entier": false
+    }
+   ],
+   "calcul": "E*exp(-t/tau)",
+   "symbole": "u_C",
+   "unite": "\\mathrm{V}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.joule_charge",
+   "formule": "physique.pcsi.1.3.f06",
+   "enonce": "Charge d'un condensateur $C = {C}$ sous $E = {E}$ à travers une résistance. Quelle énergie est dissipée par effet Joule pendant la charge complète ?",
+   "variables": [
+    {
+     "nom": "C",
+     "min": 1,
+     "max": 470,
+     "chiffres": 2,
+     "facteur": 1e-06,
+     "unite": "\\mathrm{\\mu F}",
+     "entier": false
+    },
+    {
+     "nom": "E",
+     "min": 5,
+     "max": 30,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{V}",
+     "entier": false
+    }
+   ],
+   "calcul": "0.5*C*E^2",
+   "symbole": "\\mathcal{W}_J",
+   "unite": "\\mathrm{mJ}",
+   "facteur": 0.001,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.pseudo",
+   "formule": "physique.pcsi.1.4.f08",
+   "enonce": "Oscillateur amorti : $\\omega_0 = {w0}$ et facteur de qualité $Q = {Q}$. Calcule la pseudo-pulsation $\\omega$.",
+   "variables": [
+    {
+     "nom": "w0",
+     "min": 100,
+     "max": 5000,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{rad\\,s^{-1}}",
+     "entier": false
+    },
+    {
+     "nom": "Q",
+     "min": 0.8,
+     "max": 10,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    }
+   ],
+   "calcul": "w0*sqrt(1 - 1/(4*Q^2))",
+   "symbole": "\\omega",
+   "unite": "\\mathrm{rad\\,s^{-1}}",
+   "facteur": 1.0,
+   "tolerance": 0.02
+  },
+  {
+   "cle": "an2.energie_osc",
+   "formule": "physique.pcsi.1.4.f03",
+   "enonce": "Masse-ressort : raideur $k = {k}$, amplitude $X_m = {X}$. Calcule l'énergie mécanique $\\mathcal{E}$.",
+   "variables": [
+    {
+     "nom": "k",
+     "min": 10,
+     "max": 200,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{N\\,m^{-1}}",
+     "entier": false
+    },
+    {
+     "nom": "X",
+     "min": 1,
+     "max": 10,
+     "chiffres": 2,
+     "facteur": 0.01,
+     "unite": "\\mathrm{cm}",
+     "entier": false
+    }
+   ],
+   "calcul": "0.5*k*X^2",
+   "symbole": "\\mathcal{E}",
+   "unite": "\\mathrm{mJ}",
+   "facteur": 0.001,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.imax",
+   "formule": "physique.pcsi.1.4.f13",
+   "enonce": "RLC série alimenté par $E_m = {Em}$, avec $R = {R}$. Calcule l'amplitude $I_m$ du courant à la résonance.",
+   "variables": [
+    {
+     "nom": "Em",
+     "min": 1,
+     "max": 10,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{V}",
+     "entier": false
+    },
+    {
+     "nom": "R",
+     "min": 10,
+     "max": 470,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\Omega",
+     "entier": false
+    }
+   ],
+   "calcul": "Em/R",
+   "symbole": "I_{m,\\max}",
+   "unite": "\\mathrm{mA}",
+   "facteur": 0.001,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.omega_r",
+   "formule": "physique.pcsi.1.4.f14",
+   "enonce": "Oscillateur : $\\omega_0 = {w0}$, $Q = {Q}$. Calcule la pulsation de résonance en élongation $\\omega_r$.",
+   "variables": [
+    {
+     "nom": "w0",
+     "min": 100,
+     "max": 5000,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{rad\\,s^{-1}}",
+     "entier": false
+    },
+    {
+     "nom": "Q",
+     "min": 1.0,
+     "max": 10,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    }
+   ],
+   "calcul": "w0*sqrt(1 - 1/(2*Q^2))",
+   "symbole": "\\omega_r",
+   "unite": "\\mathrm{rad\\,s^{-1}}",
+   "facteur": 1.0,
+   "tolerance": 0.02
+  },
+  {
+   "cle": "an2.module_zc",
+   "formule": "physique.pcsi.1.4.f10",
+   "enonce": "Calcule le module de l'impédance d'un condensateur $C = {C}$ à la fréquence $f = {f}$.",
+   "variables": [
+    {
+     "nom": "C",
+     "min": 10,
+     "max": 1000,
+     "chiffres": 2,
+     "facteur": 1e-09,
+     "unite": "\\mathrm{nF}",
+     "entier": false
+    },
+    {
+     "nom": "f",
+     "min": 50,
+     "max": 5000,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{Hz}",
+     "entier": false
+    }
+   ],
+   "calcul": "1/(2*pi*f*C)",
+   "symbole": "|\\underline{Z}_C|",
+   "unite": "\\mathrm{k\\Omega}",
+   "facteur": 1000.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.duree_amorti",
+   "formule": "physique.pcsi.1.4.f07",
+   "enonce": "Oscillateur peu amorti : $Q = {Q}$, période propre $T_0 = {T0}$. Estime la durée du régime transitoire ($\\approx Q\\,T_0$).",
+   "variables": [
+    {
+     "nom": "Q",
+     "min": 5,
+     "max": 50,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    },
+    {
+     "nom": "T0",
+     "min": 1,
+     "max": 20,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{ms}",
+     "entier": false
+    }
+   ],
+   "calcul": "Q*T0",
+   "symbole": "\\Delta t",
+   "unite": "\\mathrm{ms}",
+   "facteur": 0.001,
+   "tolerance": 0.05
+  },
+  {
+   "cle": "an2.fc_rc_haut",
+   "formule": "physique.pcsi.1.5.f06",
+   "enonce": "Filtre passe-haut RC : $R = {R}$, $C = {C}$. Calcule la fréquence de coupure $f_c$.",
+   "variables": [
+    {
+     "nom": "R",
+     "min": 1.0,
+     "max": 100,
+     "chiffres": 2,
+     "facteur": 1000.0,
+     "unite": "\\mathrm{k\\Omega}",
+     "entier": false
+    },
+    {
+     "nom": "C",
+     "min": 1,
+     "max": 470,
+     "chiffres": 2,
+     "facteur": 1e-09,
+     "unite": "\\mathrm{nF}",
+     "entier": false
+    }
+   ],
+   "calcul": "1/(2*pi*R*C)",
+   "symbole": "f_c",
+   "unite": "\\mathrm{kHz}",
+   "facteur": 1000.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.gain_coupure",
+   "formule": "physique.pcsi.1.5.f07",
+   "enonce": "Un filtre a un gain maximal $G_{\\max} = {G}$. Quel est le gain à la pulsation de coupure à $-3\\ \\mathrm{dB}$ ?",
+   "variables": [
+    {
+     "nom": "G",
+     "min": 1,
+     "max": 20,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    }
+   ],
+   "calcul": "G/sqrt(2)",
+   "symbole": "G(\\omega_c)",
+   "unite": "",
+   "facteur": 1.0,
+   "tolerance": 0.02
+  },
+  {
+   "cle": "an2.bande_passe_bande",
+   "formule": "physique.pcsi.1.5.f09",
+   "enonce": "Passe-bande du second ordre : $f_0 = {f0}$, $Q = {Q}$. Calcule la largeur de la bande passante $\\Delta f$.",
+   "variables": [
+    {
+     "nom": "f0",
+     "min": 100,
+     "max": 10000,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{Hz}",
+     "entier": false
+    },
+    {
+     "nom": "Q",
+     "min": 1,
+     "max": 50,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    }
+   ],
+   "calcul": "f0/Q",
+   "symbole": "\\Delta f",
+   "unite": "\\mathrm{Hz}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.bode_pente",
+   "formule": "physique.pcsi.1.5.f04",
+   "enonce": "Passe-bas d'ordre 2. Sur l'asymptote haute fréquence, de combien diminue le gain (en dB) entre $f_1 = {f1}$ et $f_2 = {k}\\,f_1$ ?",
+   "variables": [
+    {
+     "nom": "f1",
+     "min": 1,
+     "max": 9,
+     "chiffres": 2,
+     "facteur": 1000.0,
+     "unite": "\\mathrm{kHz}",
+     "entier": false
+    },
+    {
+     "nom": "k",
+     "min": 2,
+     "max": 100,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    }
+   ],
+   "calcul": "40*log(k)",
+   "symbole": "\\Delta G",
+   "unite": "\\mathrm{dB}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.integrateur",
+   "formule": "physique.pcsi.1.5.f13",
+   "enonce": "Intégrateur inverseur : $R = {R}$, $C = {C}$, entrée constante $V_e = {Ve}$, $v_s(0) = 0$. Calcule $v_s$ à $t = {t}$ (l'ALI ne sature pas).",
+   "variables": [
+    {
+     "nom": "R",
+     "min": 10,
+     "max": 47,
+     "chiffres": 2,
+     "facteur": 1000.0,
+     "unite": "\\mathrm{k\\Omega}",
+     "entier": false
+    },
+    {
+     "nom": "C",
+     "min": 10,
+     "max": 47,
+     "chiffres": 2,
+     "facteur": 1e-09,
+     "unite": "\\mathrm{nF}",
+     "entier": false
+    },
+    {
+     "nom": "Ve",
+     "min": 0.1,
+     "max": 1.0,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{V}",
+     "entier": false
+    },
+    {
+     "nom": "t",
+     "min": 0.1,
+     "max": 1.0,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{ms}",
+     "entier": false
+    }
+   ],
+   "calcul": "-Ve*t/(R*C)",
+   "symbole": "v_s",
+   "unite": "\\mathrm{V}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.retard",
+   "formule": "physique.pcsi.1.6.f02",
+   "enonce": "Un son ($c = {c}$) parcourt $d = {d}$. Calcule le retard $\\tau$.",
+   "variables": [
+    {
+     "nom": "c",
+     "min": 330,
+     "max": 350,
+     "chiffres": 3,
+     "facteur": 1.0,
+     "unite": "\\mathrm{m\\,s^{-1}}",
+     "entier": false
+    },
+    {
+     "nom": "d",
+     "min": 5,
+     "max": 500,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{m}",
+     "entier": false
+    }
+   ],
+   "calcul": "d/c",
+   "symbole": "\\tau",
+   "unite": "\\mathrm{ms}",
+   "facteur": 0.001,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.vphi",
+   "formule": "physique.pcsi.1.6.f04",
+   "enonce": "Onde de pulsation $\\omega = {w}$ et de nombre d'onde $k = {k}$. Calcule sa vitesse de phase.",
+   "variables": [
+    {
+     "nom": "w",
+     "min": 1,
+     "max": 9,
+     "chiffres": 2,
+     "facteur": 1000.0,
+     "unite": "10^3\\,\\mathrm{rad\\,s^{-1}}",
+     "entier": false
+    },
+    {
+     "nom": "k",
+     "min": 2,
+     "max": 30,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{rad\\,m^{-1}}",
+     "entier": false
+    }
+   ],
+   "calcul": "w/k",
+   "symbole": "v_\\varphi",
+   "unite": "\\mathrm{m\\,s^{-1}}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.dephasage",
+   "formule": "physique.pcsi.1.6.f05",
+   "enonce": "Onde sinusoïdale de longueur d'onde $\\lambda = {l}$. Calcule le déphasage entre deux points distants de $d = {d}$ dans la direction de propagation.",
+   "variables": [
+    {
+     "nom": "l",
+     "min": 10,
+     "max": 100,
+     "chiffres": 2,
+     "facteur": 0.01,
+     "unite": "\\mathrm{cm}",
+     "entier": false
+    },
+    {
+     "nom": "d",
+     "min": 1,
+     "max": 9,
+     "chiffres": 2,
+     "facteur": 0.01,
+     "unite": "\\mathrm{cm}",
+     "entier": false
+    }
+   ],
+   "calcul": "2*pi*d/l",
+   "symbole": "\\Delta\\varphi",
+   "unite": "\\mathrm{rad}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.celerite_corde",
+   "formule": "physique.pcsi.1.6.f13",
+   "enonce": "Corde de masse linéique $\\mu = {mu}$ tendue avec $T = {T}$. Calcule la célérité des ondes.",
+   "variables": [
+    {
+     "nom": "mu",
+     "min": 1,
+     "max": 20,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{g\\,m^{-1}}",
+     "entier": false
+    },
+    {
+     "nom": "T",
+     "min": 10,
+     "max": 200,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{N}",
+     "entier": false
+    }
+   ],
+   "calcul": "sqrt(T/mu)",
+   "symbole": "c",
+   "unite": "\\mathrm{m\\,s^{-1}}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.fresnel_max",
+   "formule": "physique.pcsi.1.6.f07",
+   "enonce": "Interférences de deux ondes d'intensités $I_1 = {I1}$ et $I_2 = {I2}$ (cohérentes). Calcule l'intensité maximale $I_{\\max}$.",
+   "variables": [
+    {
+     "nom": "I1",
+     "min": 1,
+     "max": 10,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{W\\,m^{-2}}",
+     "entier": false
+    },
+    {
+     "nom": "I2",
+     "min": 1,
+     "max": 10,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{W\\,m^{-2}}",
+     "entier": false
+    }
+   ],
+   "calcul": "I1 + I2 + 2*sqrt(I1*I2)",
+   "symbole": "I_{\\max}",
+   "unite": "\\mathrm{W\\,m^{-2}}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.young_delta",
+   "formule": "physique.pcsi.1.6.f09",
+   "enonce": "Trous d'Young dans l'air ($n = 1$) : $a = {a}$, $D = {D}$. Calcule la différence de chemin optique $\\delta$ au point d'abscisse $x = {x}$.",
+   "variables": [
+    {
+     "nom": "a",
+     "min": 0.1,
+     "max": 1.0,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{mm}",
+     "entier": false
+    },
+    {
+     "nom": "D",
+     "min": 0.5,
+     "max": 3.0,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{m}",
+     "entier": false
+    },
+    {
+     "nom": "x",
+     "min": 1,
+     "max": 9,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{mm}",
+     "entier": false
+    }
+   ],
+   "calcul": "a*x/D",
+   "symbole": "\\delta",
+   "unite": "\\mathrm{\\mu m}",
+   "facteur": 1e-06,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.premier_ordre_s",
+   "formule": "sii.reponse_temporelle.f01",
+   "enonce": "$H(p) = \\frac{K}{1 + \\tau p}$ avec $K = {K}$, $\\tau = {tau}$, entrée échelon $E_0 = {E0}$. Calcule $s(t)$ à $t = {t}$.",
+   "variables": [
+    {
+     "nom": "K",
+     "min": 0.5,
+     "max": 5,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    },
+    {
+     "nom": "tau",
+     "min": 0.1,
+     "max": 2.0,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{s}",
+     "entier": false
+    },
+    {
+     "nom": "E0",
+     "min": 1,
+     "max": 10,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    },
+    {
+     "nom": "t",
+     "min": 0.1,
+     "max": 3.0,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{s}",
+     "entier": false
+    }
+   ],
+   "calcul": "K*E0*(1-exp(-t/tau))",
+   "symbole": "s(t)",
+   "unite": "",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.t5_premier",
+   "formule": "sii.reponse_temporelle.f02",
+   "enonce": "Système du premier ordre de constante de temps $\\tau = {tau}$. Calcule son temps de réponse à 5 %.",
+   "variables": [
+    {
+     "nom": "tau",
+     "min": 0.05,
+     "max": 5.0,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{s}",
+     "entier": false
+    }
+   ],
+   "calcul": "3*tau",
+   "symbole": "t_{5\\%}",
+   "unite": "\\mathrm{s}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.pseudo_periode",
+   "formule": "sii.reponse_temporelle.f07",
+   "enonce": "Deuxième ordre : $\\omega_0 = {w0}$, $\\xi = {xi}$. Calcule la pseudo-période $T_p$.",
+   "variables": [
+    {
+     "nom": "w0",
+     "min": 1,
+     "max": 100,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{rad\\,s^{-1}}",
+     "entier": false
+    },
+    {
+     "nom": "xi",
+     "min": 0.1,
+     "max": 0.7,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    }
+   ],
+   "calcul": "2*pi/(w0*sqrt(1-xi^2))",
+   "symbole": "T_p",
+   "unite": "\\mathrm{s}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.gain_db_sii",
+   "formule": "sii.reponse_frequentielle.f01",
+   "enonce": "À une certaine pulsation, $|H(j\\omega)| = {H}$. Calcule le gain en décibels.",
+   "variables": [
+    {
+     "nom": "H",
+     "min": 0.01,
+     "max": 50,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    }
+   ],
+   "calcul": "20*log(H)",
+   "symbole": "G_{\\mathrm{dB}}",
+   "unite": "\\mathrm{dB}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.omega_r_sii",
+   "formule": "sii.reponse_frequentielle.f06",
+   "enonce": "Deuxième ordre : $\\omega_0 = {w0}$, $\\xi = {xi}$. Calcule la pulsation de résonance $\\omega_r$.",
+   "variables": [
+    {
+     "nom": "w0",
+     "min": 1,
+     "max": 100,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{rad\\,s^{-1}}",
+     "entier": false
+    },
+    {
+     "nom": "xi",
+     "min": 0.05,
+     "max": 0.6,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    }
+   ],
+   "calcul": "w0*sqrt(1-2*xi^2)",
+   "symbole": "\\omega_r",
+   "unite": "\\mathrm{rad\\,s^{-1}}",
+   "facteur": 1.0,
+   "tolerance": 0.02
+  },
+  {
+   "cle": "an2.retard_phase",
+   "formule": "sii.reponse_frequentielle.f07",
+   "enonce": "Retard pur $\\tau = {tau}$. Calcule le déphasage (en degrés) qu'il introduit à la pulsation $\\omega = {w}$.",
+   "variables": [
+    {
+     "nom": "tau",
+     "min": 1,
+     "max": 50,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{ms}",
+     "entier": false
+    },
+    {
+     "nom": "w",
+     "min": 1,
+     "max": 50,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{rad\\,s^{-1}}",
+     "entier": false
+    }
+   ],
+   "calcul": "-tau*w*180/pi",
+   "symbole": "\\varphi",
+   "unite": "\\degree",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.engrenage",
+   "formule": "sii.transmetteurs.f01",
+   "enonce": "Engrenage extérieur : pignon $Z_1 = {Z1}$ dents à $N_1 = {N1}$, roue $Z_2 = {Z2}$ dents. Calcule la vitesse de la roue $N_2$ (en valeur absolue).",
+   "variables": [
+    {
+     "nom": "Z1",
+     "min": 12,
+     "max": 30,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": true
+    },
+    {
+     "nom": "N1",
+     "min": 500,
+     "max": 3000,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{tr/min}",
+     "entier": false
+    },
+    {
+     "nom": "Z2",
+     "min": 40,
+     "max": 120,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": true
+    }
+   ],
+   "calcul": "N1*Z1/Z2",
+   "symbole": "N_2",
+   "unite": "\\mathrm{tr/min}",
+   "facteur": 1.0,
+   "tolerance": 0.02
+  },
+  {
+   "cle": "an2.entraxe",
+   "formule": "sii.transmetteurs.f03",
+   "enonce": "Engrenage de module $m = {m}$ avec $Z_1 = {Z1}$ et $Z_2 = {Z2}$ dents. Calcule l'entraxe $a$.",
+   "variables": [
+    {
+     "nom": "m",
+     "min": 1,
+     "max": 4,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{mm}",
+     "entier": false
+    },
+    {
+     "nom": "Z1",
+     "min": 12,
+     "max": 30,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": true
+    },
+    {
+     "nom": "Z2",
+     "min": 30,
+     "max": 90,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": true
+    }
+   ],
+   "calcul": "m*(Z1+Z2)/2",
+   "symbole": "a",
+   "unite": "\\mathrm{mm}",
+   "facteur": 0.001,
+   "tolerance": 0.02
+  },
+  {
+   "cle": "an2.poulies",
+   "formule": "sii.transmetteurs.f06",
+   "enonce": "Poulie motrice de rayon $R_1 = {R1}$ à $\\omega_1 = {w1}$, poulie réceptrice $R_2 = {R2}$. Calcule $\\omega_2$.",
+   "variables": [
+    {
+     "nom": "R1",
+     "min": 2,
+     "max": 10,
+     "chiffres": 2,
+     "facteur": 0.01,
+     "unite": "\\mathrm{cm}",
+     "entier": false
+    },
+    {
+     "nom": "w1",
+     "min": 10,
+     "max": 300,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{rad\\,s^{-1}}",
+     "entier": false
+    },
+    {
+     "nom": "R2",
+     "min": 5,
+     "max": 30,
+     "chiffres": 2,
+     "facteur": 0.01,
+     "unite": "\\mathrm{cm}",
+     "entier": false
+    }
+   ],
+   "calcul": "w1*R1/R2",
+   "symbole": "\\omega_2",
+   "unite": "\\mathrm{rad\\,s^{-1}}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.roue_vis",
+   "formule": "sii.transmetteurs.f08",
+   "enonce": "Vis à $Z_v = {Zv}$ filet(s) tournant à $N_v = {Nv}$, roue à $Z_r = {Zr}$ dents. Calcule la vitesse de la roue.",
+   "variables": [
+    {
+     "nom": "Zv",
+     "min": 1,
+     "max": 3,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": true
+    },
+    {
+     "nom": "Nv",
+     "min": 500,
+     "max": 3000,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{tr/min}",
+     "entier": false
+    },
+    {
+     "nom": "Zr",
+     "min": 20,
+     "max": 80,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": true
+    }
+   ],
+   "calcul": "Nv*Zv/Zr",
+   "symbole": "N_r",
+   "unite": "\\mathrm{tr/min}",
+   "facteur": 1.0,
+   "tolerance": 0.02
+  },
+  {
+   "cle": "an2.bielle",
+   "formule": "sii.loi_entree_sortie.f02",
+   "enonce": "Bielle-manivelle : manivelle $R = {R}$, bielle $L = {L}$, angle $\\theta = {th}$. Calcule la position $x$ du piston.",
+   "variables": [
+    {
+     "nom": "R",
+     "min": 2,
+     "max": 6,
+     "chiffres": 2,
+     "facteur": 0.01,
+     "unite": "\\mathrm{cm}",
+     "entier": false
+    },
+    {
+     "nom": "L",
+     "min": 10,
+     "max": 20,
+     "chiffres": 2,
+     "facteur": 0.01,
+     "unite": "\\mathrm{cm}",
+     "entier": false
+    },
+    {
+     "nom": "th",
+     "min": 0,
+     "max": 180,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\degree",
+     "entier": false
+    }
+   ],
+   "calcul": "R*cos(th*pi/180) + sqrt(L^2 - R^2*sin(th*pi/180)^2)",
+   "symbole": "x",
+   "unite": "\\mathrm{cm}",
+   "facteur": 0.01,
+   "tolerance": 0.02
+  },
+  {
+   "cle": "an2.coulomb",
+   "formule": "sii.actions_mecaniques.f04",
+   "enonce": "Un patin glisse ; effort normal $N = {N}$, coefficient de frottement $f = {f}$. Calcule l'effort tangentiel $T$.",
+   "variables": [
+    {
+     "nom": "N",
+     "min": 10,
+     "max": 1000,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{N}",
+     "entier": false
+    },
+    {
+     "nom": "f",
+     "min": 0.1,
+     "max": 0.8,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    }
+   ],
+   "calcul": "f*N",
+   "symbole": "T",
+   "unite": "\\mathrm{N}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.visqueux",
+   "formule": "sii.actions_mecaniques.f05",
+   "enonce": "Frottement visqueux de coefficient $f_v = {fv}$ ; l'arbre tourne à $\\omega = {w}$. Calcule le couple résistant (valeur absolue).",
+   "variables": [
+    {
+     "nom": "fv",
+     "min": 1,
+     "max": 50,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{mN\\,m\\,s\\,rad^{-1}}",
+     "entier": false
+    },
+    {
+     "nom": "w",
+     "min": 10,
+     "max": 300,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{rad\\,s^{-1}}",
+     "entier": false
+    }
+   ],
+   "calcul": "fv*w",
+   "symbole": "|C|",
+   "unite": "\\mathrm{N\\,m}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an2.int_exp",
+   "formule": "maths.psi.integration_intervalle.f06",
+   "enonce": "Calcule $\\int_0^{+\\infty} e^{-\\alpha t}\\,\\mathrm{d}t$ pour $\\alpha = {a}$.",
+   "variables": [
+    {
+     "nom": "a",
+     "min": 0.2,
+     "max": 5.0,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    }
+   ],
+   "calcul": "1/a",
+   "symbole": "I",
+   "unite": "",
+   "facteur": 1.0,
+   "tolerance": 0.02
+  },
+  {
+   "cle": "an2.gauss",
+   "formule": "maths.psi.integration_intervalle.f17",
+   "enonce": "Calcule $\\int_{-\\infty}^{+\\infty} e^{-a t^2}\\,\\mathrm{d}t$ pour $a = {a}$ (change de variable $u = \\sqrt{a}\\,t$).",
+   "variables": [
+    {
+     "nom": "a",
+     "min": 0.5,
+     "max": 9.0,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    }
+   ],
+   "calcul": "sqrt(pi/a)",
+   "symbole": "I",
+   "unite": "",
+   "facteur": 1.0,
+   "tolerance": 0.02
+  },
+  {
+   "cle": "an2.riemann",
+   "formule": "maths.psi.integration_intervalle.f03",
+   "enonce": "Calcule $\\int_1^{+\\infty} \\frac{\\mathrm{d}t}{t^{\\alpha}}$ pour $\\alpha = {a}$.",
+   "variables": [
+    {
+     "nom": "a",
+     "min": 1.2,
+     "max": 4.0,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    }
+   ],
+   "calcul": "1/(a-1)",
+   "symbole": "I",
+   "unite": "",
+   "facteur": 1.0,
+   "tolerance": 0.02
+  },
+  {
+   "cle": "an2.int_ln",
+   "formule": "maths.psi.integration_intervalle.f07",
+   "enonce": "Calcule $\\int_0^{a} \\ln t\\,\\mathrm{d}t$ pour $a = {a}$ (primitive : $t\\ln t - t$, qui tend vers 0 en 0).",
+   "variables": [
+    {
+     "nom": "a",
+     "min": 0.2,
+     "max": 5.0,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    }
+   ],
+   "calcul": "a*ln(a) - a",
+   "symbole": "I",
+   "unite": "",
+   "facteur": 1.0,
+   "tolerance": 0.02
+  }
+ ]
+}

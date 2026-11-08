@@ -1,0 +1,340 @@
+{
+ "chapitres": [
+  {
+   "titre": "Espaces vectoriels : sous-espaces, Vect, somme directe",
+   "programme": "PCSI",
+   "formules": [
+    {
+     "intitule": "Caractérisation d'un sous-espace vectoriel",
+     "latex": "F \\text{ sev de } E \\iff \\begin{cases} 0_E \\in F \\\\ \\forall x, y \\in F,\\ \\forall \\lambda \\in \\mathbb{K},\\ x + \\lambda y \\in F \\end{cases}",
+     "symboles": "",
+     "hypotheses": "Équivalent : $F$ non vide, stable par somme et par multiplication par un scalaire.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Noyau et image d'une matrice",
+     "latex": "\\begin{gathered}\\ker A = \\left\\{X \\in \\mathbb{K}^p \\mid AX = 0\\right\\} \\\\ \\mathrm{Im}\\,A = \\left\\{AX,\\ X \\in \\mathbb{K}^p\\right\\} = \\mathrm{Vect}(\\text{colonnes de } A)\\end{gathered}",
+     "symboles": "$A \\in \\mathcal{M}_{n,p}(\\mathbb{K})$ ; $\\ker A$ sev de $\\mathbb{K}^p$, $\\mathrm{Im}\\,A$ sev de $\\mathbb{K}^n$",
+     "hypotheses": "Les solutions d'un système homogène de $n$ équations à $p$ inconnues forment le sev $\\ker A$.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Intersection de sous-espaces vectoriels",
+     "latex": "F, G \\text{ sev} \\Rightarrow F \\cap G \\text{ sev} \\qquad \\bigcap_{i \\in I} F_i \\text{ sev de } E",
+     "symboles": "",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "Une réunion de sev n'est en général PAS un sev.",
+     "exemple": ""
+    },
+    {
+     "intitule": "Sous-espace engendré Vect(A)",
+     "latex": "\\mathrm{Vect}(A) = \\left\\{\\sum_{i=1}^{n}\\lambda_i a_i,\\ \\lambda_i \\in \\mathbb{K},\\ a_i \\in A\\right\\}",
+     "symboles": "",
+     "hypotheses": "C'est le plus petit sev de $E$ contenant $A$ (intersection des sev contenant $A$).",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "$\\mathbb{K}u = \\mathrm{Vect}(u)$ ; $\\mathbb{K}u + \\mathbb{K}v = \\mathrm{Vect}(u, v)$."
+    },
+    {
+     "intitule": "Propriétés de Vect",
+     "latex": "\\begin{gathered}F \\text{ sev} \\iff \\mathrm{Vect}(F) = F \\\\ A \\subset B \\Rightarrow \\mathrm{Vect}(A) \\subset \\mathrm{Vect}(B) \\\\ A \\subset F \\text{ sev} \\Rightarrow \\mathrm{Vect}(A) \\subset F\\end{gathered}",
+     "symboles": "",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Somme de sous-espaces",
+     "latex": "\\begin{gathered}F + G = \\mathrm{Vect}(F \\cup G) \\\\ \\mathrm{Vect}(A) + \\mathrm{Vect}(B) = \\mathrm{Vect}(A \\cup B)\\end{gathered}",
+     "symboles": "",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "$F + \\{0\\} = F$ ; $F + F = F$."
+    },
+    {
+     "intitule": "Somme directe, supplémentaires",
+     "latex": "E = F \\oplus G \\iff \\begin{cases} E = F + G \\\\ F \\cap G = \\{0\\} \\end{cases} \\iff \\forall x \\in E,\\ \\exists!\\,(x_F, x_G) \\in F \\times G,\\ x = x_F + x_G",
+     "symboles": "",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    }
+   ]
+  },
+  {
+   "titre": "Applications linéaires : noyau, image, projecteurs, symétries",
+   "programme": "PCSI",
+   "formules": [
+    {
+     "intitule": "Application linéaire",
+     "latex": "\\begin{gathered}f(\\lambda x + \\mu y) = \\lambda f(x) + \\mu f(y) \\\\ f\\!\\left(\\sum_{i=1}^{n}\\lambda_i x_i\\right) = \\sum_{i=1}^{n}\\lambda_i f(x_i)\\end{gathered}",
+     "symboles": "",
+     "hypotheses": "$E$, $F$ : $\\mathbb{K}$-espaces vectoriels ; on dit aussi morphisme.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Vocabulaire des applications linéaires",
+     "latex": "\\begin{gathered}\\mathcal{L}(E, F),\\quad \\mathcal{L}(E) = \\mathcal{L}(E, E) \\\\ \\mathrm{GL}(E) : \\text{automorphismes} \\\\ f \\in \\mathcal{L}(E, F),\\ g \\in \\mathcal{L}(F, G) \\Rightarrow g \\circ f \\in \\mathcal{L}(E, G)\\end{gathered}",
+     "symboles": "Endomorphisme : de $E$ dans $E$ ; isomorphisme : linéaire bijective ; automorphisme : endomorphisme bijectif.",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Noyau et image d'une application linéaire",
+     "latex": "\\begin{gathered}\\ker f = \\{x \\in E \\mid f(x) = 0_F\\} \\\\ \\mathrm{Im}\\,f = f(E) = \\{f(x),\\ x \\in E\\}\\end{gathered}",
+     "symboles": "",
+     "hypotheses": "$\\ker f$ est un sev de $E$, $\\mathrm{Im}\\,f$ un sev de $F$.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Injectivité et surjectivité",
+     "latex": "\\begin{gathered}f \\text{ injective} \\iff \\ker f = \\{0_E\\} \\\\ f \\text{ surjective} \\iff \\mathrm{Im}\\,f = F\\end{gathered}",
+     "symboles": "",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Isomorphisme : réciproque et composée",
+     "latex": "f \\text{ isomorphisme} \\Rightarrow f^{-1} \\text{ linéaire} \\qquad f, g \\text{ isomorphismes} \\Rightarrow g \\circ f \\text{ isomorphisme}",
+     "symboles": "",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Théorème d'isomorphisme",
+     "latex": "\\ker f \\oplus S = E \\;\\Rightarrow\\; f_{|S} : S \\to \\mathrm{Im}\\,f \\text{ est un isomorphisme}",
+     "symboles": "",
+     "hypotheses": "$S$ : n'importe quel supplémentaire de $\\ker f$ dans $E$.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Homothétie",
+     "latex": "h_\\lambda : x \\mapsto \\lambda x",
+     "symboles": "",
+     "hypotheses": "$\\lambda \\neq 0$ : automorphisme, $h_\\lambda^{-1} = h_{1/\\lambda}$. Les homothéties commutent avec tous les endomorphismes.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Projecteur : noyau, image, relations",
+     "latex": "\\begin{gathered}\\ker p_{F\\parallel G} = G = \\mathrm{Im}\\,p_{G\\parallel F} \\\\ \\mathrm{Im}\\,p_{F\\parallel G} = F = \\ker p_{G\\parallel F} \\\\ p_{F\\parallel G} + p_{G\\parallel F} = \\mathrm{id}_E \\\\ p \\circ p = p\\end{gathered}",
+     "symboles": "$p_{F\\parallel G}(x) = x_F$ : projection sur $F$ parallèlement à $G$ ($E = F \\oplus G$)",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "$p_{F\\parallel G} \\circ p_{G\\parallel F} = 0_{\\mathcal{L}(E)}$."
+    },
+    {
+     "intitule": "Caractérisation des projecteurs",
+     "latex": "f \\in \\mathcal{L}(E),\\ f \\circ f = f \\;\\Rightarrow\\; f = p_{\\mathrm{Im}\\,f \\,\\parallel\\, \\ker f}",
+     "symboles": "",
+     "hypotheses": "Alors $E = \\mathrm{Im}\\,f \\oplus \\ker f$.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Symétrie",
+     "latex": "\\begin{gathered}s(x) = x_F - x_G \\\\ s = 2p - \\mathrm{id}_E \\\\ s \\circ s = \\mathrm{id}_E,\\quad s^{-1} = s\\end{gathered}",
+     "symboles": "$s$ : symétrie par rapport à $F$ parallèlement à $G$ ; $p = p_{F\\parallel G}$",
+     "hypotheses": "$s \\in \\mathrm{GL}(E)$. Réciproquement, $f \\circ f = \\mathrm{id}_E \\Rightarrow f$ est une symétrie.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    }
+   ]
+  },
+  {
+   "titre": "Familles, bases et dimension finie",
+   "programme": "PCSI",
+   "formules": [
+    {
+     "intitule": "Famille libre",
+     "latex": "\\sum_{i=1}^{n}\\lambda_i x_i = 0 \\;\\Rightarrow\\; \\forall i,\\ \\lambda_i = 0",
+     "symboles": "",
+     "hypotheses": "Un vecteur : libre $\\iff x \\neq 0$. Deux vecteurs : libres $\\iff$ non colinéaires.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Liberté et rang d'une matrice",
+     "latex": "(X_1, \\dots, X_p) \\text{ libre} \\iff \\mathrm{rg}(A) = p",
+     "symboles": "$A = (X_1 | \\dots | X_p) \\in \\mathcal{M}_{n,p}(\\mathbb{K})$ : matrice des colonnes $X_i$",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Famille génératrice et base",
+     "latex": "\\begin{gathered}\\mathcal{G} \\text{ génératrice} \\iff E = \\mathrm{Vect}(\\mathcal{G}) \\\\ \\mathcal{B} = (e_1, \\dots, e_n) \\text{ base} \\iff \\forall x \\in E,\\ \\exists!\\,(\\lambda_1, \\dots, \\lambda_n),\\ x = \\sum_{i=1}^{n}\\lambda_i e_i\\end{gathered}",
+     "symboles": "",
+     "hypotheses": "Base = famille libre ET génératrice.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Application associée à une famille",
+     "latex": "\\begin{gathered}L_{\\mathcal{F}} : \\mathbb{K}^n \\to E,\\ (\\lambda_1, \\dots, \\lambda_n) \\mapsto \\sum_{i=1}^{n}\\lambda_i x_i \\\\ \\text{injective} \\iff \\mathcal{F} \\text{ libre} \\\\ \\text{surjective} \\iff \\mathcal{F} \\text{ génératrice} \\\\ \\text{isomorphisme} \\iff \\mathcal{F} \\text{ base}\\end{gathered}",
+     "symboles": "$\\mathcal{F} = (x_1, \\dots, x_n) \\in E^n$",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Image d'une base par une application linéaire",
+     "latex": "\\begin{gathered}f \\text{ injective} \\iff f(\\mathcal{B}) \\text{ libre} \\\\ f \\text{ surjective} \\iff f(\\mathcal{B}) \\text{ génératrice de } F \\\\ f \\text{ isomorphisme} \\iff f(\\mathcal{B}) \\text{ base de } F\\end{gathered}",
+     "symboles": "$\\mathcal{B}$ : base de $E$, $f \\in \\mathcal{L}(E, F)$",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Dimension",
+     "latex": "\\dim E = \\text{nombre de vecteurs commun à toutes les bases de } E",
+     "symboles": "",
+     "hypotheses": "$E$ de dimension finie.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "$E = F \\oplus G \\Rightarrow \\dim E = \\dim F + \\dim G$."
+    },
+    {
+     "intitule": "Rang d'une application linéaire",
+     "latex": "\\mathrm{rg}\\,f = \\dim\\,\\mathrm{Im}\\,f",
+     "symboles": "",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Théorème du rang",
+     "latex": "\\mathrm{rg}\\,f + \\dim\\ker f = \\dim E",
+     "symboles": "",
+     "hypotheses": "$f \\in \\mathcal{L}(E, F)$, $E$ de dimension finie.",
+     "unites": "",
+     "erreursFrequentes": "C'est la dimension de l'espace de DÉPART ($E$), pas d'arrivée.",
+     "exemple": ""
+    },
+    {
+     "intitule": "Formule de Grassmann",
+     "latex": "\\dim(F + G) = \\dim F + \\dim G - \\dim(F \\cap G)",
+     "symboles": "",
+     "hypotheses": "$F$, $G$ : sev de dimension finie.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Matrice d'une composée",
+     "latex": "\\mathrm{Mat}_{\\mathcal{B},\\mathcal{B}''}(g \\circ f) = \\mathrm{Mat}_{\\mathcal{B}',\\mathcal{B}''}(g)\\,\\mathrm{Mat}_{\\mathcal{B},\\mathcal{B}'}(f)",
+     "symboles": "$f : E_{\\mathcal{B}} \\to F_{\\mathcal{B}'}$, $g : F_{\\mathcal{B}'} \\to G_{\\mathcal{B}''}$",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Changement de base",
+     "latex": "\\begin{gathered}P_{\\mathcal{B},\\mathcal{C}} = \\mathrm{Mat}_{\\mathcal{C},\\mathcal{B}}(\\mathrm{id}_E) \\\\ P_{\\mathcal{B},\\mathcal{C}}^{-1} = P_{\\mathcal{C},\\mathcal{B}} \\\\ A' = P^{-1} A P\\end{gathered}",
+     "symboles": "$P = P_{\\mathcal{B},\\mathcal{B}'}$ : matrice de passage (colonnes = coordonnées des vecteurs de $\\mathcal{B}'$ dans $\\mathcal{B}$) ; $A = \\mathrm{Mat}_{\\mathcal{B}}(f)$, $A' = \\mathrm{Mat}_{\\mathcal{B}'}(f)$",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    }
+   ]
+  },
+  {
+   "titre": "Intégration sur un segment",
+   "programme": "PCSI",
+   "formules": [
+    {
+     "intitule": "Intégrale d'une fonction en escalier",
+     "latex": "\\int_a^b \\varphi = \\sum_{i=0}^{n-1}\\left(a_{i+1} - a_i\\right)\\varphi\\!\\left(\\frac{a_i + a_{i+1}}{2}\\right)",
+     "symboles": "$(a_0 = a, \\dots, a_n = b)$ : subdivision adaptée à $\\varphi$ ($\\varphi$ constante sur chaque $]a_i, a_{i+1}[$)",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Propriétés de l'intégrale",
+     "latex": "\\begin{gathered}\\int_a^b (\\lambda f + \\mu g) = \\lambda\\int_a^b f + \\mu\\int_a^b g \\\\ \\int_a^b f = \\int_a^c f + \\int_c^b f \\\\ f \\leq g \\Rightarrow \\int_a^b f \\leq \\int_a^b g\\end{gathered}",
+     "symboles": "Linéarité, relation de Chasles, croissance ($a \\leq b$).",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Encadrement d'une intégrale",
+     "latex": "m \\leq f \\leq M \\Rightarrow m(b - a) \\leq \\int_a^b f \\leq M(b - a)",
+     "symboles": "",
+     "hypotheses": "$a \\leq b$.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    }
+   ]
+  },
+  {
+   "titre": "Analyse asymptotique (équivalents, développements limités)",
+   "programme": "PCSI",
+   "formules": [
+    {
+     "intitule": "DL de th en 0",
+     "latex": "\\mathrm{th}\\,x = x - \\frac{x^3}{3} + o(x^3)",
+     "symboles": "",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "Signe MOINS : c'est $\\tan x$ qui vaut $x + \\frac{x^3}{3} + o(x^3)$.",
+     "exemple": ""
+    },
+    {
+     "intitule": "DL de 1/√(1+x) en 0",
+     "latex": "\\frac{1}{\\sqrt{1 + x}} = 1 - \\frac{x}{2} + \\frac{3}{8}x^2 + o(x^2)",
+     "symboles": "",
+     "hypotheses": "Cas $\\alpha = -\\frac{1}{2}$ de $(1 + x)^\\alpha$ : $\\frac{\\alpha(\\alpha - 1)}{2} = \\frac{3}{8}$.",
+     "unites": "",
+     "erreursFrequentes": "Ne pas confondre avec $\\sqrt{1 + x} = 1 + \\frac{x}{2} - \\frac{x^2}{8} + o(x^2)$.",
+     "exemple": ""
+    },
+    {
+     "intitule": "Primitivation d'un développement limité",
+     "latex": "f(x) = \\sum_{k=0}^{n} a_k x^k + o(x^n) \\;\\Rightarrow\\; F(x) = F(0) + \\sum_{k=0}^{n} \\frac{a_k}{k + 1}\\,x^{k+1} + o(x^{n+1})",
+     "symboles": "",
+     "hypotheses": "$f$ continue au voisinage de 0, $F$ une primitive de $f$.",
+     "unites": "",
+     "erreursFrequentes": "On NE dérive PAS un DL sans justification ; on peut toujours le primitiver.",
+     "exemple": "Démonstration : $\\varphi = F - F(0) - \\sum \\frac{a_k}{k+1}x^{k+1}$ vérifie $\\varphi'(x) = x^n\\varepsilon(x)$, puis TAF : $\\varphi(x) = x\\,c_x^n\\,\\varepsilon(c_x) = o(x^{n+1})$ avec $0 < c_x < x$."
+    }
+   ]
+  }
+ ]
+}

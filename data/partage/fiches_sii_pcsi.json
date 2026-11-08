@@ -1,0 +1,199 @@
+{
+ "chapitres": [
+  {
+   "titre": "Réponses temporelles des systèmes du 1er et du 2e ordre",
+   "programme": "PCSI",
+   "formules": [
+    {
+     "intitule": "Premier ordre : pente à l'origine et valeur finale",
+     "latex": "\\begin{gathered}\\tan\\alpha = \\frac{k\\,e_0}{\\tau} \\\\ s_\\infty = k\\,e_0 \\\\ s(\\tau) = 0{,}63\\,k\\,e_0\\end{gathered}",
+     "symboles": "$e_0$ : amplitude de l'échelon ; $\\alpha$ : angle de la tangente à l'origine (non horizontale)",
+     "hypotheses": "Réponse indicielle $s(t) = k e_0\\left(1 - e^{-t/\\tau}\\right)$, conditions initiales nulles.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "Erreur statique : $\\varepsilon_s = \\lim_{t\\to\\infty}(e - s) = e_0(1 - k)$."
+    },
+    {
+     "intitule": "Premier ordre : réponse à une rampe",
+     "latex": "\\begin{gathered}e(t) = a\\,t \\\\ s(t) = a\\,k\\left(t - \\tau + \\tau\\,e^{-t/\\tau}\\right)\\end{gathered}",
+     "symboles": "",
+     "hypotheses": "Conditions initiales nulles. Tangente à l'origine horizontale ; asymptote de pente $ak$.",
+     "unites": "",
+     "erreursFrequentes": "Si $k = 1$ : erreur de traînage $\\varepsilon_t = a\\tau$ (sortie parallèle à l'entrée, retardée de $\\tau$) ; $k > 1$ : $\\varepsilon_t \\to -\\infty$ ; $k < 1$ : $\\varepsilon_t \\to +\\infty$.",
+     "exemple": ""
+    },
+    {
+     "intitule": "Deuxième ordre : équation différentielle",
+     "latex": "\\frac{1}{\\omega_0^2}\\,\\frac{\\dd^2 s}{\\dd t^2} + \\frac{2m}{\\omega_0}\\,\\frac{\\dd s}{\\dd t} + s(t) = k\\,e(t)",
+     "symboles": "Notation du cours : $m$ (ou $\\xi$) coefficient d'amortissement, $\\omega_0$ pulsation propre non amortie, $k$ gain statique.",
+     "hypotheses": "Laplace : $H(p) = \\dfrac{k\\,\\omega_0^2}{p^2 + 2m\\omega_0 p + \\omega_0^2}$.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Deuxième ordre apériodique (m > 1) : réponse indicielle",
+     "latex": "s(t) = k\\,e_0\\left(1 - \\frac{\\tau_1\\,e^{-t/\\tau_1} - \\tau_2\\,e^{-t/\\tau_2}}{\\tau_1 - \\tau_2}\\right)",
+     "symboles": "$\\tau_1, \\tau_2$ : constantes de temps ($H = \\frac{k}{(1 + \\tau_1 p)(1 + \\tau_2 p)}$)",
+     "hypotheses": "Pôles réels $p_{1,2} = -\\frac{1}{\\tau_{1,2}}$. Si un pôle est dominant ($\\tau_1 \\gg \\tau_2$) : assimilable à un premier ordre de constante $\\tau_1$.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Deuxième ordre critique (m = 1) : réponse indicielle",
+     "latex": "\\begin{gathered}H(p) = \\frac{k\\,\\omega_0^2}{(p + \\omega_0)^2} \\\\ s(t) = k\\,e_0\\left(1 - (1 + \\omega_0 t)\\,e^{-\\omega_0 t}\\right)\\end{gathered}",
+     "symboles": "",
+     "hypotheses": "Pôle double $p = -\\omega_0$ : réponse la plus rapide sans dépassement.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Pseudo-pulsation (m < 1)",
+     "latex": "\\omega_p = \\omega_0\\sqrt{1 - m^2}",
+     "symboles": "",
+     "hypotheses": "Régime pseudo-périodique : pôles complexes $p = -m\\omega_0 \\pm j\\,\\omega_0\\sqrt{1 - m^2}$.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Instants et valeurs des dépassements",
+     "latex": "\\begin{gathered}t_i = \\frac{i\\,\\pi}{\\omega_0\\sqrt{1 - m^2}} \\\\ D_{i\\%} = (-1)^{i-1}\\,\\exp\\!\\left(\\frac{-i\\,\\pi m}{\\sqrt{1 - m^2}}\\right)\\end{gathered}",
+     "symboles": "$i$ : numéro du dépassement ; $D_i = s(t_i) - s_\\infty$ ; $D_{i\\%} = D_i / (k\\,e_0)$",
+     "hypotheses": "$m < 1$.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Coefficient d'amortissement à partir du 1er dépassement",
+     "latex": "m = \\sqrt{\\frac{\\left(\\ln D_{1\\%}\\right)^2}{\\left(\\ln D_{1\\%}\\right)^2 + \\pi^2}}",
+     "symboles": "",
+     "hypotheses": "$D_{1\\%}$ en valeur relative (ex. 0,2 pour 20 %), lu sur la réponse indicielle.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    }
+   ]
+  },
+  {
+   "titre": "Réponse fréquentielle et diagrammes de Bode",
+   "programme": "PCSI",
+   "formules": [
+    {
+     "intitule": "Régime sinusoïdal établi : sortie",
+     "latex": "\\begin{gathered}e(t) = e_0\\sin\\omega t \\\\ s(t) = \\left|H(j\\omega)\\right| e_0\\,\\sin\\!\\big(\\omega t + \\arg H(j\\omega)\\big)\\end{gathered}",
+     "symboles": "",
+     "hypotheses": "Système linéaire stable : le régime transitoire disparaît, seul reste le régime permanent.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Premier ordre : module et argument",
+     "latex": "\\begin{gathered}\\left|H(j\\omega)\\right| = \\frac{k}{\\sqrt{1 + \\left(\\frac{\\omega}{\\omega_c}\\right)^2}} \\\\ \\arg H(j\\omega) = -\\arctan\\frac{\\omega}{\\omega_c}\\end{gathered}",
+     "symboles": "$\\omega_c = \\frac{1}{\\tau}$ : pulsation de coupure",
+     "hypotheses": "En $\\omega_c$ : $-3$ dB (module divisé par $\\sqrt{2}$), phase $-45°$.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "Gain en dB : $20\\log k - 10\\log\\left(1 + (\\omega/\\omega_c)^2\\right)$."
+    },
+    {
+     "intitule": "Deuxième ordre (m > 1) : Bode",
+     "latex": "\\begin{gathered}H(j\\omega) = \\frac{k}{(1 + \\tau_1 j\\omega)(1 + \\tau_2 j\\omega)} \\\\ \\text{pentes : } 0,\\ -20,\\ -40\\ \\mathrm{dB/déc} \\\\ \\text{phase : } 0,\\ -\\tfrac{\\pi}{2},\\ -\\pi\\end{gathered}",
+     "symboles": "",
+     "hypotheses": "Deux premiers ordres en cascade : on additionne les diagrammes (cassures en $1/\\tau_1$ et $1/\\tau_2$).",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Deuxième ordre (m < 1) : module et argument",
+     "latex": "\\begin{gathered}\\left|H(j\\omega)\\right| = \\frac{k}{\\sqrt{\\left(1 - \\omega_r^2\\right)^2 + \\left(2m\\,\\omega_r\\right)^2}} \\\\ \\arg H = -\\arg\\left(1 - \\omega_r^2 + 2jm\\,\\omega_r\\right)\\end{gathered}",
+     "symboles": "$\\omega_r = \\frac{\\omega}{\\omega_0}$ : pulsation réduite",
+     "hypotheses": "Asymptotes : $20\\log k$ puis $-40$ dB/déc (cassure en $\\omega_0$) ; phase de $0$ à $-180°$.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Facteur de surtension en dB",
+     "latex": "Q_{\\mathrm{dB}} = \\left|H(j\\omega_{\\text{res}})\\right|_{\\mathrm{dB}} - \\left|H(0)\\right|_{\\mathrm{dB}} = -20\\log\\!\\left(2m\\sqrt{1 - m^2}\\right)",
+     "symboles": "",
+     "hypotheses": "Résonance seulement si $m < \\frac{\\sqrt{2}}{2}$ ; $Q = \\dfrac{1}{2m\\sqrt{1 - m^2}}$.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    }
+   ]
+  },
+  {
+   "titre": "Performances des systèmes asservis : stabilité, rapidité, précision",
+   "programme": "PCSI",
+   "formules": [
+    {
+     "intitule": "Condition d'auto-oscillation (point critique)",
+     "latex": "\\begin{gathered}\\text{FTBO}(j\\omega) = -1 \\\\ \\left|\\text{FTBO}(j\\omega)\\right| = 1 \\text{ et } \\arg\\text{FTBO}(j\\omega) = -\\pi\\end{gathered}",
+     "symboles": "",
+     "hypotheses": "Boucle à retour unitaire négatif : sortie oscillante sans entrée. Plus la FTBO passe loin de ce point, plus le système est stable.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "Valeurs usuelles des marges : $M_\\varphi = 45°$, $M_G = 12$ dB."
+    }
+   ]
+  },
+  {
+   "titre": "Cinématique du solide et des ensembles de solides",
+   "programme": "PCSI",
+   "formules": [
+    {
+     "intitule": "Équiprojectivité du champ des vitesses",
+     "latex": "\\overrightarrow{AB}\\cdot\\vec{V}(A \\in S/R) = \\overrightarrow{AB}\\cdot\\vec{V}(B \\in S/R)",
+     "symboles": "",
+     "hypotheses": "$A$ et $B$ : deux points du solide indéformable $S$ (car $AB$ = cste).",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Pas du torseur cinématique",
+     "latex": "\\lambda = \\frac{\\vec{\\Omega}(S/R)\\cdot\\vec{V}(A \\in S/R)}{\\vec{\\Omega}^2(S/R)}",
+     "symboles": "",
+     "hypotheses": "Indépendant du point $A$ (invariant scalaire). Sur l'axe central : $\\vec{V}(I \\in S/R) = \\lambda\\,\\vec{\\Omega}(S/R)$.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Composition des vecteurs rotation",
+     "latex": "\\vec{\\Omega}(R_n/R_0) = \\sum_{i=1}^{n}\\vec{\\Omega}(R_i/R_{i-1})",
+     "symboles": "",
+     "hypotheses": "Chaîne de repères $R_0, R_1, \\dots, R_n$ ; idem pour les vitesses.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Composition des accélérations",
+     "latex": "\\vec{\\Gamma}(M \\in S_2/R_0) = \\vec{\\Gamma}(M \\in S_2/S_1) + \\vec{\\Gamma}(M \\in S_1/R_0) + 2\\,\\vec{\\Omega}(S_1/R_0)\\wedge\\vec{V}(M \\in S_2/S_1)",
+     "symboles": "",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "Ne pas oublier le terme complémentaire (de Coriolis) $2\\,\\vec{\\Omega}\\wedge\\vec{V}$.",
+     "exemple": ""
+    },
+    {
+     "intitule": "Mouvement circulaire : vitesse et accélération",
+     "latex": "\\begin{gathered}\\vec{V}(M/R_0) = r\\dot{\\theta}\\,\\vec{t} \\\\ \\vec{\\Gamma}(M/R_0) = r\\ddot{\\theta}\\,\\vec{t} - r\\dot{\\theta}^2\\,\\vec{n}\\end{gathered}",
+     "symboles": "$\\vec{t}$ : vecteur tangent, $\\vec{n}$ : vecteur normal sortant ($r\\ddot{\\theta}$ : accélération tangentielle, $r\\dot{\\theta}^2$ : normale)",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    }
+   ]
+  }
+ ]
+}

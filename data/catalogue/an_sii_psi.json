@@ -1,0 +1,224 @@
+{
+ "version": 1,
+ "modeles": [
+  {
+   "cle": "an6.j_cylindre",
+   "formule": "sii.geometrie_masses.f05",
+   "enonce": "Cylindre plein de masse $m = {m}$ et de rayon $R = {R}$. Calcule son moment d'inertie autour de son axe.",
+   "variables": [
+    {
+     "nom": "m",
+     "min": 0.5,
+     "max": 20,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{kg}",
+     "entier": false
+    },
+    {
+     "nom": "R",
+     "min": 2,
+     "max": 30,
+     "chiffres": 2,
+     "facteur": 0.01,
+     "unite": "\\mathrm{cm}",
+     "entier": false
+    }
+   ],
+   "calcul": "m*R^2/2",
+   "symbole": "J",
+   "unite": "\\mathrm{kg\\,m^2}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an6.huygens",
+   "formule": "sii.geometrie_masses.f04",
+   "enonce": "Tige de masse $m = {m}$ et de longueur $L = {L}$, en rotation autour d'une extrémité. Calcule $J$ ($J_G = mL^2/12$).",
+   "variables": [
+    {
+     "nom": "m",
+     "min": 0.1,
+     "max": 5,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{kg}",
+     "entier": false
+    },
+    {
+     "nom": "L",
+     "min": 10,
+     "max": 100,
+     "chiffres": 2,
+     "facteur": 0.01,
+     "unite": "\\mathrm{cm}",
+     "entier": false
+    }
+   ],
+   "calcul": "m*L^2/12+m*(L/2)^2",
+   "symbole": "J",
+   "unite": "\\mathrm{kg\\,m^2}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an6.jeq",
+   "formule": "sii.energetique.f06",
+   "enonce": "Moteur $J_m = {Jm}$ entraînant via un réducteur de rapport $\\omega_s/\\omega_m = 1/{k}$ une charge $J_c = {Jc}$. Calcule $J_{eq}$ sur l'arbre moteur.",
+   "variables": [
+    {
+     "nom": "Jm",
+     "min": 1,
+     "max": 9,
+     "chiffres": 2,
+     "facteur": 0.0001,
+     "unite": "10^{-4}\\,\\mathrm{kg\\,m^2}",
+     "entier": false
+    },
+    {
+     "nom": "k",
+     "min": 5,
+     "max": 50,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    },
+    {
+     "nom": "Jc",
+     "min": 0.01,
+     "max": 1,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{kg\\,m^2}",
+     "entier": false
+    }
+   ],
+   "calcul": "Jm+Jc/k^2",
+   "symbole": "J_{eq}",
+   "unite": "10^{-4}\\,\\mathrm{kg\\,m^2}",
+   "facteur": 0.0001,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an6.rendement",
+   "formule": "sii.energetique.f08",
+   "enonce": "Chaîne de 3 transmissions en série de rendements $\\eta_1 = {a}$, $\\eta_2 = {b}$, $\\eta_3 = {c}$. Puissance d'entrée $P_e = {P}$. Calcule la puissance de sortie.",
+   "variables": [
+    {
+     "nom": "a",
+     "min": 0.85,
+     "max": 0.99,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    },
+    {
+     "nom": "b",
+     "min": 0.85,
+     "max": 0.99,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    },
+    {
+     "nom": "c",
+     "min": 0.85,
+     "max": 0.99,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    },
+    {
+     "nom": "P",
+     "min": 100,
+     "max": 2000,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{W}",
+     "entier": false
+    }
+   ],
+   "calcul": "a*b*c*P",
+   "symbole": "P_s",
+   "unite": "\\mathrm{W}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an6.avance",
+   "formule": "sii.correction.f04",
+   "enonce": "Correcteur à avance de phase de paramètre $a = {a}$. Calcule l'avance de phase maximale (en degrés).",
+   "variables": [
+    {
+     "nom": "a",
+     "min": 2,
+     "max": 20,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    }
+   ],
+   "calcul": "asin((a-1)/(a+1))*180/pi",
+   "symbole": "\\varphi_m",
+   "unite": "\\degree",
+   "facteur": 1.0,
+   "tolerance": 0.02
+  },
+  {
+   "cle": "an6.marge_gain",
+   "formule": "sii.correction.f07",
+   "enonce": "À la pulsation où la phase de la FTBO vaut $-180°$, son module vaut $|FTBO| = {H}$. Calcule la marge de gain.",
+   "variables": [
+    {
+     "nom": "H",
+     "min": 0.05,
+     "max": 0.9,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    }
+   ],
+   "calcul": "-20*log(H)",
+   "symbole": "M_G",
+   "unite": "\\mathrm{dB}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an6.verin",
+   "formule": "sii.multiphysique.f04",
+   "enonce": "Vérin de diamètre $D = {D}$ alimenté sous $P = {P}$. Calcule l'effort développé.",
+   "variables": [
+    {
+     "nom": "D",
+     "min": 20,
+     "max": 100,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{mm}",
+     "entier": false
+    },
+    {
+     "nom": "P",
+     "min": 20,
+     "max": 200,
+     "chiffres": 2,
+     "facteur": 100000.0,
+     "unite": "\\mathrm{bar}",
+     "entier": false
+    }
+   ],
+   "calcul": "P*pi*D^2/4",
+   "symbole": "F",
+   "unite": "\\mathrm{kN}",
+   "facteur": 1000.0,
+   "tolerance": 0.03
+  }
+ ]
+}

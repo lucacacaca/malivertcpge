@@ -1,0 +1,386 @@
+{
+ "version": 1,
+ "modeles": [
+  {
+   "cle": "an5.t12_ordre1",
+   "formule": "chimie.pcsi.cinetique.f04",
+   "enonce": "Réaction d'ordre 1 de constante $k = {k}$. Calcule le temps de demi-réaction.",
+   "variables": [
+    {
+     "nom": "k",
+     "min": 1,
+     "max": 9,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "10^{-3}\\,\\mathrm{s^{-1}}",
+     "entier": false
+    }
+   ],
+   "calcul": "ln(2)/k",
+   "symbole": "t_{1/2}",
+   "unite": "\\mathrm{s}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an5.c_ordre1",
+   "formule": "chimie.pcsi.cinetique.f04",
+   "enonce": "Ordre 1, $k = {k}$, $[A]_0 = {c0}$. Calcule $[A]$ à $t = {t}$.",
+   "variables": [
+    {
+     "nom": "k",
+     "min": 1,
+     "max": 9,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "10^{-3}\\,\\mathrm{s^{-1}}",
+     "entier": false
+    },
+    {
+     "nom": "c0",
+     "min": 0.01,
+     "max": 0.5,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{mol\\,L^{-1}}",
+     "entier": false
+    },
+    {
+     "nom": "t",
+     "min": 60,
+     "max": 600,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{s}",
+     "entier": false
+    }
+   ],
+   "calcul": "c0*exp(-k*t)",
+   "symbole": "[A]",
+   "unite": "\\mathrm{mol\\,L^{-1}}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an5.arrhenius",
+   "formule": "chimie.pcsi.cinetique.f06",
+   "enonce": "$E_a = {Ea}$. Par quel facteur $k$ est-il multiplié entre $T_1 = 298$ K et $T_2 = {T2}$ ? ($R = 8{,}314$)",
+   "variables": [
+    {
+     "nom": "Ea",
+     "min": 30,
+     "max": 120,
+     "chiffres": 2,
+     "facteur": 1000.0,
+     "unite": "\\mathrm{kJ\\,mol^{-1}}",
+     "entier": false
+    },
+    {
+     "nom": "T2",
+     "min": 308,
+     "max": 350,
+     "chiffres": 3,
+     "facteur": 1.0,
+     "unite": "\\mathrm{K}",
+     "entier": false
+    }
+   ],
+   "calcul": "exp(Ea/8.314*(1/298-1/T2))",
+   "symbole": "\\frac{k_2}{k_1}",
+   "unite": "",
+   "facteur": 1.0,
+   "tolerance": 0.04
+  },
+  {
+   "cle": "an5.rho_cfc",
+   "formule": "chimie.pcsi.cristaux.f05",
+   "enonce": "Métal CFC de masse molaire $M = {M}$ et de paramètre $a = {a}$. Calcule sa masse volumique ($\\mathcal{N}_A = 6{,}02\\times10^{23}$).",
+   "variables": [
+    {
+     "nom": "M",
+     "min": 25,
+     "max": 200,
+     "chiffres": 3,
+     "facteur": 0.001,
+     "unite": "\\mathrm{g\\,mol^{-1}}",
+     "entier": false
+    },
+    {
+     "nom": "a",
+     "min": 350,
+     "max": 450,
+     "chiffres": 3,
+     "facteur": 1e-12,
+     "unite": "\\mathrm{pm}",
+     "entier": false
+    }
+   ],
+   "calcul": "4*M/(6.02e23*a^3)",
+   "symbole": "\\rho",
+   "unite": "\\mathrm{kg\\,m^{-3}}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an5.rayon_cfc",
+   "formule": "chimie.pcsi.cristaux.f03",
+   "enonce": "Métal CFC de paramètre $a = {a}$. Calcule le rayon atomique.",
+   "variables": [
+    {
+     "nom": "a",
+     "min": 350,
+     "max": 450,
+     "chiffres": 3,
+     "facteur": 1e-12,
+     "unite": "\\mathrm{pm}",
+     "entier": false
+    }
+   ],
+   "calcul": "a*sqrt(2)/4",
+   "symbole": "r",
+   "unite": "\\mathrm{pm}",
+   "facteur": 1e-12,
+   "tolerance": 0.02
+  },
+  {
+   "cle": "an5.ph_faible",
+   "formule": "chimie.pcsi.acide_base.f06",
+   "enonce": "Acide faible de $pK_a = {pKa}$ à $c = {c}$. Calcule le pH.",
+   "variables": [
+    {
+     "nom": "pKa",
+     "min": 3.5,
+     "max": 6,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    },
+    {
+     "nom": "c",
+     "min": 0.01,
+     "max": 0.2,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{mol\\,L^{-1}}",
+     "entier": false
+    }
+   ],
+   "calcul": "0.5*(pKa-log(c))",
+   "symbole": "pH",
+   "unite": "",
+   "facteur": 1.0,
+   "tolerance": 0.02
+  },
+  {
+   "cle": "an5.tampon",
+   "formule": "chimie.pcsi.acide_base.f03",
+   "enonce": "Mélange de $n_A = {nA}$ d'acide et $n_B = {nB}$ de sa base conjuguée ($pK_a = {pKa}$). Calcule le pH.",
+   "variables": [
+    {
+     "nom": "nA",
+     "min": 1,
+     "max": 10,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{mmol}",
+     "entier": false
+    },
+    {
+     "nom": "nB",
+     "min": 1,
+     "max": 10,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{mmol}",
+     "entier": false
+    },
+    {
+     "nom": "pKa",
+     "min": 3,
+     "max": 10,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    }
+   ],
+   "calcul": "pKa+log(nB/nA)",
+   "symbole": "pH",
+   "unite": "",
+   "facteur": 1.0,
+   "tolerance": 0.02
+  },
+  {
+   "cle": "an5.titrage",
+   "formule": "chimie.pcsi.acide_base.f08",
+   "enonce": "On titre $V_A = {VA}$ d'acide par de la soude à $c_B = {cB}$ ; l'équivalence est à $V_E = {VE}$. Calcule $c_A$.",
+   "variables": [
+    {
+     "nom": "VA",
+     "min": 10,
+     "max": 25,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{mL}",
+     "entier": false
+    },
+    {
+     "nom": "cB",
+     "min": 0.05,
+     "max": 0.2,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{mol\\,L^{-1}}",
+     "entier": false
+    },
+    {
+     "nom": "VE",
+     "min": 8,
+     "max": 20,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{mL}",
+     "entier": false
+    }
+   ],
+   "calcul": "cB*VE/VA",
+   "symbole": "c_A",
+   "unite": "\\mathrm{mol\\,L^{-1}}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an5.solubilite",
+   "formule": "chimie.pcsi.precipitation.f02",
+   "enonce": "Sel $AB$ de $pK_s = {pKs}$. Calcule sa solubilité dans l'eau pure.",
+   "variables": [
+    {
+     "nom": "pKs",
+     "min": 6,
+     "max": 12,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": false
+    }
+   ],
+   "calcul": "10^(-pKs/2)",
+   "symbole": "s",
+   "unite": "\\mathrm{\\mu mol\\,L^{-1}}",
+   "facteur": 1e-06,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an5.k_redox",
+   "formule": "chimie.pcsi.redox.f03",
+   "enonce": "Réaction échangeant $n = {n}$ électron(s), avec $E^\\circ_1 - E^\\circ_2 = {dE}$. Calcule $\\log K^\\circ$ (25 °C).",
+   "variables": [
+    {
+     "nom": "n",
+     "min": 1,
+     "max": 3,
+     "chiffres": 1,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": true
+    },
+    {
+     "nom": "dE",
+     "min": 0.1,
+     "max": 1.2,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{V}",
+     "entier": false
+    }
+   ],
+   "calcul": "n*dE/0.06",
+   "symbole": "\\log K^\\circ",
+   "unite": "",
+   "facteur": 1.0,
+   "tolerance": 0.02
+  },
+  {
+   "cle": "an5.k_dg",
+   "formule": "chimie.psi.second_principe.f04",
+   "enonce": "$\\Delta_r G^\\circ = {dG}$ à $T = 298$ K. Calcule $K^\\circ$ ($R = 8{,}314$).",
+   "variables": [
+    {
+     "nom": "dG",
+     "min": -20,
+     "max": -2,
+     "chiffres": 2,
+     "facteur": 1000.0,
+     "unite": "\\mathrm{kJ\\,mol^{-1}}",
+     "entier": false
+    }
+   ],
+   "calcul": "exp(-dG/(8.314*298))",
+   "symbole": "K^\\circ",
+   "unite": "",
+   "facteur": 1.0,
+   "tolerance": 0.05
+  },
+  {
+   "cle": "an5.t_inversion",
+   "formule": "chimie.psi.second_principe.f01",
+   "enonce": "$\\Delta_r H^\\circ = {dH}$ et $\\Delta_r S^\\circ = {dS}$. Calcule la température d'inversion ($\\Delta_r G^\\circ = 0$).",
+   "variables": [
+    {
+     "nom": "dH",
+     "min": 50,
+     "max": 200,
+     "chiffres": 2,
+     "facteur": 1000.0,
+     "unite": "\\mathrm{kJ\\,mol^{-1}}",
+     "entier": false
+    },
+    {
+     "nom": "dS",
+     "min": 50,
+     "max": 200,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{J\\,K^{-1}\\,mol^{-1}}",
+     "entier": false
+    }
+   ],
+   "calcul": "dH/dS",
+   "symbole": "T_i",
+   "unite": "\\mathrm{K}",
+   "facteur": 1.0,
+   "tolerance": 0.02
+  },
+  {
+   "cle": "an5.faraday_el",
+   "formule": "chimie.psi.piles.f04",
+   "enonce": "Électrolyse : dépôt de cuivre ($M = 63{,}5$ g/mol, $n = 2$) sous $I = {I}$ pendant $t = {t}$. Calcule la masse déposée ($F = 96\\,500$ C/mol).",
+   "variables": [
+    {
+     "nom": "I",
+     "min": 0.1,
+     "max": 5,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{A}",
+     "entier": false
+    },
+    {
+     "nom": "t",
+     "min": 10,
+     "max": 120,
+     "chiffres": 2,
+     "facteur": 60,
+     "unite": "\\mathrm{min}",
+     "entier": false
+    }
+   ],
+   "calcul": "I*t*0.0635/(2*96500)",
+   "symbole": "m",
+   "unite": "\\mathrm{g}",
+   "facteur": 0.001,
+   "tolerance": 0.03
+  }
+ ]
+}

@@ -1,0 +1,346 @@
+{
+ "chapitres": [
+  {
+   "titre": "Incertitudes en TP",
+   "programme": "LES_DEUX",
+   "formules": [
+    {
+     "intitule": "Incertitude-type de type B (une seule mesure)",
+     "latex": "u(x) = \\frac{\\Delta}{\\sqrt{3}}",
+     "symboles": "$\\Delta$ : demi-largeur de l'intervalle sûr (précision de l'appareil, demi-graduation…)\n$u(x)$ : incertitude-type",
+     "hypotheses": "Une seule mesure ; valeur supposée uniformément répartie dans $[x - \\Delta,\\ x + \\Delta]$.",
+     "unites": "",
+     "erreursFrequentes": "Ne pas prendre $\\Delta$ directement comme incertitude-type : il faut diviser par $\\sqrt{3}$.",
+     "exemple": ""
+    },
+    {
+     "intitule": "Incertitude-type de type A (plusieurs mesures)",
+     "latex": "u(\\bar{x}) = \\frac{s(x)}{\\sqrt{N}}",
+     "symboles": "$N$ : nombre de mesures indépendantes\n$s(x)$ : écart-type expérimental des $N$ mesures\n$\\bar{x}$ : moyenne des mesures",
+     "hypotheses": "Mesures répétées dans les mêmes conditions (évaluation statistique).",
+     "unites": "",
+     "erreursFrequentes": "C'est l'incertitude sur la MOYENNE : on divise l'écart-type par $\\sqrt{N}$.",
+     "exemple": ""
+    },
+    {
+     "intitule": "Écart-type expérimental",
+     "latex": "s(x) = \\sqrt{\\frac{1}{N - 1}\\sum_{i=1}^{N} \\left(x_i - \\bar{x}\\right)^2}",
+     "symboles": "$\\bar{x} = \\frac{1}{N}\\sum x_i$ : moyenne",
+     "hypotheses": "Calculé par la calculatrice ou Python (numpy.std(x, ddof=1)).",
+     "unites": "",
+     "erreursFrequentes": "Diviser par $N - 1$ (et non $N$) pour l'écart-type expérimental.",
+     "exemple": ""
+    },
+    {
+     "intitule": "Écriture d'un résultat de mesure",
+     "latex": "X = \\left(x \\pm u(x)\\right)\\ \\text{unité}",
+     "symboles": "$u(x)$ écrite avec 1 ou 2 chiffres significatifs ; $x$ arrondi au même rang décimal que $u(x)$.",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "$g = (9{,}81 \\pm 0{,}03)\\ \\mathrm{m\\,s^{-2}}$"
+    },
+    {
+     "intitule": "Propagation : somme ou différence",
+     "latex": "y = x_1 \\pm x_2 \\;\\Rightarrow\\; u(y) = \\sqrt{u^2(x_1) + u^2(x_2)}",
+     "symboles": "",
+     "hypotheses": "Grandeurs $x_1, x_2$ indépendantes. Se généralise : $u(y) = \\sqrt{\\sum u^2(x_i)}$.",
+     "unites": "",
+     "erreursFrequentes": "On additionne les CARRÉS des incertitudes (pas les incertitudes), même pour une différence.",
+     "exemple": ""
+    },
+    {
+     "intitule": "Propagation : produit ou quotient",
+     "latex": "y = x_1 x_2 \\text{ ou } \\frac{x_1}{x_2} \\;\\Rightarrow\\; \\frac{u(y)}{|y|} = \\sqrt{\\left(\\frac{u(x_1)}{x_1}\\right)^2 + \\left(\\frac{u(x_2)}{x_2}\\right)^2}",
+     "symboles": "",
+     "hypotheses": "Grandeurs indépendantes : on compose les incertitudes RELATIVES.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "Pour $y = x^n$ : $\\frac{u(y)}{|y|} = |n|\\,\\frac{u(x)}{|x|}$."
+    },
+    {
+     "intitule": "Cas général : simulation Monte-Carlo",
+     "latex": "y = f(x_1, x_2, \\dots) \\;\\to\\; u(y) = \\text{écart-type des valeurs simulées}",
+     "symboles": "On tire au hasard de nombreuses valeurs de chaque $x_i$ (selon leur incertitude), on calcule $y$ à chaque fois, puis l'écart-type des $y$ obtenus.",
+     "hypotheses": "Utile quand $f$ n'est ni une somme ni un produit (Python : numpy.random).",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Écart normalisé (z-score)",
+     "latex": "z = \\frac{\\left|x - x_{\\text{ref}}\\right|}{\\sqrt{u^2(x) + u^2(x_{\\text{ref}})}}",
+     "symboles": "$x_{\\text{ref}}$ : valeur de référence (tabulée ou autre mesure)",
+     "hypotheses": "$z \\leq 2$ : résultats compatibles ; $z > 2$ : non compatibles (chercher une erreur systématique).",
+     "unites": "",
+     "erreursFrequentes": "Si la référence est exacte (tabulée), $u(x_{\\text{ref}}) = 0$.",
+     "exemple": ""
+    }
+   ]
+  },
+  {
+   "titre": "Mouvements dans un champ de force centrale conservatif",
+   "programme": "PCSI",
+   "formules": [
+    {
+     "intitule": "Constante des aires et moment cinétique",
+     "latex": "\\begin{gathered}C = r^2\\,\\dot{\\theta} \\\\ \\vec{L}_O = m\\,C\\,\\vec{u}_z\\end{gathered}",
+     "symboles": "$C$ : constante des aires (m²·s⁻¹) ; mouvement plan en coordonnées polaires $(r, \\theta)$.",
+     "hypotheses": "Force centrale de centre $O$ : $\\vec{L}_O$ est constant, le mouvement est plan.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Vitesse aréolaire",
+     "latex": "\\frac{\\dd\\mathcal{A}}{\\dd t} = \\frac{1}{2}\\left\\|\\overrightarrow{OM}\\wedge\\vec{v}\\right\\| = \\frac{|C|}{2}",
+     "symboles": "",
+     "hypotheses": "Constante pour une force centrale : 2e loi de Kepler (aires égales en des temps égaux).",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Force newtonienne et énergie potentielle",
+     "latex": "\\begin{gathered}\\vec{F} = \\frac{K}{r^2}\\,\\vec{u}_r \\\\ \\mathcal{E}_p = \\frac{K}{r}\\end{gathered}",
+     "symboles": "Gravitation : $K = -\\mathcal{G} M_0 m < 0$ (attractive)\nCoulomb : $K = \\dfrac{q_0\\,q}{4\\pi\\varepsilon_0}$ ($\\varepsilon_0$ : permittivité du vide)",
+     "hypotheses": "Force centrale en $1/r^2$ : conservative (ne dépend que de la distance).",
+     "unites": "",
+     "erreursFrequentes": "Signe : $K < 0$ pour une force attractive.",
+     "exemple": ""
+    },
+    {
+     "intitule": "Nature de la trajectoire selon l'énergie mécanique",
+     "latex": "\\begin{gathered}\\mathcal{E}_m > 0 : \\text{hyperbole} \\\\ \\mathcal{E}_m = 0 : \\text{parabole} \\\\ \\mathcal{E}_m < 0 : \\text{ellipse} \\\\ \\mathcal{E}_m = \\mathcal{E}_{p,\\text{eff,min}} : \\text{cercle}\\end{gathered}",
+     "symboles": "",
+     "hypotheses": "Force newtonienne attractive. $\\mathcal{E}_m > 0$ ou $= 0$ : état de diffusion ; $\\mathcal{E}_m < 0$ : état lié.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Énergie mécanique en coordonnées polaires (force newtonienne)",
+     "latex": "\\mathcal{E}_m = \\underbrace{\\frac{1}{2}m\\dot{r}^2}_{\\mathcal{E}_c\\ \\text{radiale}} + \\underbrace{\\frac{1}{2}\\,\\frac{m C^2}{r^2} + \\frac{K}{r}}_{\\mathcal{E}_{p,\\text{eff}}}",
+     "symboles": "$\\frac{1}{2}\\frac{mC^2}{r^2}$ : terme centrifuge (« effet inertiel ») ; $\\frac{K}{r}$ : potentiel d'interaction newtonien",
+     "hypotheses": "Vient de $v^2 = \\dot{r}^2 + r^2\\dot{\\theta}^2$ et $C = r^2\\dot{\\theta}$.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Vitesse de libération et vitesse circulaire",
+     "latex": "v_\\ell = \\sqrt{2}\\;v_{c}",
+     "symboles": "$v_c = \\sqrt{\\mathcal{G}M/R}$ : vitesse d'un satellite en orbite circulaire rasante ; $v_\\ell = \\sqrt{2\\mathcal{G}M/R}$",
+     "hypotheses": "Même rayon $R$ (surface de l'astre).",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    }
+   ]
+  },
+  {
+   "titre": "Mouvement d'un solide",
+   "programme": "PCSI",
+   "formules": [
+    {
+     "intitule": "Centre de masse d'un système",
+     "latex": "m_{\\text{tot}}\\,\\overrightarrow{OG} = \\sum_i m_i\\,\\overrightarrow{OM_i}",
+     "symboles": "",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Quantité de mouvement d'un système",
+     "latex": "\\vec{p}(\\Sigma) = \\sum_i m_i\\,\\vec{v}_i = m_{\\text{tot}}\\,\\vec{v}(G)",
+     "symboles": "",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Théorème de la quantité de mouvement (système)",
+     "latex": "\\frac{\\dd\\vec{p}(\\Sigma)}{\\dd t} = \\sum \\vec{F}_{\\text{ext}}",
+     "symboles": "",
+     "hypotheses": "Système fermé, référentiel galiléen. Les forces intérieures s'annulent (actions réciproques).",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Moment cinétique d'un système et par rapport à un axe",
+     "latex": "\\begin{gathered}\\vec{L}_A(\\Sigma) = \\sum_i m_i\\,\\overrightarrow{AM_i}\\wedge\\vec{v}_i \\\\ L_\\Delta(\\Sigma) = \\vec{L}_A(\\Sigma)\\cdot\\vec{u}_\\Delta\\end{gathered}",
+     "symboles": "$A$ : point de l'axe $\\Delta$ ; $\\vec{u}_\\Delta$ : vecteur unitaire de l'axe",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Moment d'inertie",
+     "latex": "J_\\Delta = \\sum_i m_i\\,r_i^2",
+     "symboles": "$r_i$ : distance de $M_i$ à l'axe $\\Delta$",
+     "hypotheses": "",
+     "unites": "kg·m²",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Moment d'une force par rapport à un axe : bras de levier",
+     "latex": "\\mathcal{M}_\\Delta(\\vec{F}) = \\vec{\\mathcal{M}}_O(\\vec{F})\\cdot\\vec{u}_\\Delta = \\pm\\,\\|\\vec{F}\\|\\,d",
+     "symboles": "$d$ : bras de levier (distance de l'axe à la droite d'action de $\\vec{F}$)",
+     "hypotheses": "Signe + si la force fait tourner dans le sens de $\\vec{u}_\\Delta$.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Puissance des forces intérieures (solide indéformable)",
+     "latex": "\\begin{gathered}\\frac{\\dd\\mathcal{E}_c(\\Sigma)}{\\dd t} = \\sum\\mathcal{P}_{\\text{ext}} + \\sum\\mathcal{P}_{\\text{int}} \\\\ \\text{solide : } \\sum\\mathcal{P}_{\\text{int}} = 0\\end{gathered}",
+     "symboles": "",
+     "hypotheses": "Pour un système déformable, les forces intérieures peuvent travailler.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    }
+   ]
+  },
+  {
+   "titre": "Descriptions microscopique et macroscopique d'un système à l'équilibre",
+   "programme": "PCSI",
+   "formules": [
+    {
+     "intitule": "Pression cinétique",
+     "latex": "P = \\frac{1}{3}\\,n^*\\,m\\,u^{*2}",
+     "symboles": "$n^* = \\frac{\\dd N}{\\dd V}$ : densité particulaire (m⁻³)\n$m = \\frac{M}{\\mathcal{N}_A}$ : masse d'une particule\n$u^* = \\sqrt{\\langle v^2\\rangle}$ : vitesse quadratique moyenne",
+     "hypotheses": "Gaz parfait monoatomique, modèle cinétique.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "Gaz parfait dans les conditions usuelles : $n^* \\approx 10^{25}\\ \\mathrm{m^{-3}}$."
+    },
+    {
+     "intitule": "Constante des gaz parfaits et volume molaire",
+     "latex": "\\begin{gathered}R = k_B\\,\\mathcal{N}_A \\\\ V_m = \\frac{V}{n} \\approx 22{,}4\\ \\mathrm{L\\,mol^{-1}}\\end{gathered}",
+     "symboles": "$R = 8{,}314\\ \\mathrm{J\\,K^{-1}mol^{-1}}$ ; $k_B = 1{,}38\\times10^{-23}\\ \\mathrm{J\\,K^{-1}}$ ; $\\mathcal{N}_A = 6{,}02\\times10^{23}\\ \\mathrm{mol^{-1}}$",
+     "hypotheses": "$V_m \\approx 22{,}4$ L/mol pour un gaz parfait à 0 °C et 1 atm (24 L/mol à 20 °C).",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Pressions partielles (loi de Dalton)",
+     "latex": "\\begin{gathered}P_i = x_i\\,P \\\\ \\sum_i P_i = P\\end{gathered}",
+     "symboles": "$x_i = \\dfrac{n_i}{n_{\\text{tot}}}$ : fraction molaire du gaz $i$",
+     "hypotheses": "Mélange idéal de gaz parfaits.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Masse volumique d'un gaz parfait et densité",
+     "latex": "\\begin{gathered}\\rho = \\frac{P M}{R T} \\\\ d = \\frac{\\rho}{\\rho_{\\text{réf}}}\\end{gathered}",
+     "symboles": "Référence : l'eau pour un liquide ou un solide, l'air pour un gaz ($d = M/29$ g/mol).",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Énergie interne : définition",
+     "latex": "U = \\mathcal{E}_{c,\\text{micro}} + \\mathcal{E}_{p,\\text{micro}}",
+     "symboles": "",
+     "hypotheses": "Gaz parfait : pas d'interaction, $\\mathcal{E}_{p,\\text{micro}} = 0$ ; polyatomique : $\\mathcal{E}_c$ de translation + rotation + vibration.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Capacités thermiques d'un gaz parfait en fonction de γ",
+     "latex": "\\begin{gathered}C_V = \\frac{nR}{\\gamma - 1} \\\\ C_P = \\frac{\\gamma\\,nR}{\\gamma - 1}\\end{gathered}",
+     "symboles": "",
+     "hypotheses": "Gaz parfait ; $\\gamma = \\dfrac{C_P}{C_V} > 1$ (5/3 monoatomique, 7/5 diatomique).",
+     "unites": "",
+     "erreursFrequentes": "Vient de $C_P - C_V = nR$ et $\\gamma = C_P/C_V$ : savoir le retrouver.",
+     "exemple": ""
+    }
+   ]
+  },
+  {
+   "titre": "Énergie échangée par un système au cours d'une transformation",
+   "programme": "PCSI",
+   "formules": [
+    {
+     "intitule": "Travail des forces de pression sur un cycle",
+     "latex": "W = -\\oint P\\,\\dd V",
+     "symboles": "",
+     "hypotheses": "Cycle quasi-statique : $|W|$ = aire du cycle dans le diagramme de Clapeyron $(V, P)$ ; $W < 0$ (moteur) si le cycle est parcouru dans le sens horaire.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    }
+   ]
+  },
+  {
+   "titre": "Deuxième principe. Bilans d'entropie",
+   "programme": "PCSI",
+   "formules": [
+    {
+     "intitule": "Entropie créée : interprétation",
+     "latex": "\\begin{gathered}S_c = 0 : \\text{réversible} \\\\ S_c > 0 : \\text{irréversible} \\\\ S_c < 0 : \\text{impossible}\\end{gathered}",
+     "symboles": "",
+     "hypotheses": "$S_c$ ne dépend pas que des états initial et final : on la calcule par $S_c = \\Delta S - S_e$.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    }
+   ]
+  },
+  {
+   "titre": "Signaux électriques dans l'ARQS",
+   "programme": "PCSI",
+   "formules": [
+    {
+     "intitule": "Quantification de la charge",
+     "latex": "Q = n\\,e",
+     "symboles": "$n \\in \\mathbb{Z}$ ; $e = 1{,}6\\times10^{-19}$ C : charge élémentaire",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    }
+   ]
+  },
+  {
+   "titre": "Circuit linéaire du premier ordre",
+   "programme": "PCSI",
+   "formules": [
+    {
+     "intitule": "Premier ordre : 63 % à t = τ",
+     "latex": "s(\\tau) = 0{,}63\\,s_\\infty",
+     "symboles": "",
+     "hypotheses": "Réponse indicielle d'un système du premier ordre (charge d'un condensateur…) : $1 - e^{-1} \\approx 0{,}63$ ; 95 % atteints à $3\\tau$.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    }
+   ]
+  },
+  {
+   "titre": "Propagation d'un signal",
+   "programme": "PCSI",
+   "formules": [
+    {
+     "intitule": "Diffraction : demi-angle d'ouverture",
+     "latex": "\\sin\\theta \\approx \\frac{\\lambda}{a}",
+     "symboles": "$a$ : taille de l'ouverture ; $\\lambda$ : longueur d'onde ; $\\theta$ : demi-ouverture angulaire du faisceau diffracté",
+     "hypotheses": "Importante quand $a$ est de l'ordre de $\\lambda$ (ou moins).",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    }
+   ]
+  }
+ ]
+}

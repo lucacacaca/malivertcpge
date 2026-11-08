@@ -1,0 +1,697 @@
+{
+ "chapitres": [
+  {
+   "titre": "Arcanes de la création — Notions et définitions",
+   "programme": "PSI",
+   "formules": [
+    {
+     "intitule": "Arcane (étymologie)",
+     "latex": "\\text{Du latin « arcanum » : secret ; lui-même de « arca » : le coffre.}",
+     "symboles": "Domaine du prévoir : disciplines s'estimant réservées aux initiés (lire l'avenir dans les cartes ; au tarot, les cartes sont des arcanes).",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Arcane (sens)",
+     "latex": "\\text{Connaissance qui ne peut pas être divulguée au profane.}",
+     "symboles": "Dans notre thème : ce qui échappe, dans nos œuvres, à la compréhension.",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Création (définition)",
+     "latex": "\\text{Activité productive humaine orientée vers la nouveauté.}",
+     "symboles": "Ingénieur ⇔ génie ≪ création ⇔ liberté + mystère + acte divin (un peu de théologie).",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Genèse",
+     "latex": "\\text{Partie de la Bible qui parle de la création.}",
+     "symboles": "Étymologie : « genesis » → création.",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "L'artiste créateur selon l'opinion publique",
+     "latex": "\\text{Une personne isolée et inspirée.}",
+     "symboles": "Idée remise en cause en III.C : difficile de trouver un artiste qui n'appartient à aucune école ni sans influence.",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Inspiration (étymologie)",
+     "latex": "\\text{Du latin « inspirare » : souffler dans…}",
+     "symboles": "1re utilisation : la Bible — Dieu a animé l'Homme par son souffle créateur (il a donné son souffle de vie à Adam et Ève).",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Thème de l'inspiration chez Platon",
+     "latex": "\\text{Concept platonicien de fureur poétique, au sens étymologique d'enthousiasme.}",
+     "symboles": "Grec « theos » : dieu.",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Enthousiasme",
+     "latex": "\\text{Force divine qui élève l'homme au-dessus de ses capacités ordinaires.}",
+     "symboles": "Ex. : le personnage d'Ion est animé de fureur poétique.",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Maïeutique socratique",
+     "latex": "\\text{Poser des questions pour faire « accoucher » l'autre de sa pensée et de ses connaissances.}",
+     "symboles": "",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "L'enthousiasme selon Socrate",
+     "latex": "\\text{Ni maîtrise technique, ni contrôle.}",
+     "symboles": "Platon, via Socrate, conteste la prétention du rhapsode et de l'artiste à la compétence : ils savent ce qu'ils font ou une folie créatrice les dépasse ?",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "La notion d'inspiration depuis la Renaissance",
+     "latex": "\\text{Renaissance : capacités créatrices humaines comme divines ; depuis, la notion d'inspiration est dé-divinisée (hasard…).}",
+     "symboles": "D'où une démocratisation de la notion de découverte inattendue / involontaire ; la valeur du créateur devient sa capacité à utiliser l'inattendu. À partir de la Renaissance : part du travail dans la création artistique.",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Arcane de la création",
+     "latex": "\\text{La genèse de l'œuvre.}",
+     "symboles": "",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Artisan / artiste",
+     "latex": "\\text{L'artisan produit en série (répond à une utilité, une contrainte ; maîtrise la technique) ≠ l'artiste produit de l'unique.}",
+     "symboles": "Technique : optimisation des gestes tout en s'adaptant à des situations. L'artiste, lui, n'est pas capable d'anticiper le résultat de sa création ; on est déçu d'un artiste qui ne fait que répéter la même technique.",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Industrie",
+     "latex": "\\text{Quand une idée précède et règle l'exécution.}",
+     "symboles": "",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Les 4 traits de l'aventure créatrice",
+     "latex": "\\text{L'artisan est artiste par éclair ; l'artiste est spectateur de l'œuvre qu'il crée ; l'aventure créatrice se base sur un fond d'ignorance ; il y a dans le processus une forme de passivité (≠ ingénieur qui fait tout).}",
+     "symboles": "",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "L'IA et la création",
+     "latex": "\\text{L'IA se nourrit d'œuvres existantes pour en créer d'autres : nouveauté assurée mais pas d'originalité.}",
+     "symboles": "Pour le moment, l'IA répond à un prompt. Perspective platonicienne : l'IA est un nouveau degré d'imitation qui nous éloigne encore plus de la réalité.",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Platon : la vraie connaissance",
+     "latex": "\\text{On possède la vraie connaissance quand on maîtrise le monde des Idées.}",
+     "symboles": "Le peintre imite par la peinture une imitation (le lit du menuisier) : « les peintres sont dangereux », ils éloignent de la connaissance ; les poètes aussi → chasser le poète de la cité (« polis »). Livre X de La République : les hommes ont du mal à discerner le réel de l'imitation.",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Le génie selon le cours",
+     "latex": "\\text{On ne peut pas mesurer la part de génie de chacun : le génie, c'est l'incontrôlable.}",
+     "symboles": "Le génie est dépassé par ses compétences ≠ le professeur, moins loin car il explique ce qu'il fait.",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    }
+   ]
+  },
+  {
+   "titre": "Arcanes de la création — Plan du cours",
+   "programme": "PSI",
+   "formules": [
+    {
+     "intitule": "Problématique du cours transversal n°1",
+     "latex": "\\text{L'arcane de la création : un génie inspiré ou un travail acharné ?}",
+     "symboles": "",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Partie I (titre)",
+     "latex": "\\text{La création artistique est issue d'une inspiration divine ou d'un don inné.}",
+     "symboles": "A. inspiration qui dépasse l'artiste ; B. rapport au réel autre et exceptionnel ; C. marginalisation, signe de l'exception.",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Partie I.A",
+     "latex": "\\text{Les artistes sont souvent l'objet d'une inspiration qui les dépasse.}",
+     "symboles": "Platon (Ion), Zola (L'Œuvre), Woolf (Une chambre à soi).",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Partie I.B",
+     "latex": "\\text{Dans tous les cas, ils témoignent d'un rapport au réel autre et exceptionnel.}",
+     "symboles": "",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Partie I.C",
+     "latex": "\\text{La marginalisation des artistes est l'un des signes qu'ils sont des êtres d'exception : leur sensibilité particulière, provoquant cette mise à l'écart, peut les faire basculer dans la folie.}",
+     "symboles": "",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Partie II (titre)",
+     "latex": "\\text{Toutefois, la part de travail est importante et peut aller jusqu'à mettre en doute les notions d'inspiration et de génie.}",
+     "symboles": "A. technique et effort ; B. endurance et patience ; C. conditions matérielles.",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Partie II.A",
+     "latex": "\\text{L'apprentissage de la technique est indispensable et la création artistique constitue un effort physique et mental éreintant.}",
+     "symboles": "",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Partie II.B",
+     "latex": "\\text{De plus, le processus créatif est une quête nécessitant de l'endurance et de la patience.}",
+     "symboles": "",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Partie II.C",
+     "latex": "\\text{Enfin, les conditions matérielles de l'artiste sont un arcane de sa création qui remet en cause l'idée d'une inspiration irréductible.}",
+     "symboles": "",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Partie III (titre)",
+     "latex": "\\text{Or, quelle que soit la force de l'inspiration et/ou du travail, le public ne serait-il pas une composante indispensable, parfois inavouée, du processus créatif ?}",
+     "symboles": "A. attention au public ; B. réception de l'œuvre ; C. solidarité.",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Partie III.A",
+     "latex": "\\text{L'attention portée au public est l'une des sources de la création artistique.}",
+     "symboles": "",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Partie III.B",
+     "latex": "\\text{Et la réception de l'œuvre par le public est un autre arcane majeur du processus créatif.}",
+     "symboles": "",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Partie III.C",
+     "latex": "\\text{Par ailleurs, sans solidarité, la genèse artistique risque fort d'avorter.}",
+     "symboles": "",
+     "hypotheses": "",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    }
+   ]
+  },
+  {
+   "titre": "Arcanes de la création — Citations de Platon",
+   "programme": "PSI",
+   "formules": [
+    {
+     "intitule": "Platon, Ion — ce n'est pas le poète qui parle",
+     "latex": "\\text{« ce ne sont pas les poètes, qui n'ont plus leur raison, qui disent ces choses d'une si grande valeur, mais c'est le dieu lui-même qui parle »}",
+     "symboles": "",
+     "hypotheses": "I.A — Une inspiration qui dépasse l'artiste",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "Citation complète : « [...] c'est pour que nous, qui les écoutons, nous sachions que ce ne sont pas les poètes, qui n'ont plus leur raison, qui disent ces choses d'une si grande valeur, mais que c'est le dieu lui-même qui parle et qui, par l'intermédiaire de ces hommes, nous fait entendre sa voix »"
+    },
+    {
+     "intitule": "Platon, Ion — Ion ému par ce qu'il récite",
+     "latex": "\\text{« chaque fois que je dis quelque chose qui suscite la compassion, mes yeux se remplissent de larmes ; mais, quand c'est quelque chose d'effrayant ou de terrible, la peur me fait dresser les cheveux et mon cœur se met à sauter. »}",
+     "symboles": "C'est Ion, le rhapsode, qui parle à Socrate.",
+     "hypotheses": "I.B — Un rapport au réel autre et exceptionnel",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "Citation complète : « Quelle clarté je vois, Socrate, dans l'indication que tu me donnes ! Je vais te parler, vois-tu, sans rien dissimuler. En effet, chaque fois que je dis quelque chose qui suscite la compassion, mes yeux se remplissent de larmes ; mais, quand c'est quelque chose d'effrayant ou de terrible, la peur me fait dresser les cheveux et mon cœur se met à sauter. »"
+    },
+    {
+     "intitule": "Platon, Ion — les poètes et les Corybantes",
+     "latex": "\\text{« c'est quand ils n'ont plus leur raison qu'ils se mettent à composer ces beaux poèmes lyriques. »}",
+     "symboles": "",
+     "hypotheses": "I.C — La marginalisation, signe de l'exception (jusqu'à la folie)",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "Citation complète : « Comme les Corybantes qui se mettent à danser dès qu'ils ne sont plus en possession de leur raison, ainsi font les poètes lyriques : c'est quand ils n'ont plus leur raison qu'ils se mettent à composer ces beaux poèmes lyriques. »"
+    },
+    {
+     "intitule": "Platon, Ion — Ion attentif à son public (l'argent)",
+     "latex": "\\text{« si je les fais pleurer, c'est moi qui serai content en recevant mon argent, mais si je les fais rire, alors c'est moi qui vais pleurer »}",
+     "symboles": "",
+     "hypotheses": "III.A — L'attention au public, source de la création",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "Citation complète : « Car je les vois, à chaque fois, du haut de mon estrade, en train de pleurer, de lancer de terribles regards, tout frappés de stupeur en m'entendant parler. Car il faut que je fasse attention à eux, et même très attention ! En effet, si je les fais pleurer, c'est moi qui serai content en recevant mon argent, mais si je les fais rire, alors c'est moi qui vais pleurer, en pensant à l'argent que j'aurai perdu ! »"
+    },
+    {
+     "intitule": "Platon, La République — le poète imitateur et le grand nombre",
+     "latex": "\\text{« s'il veut maintenir sa réputation auprès du grand nombre, [...] il vise plutôt le caractère excitable et bariolé, du fait qu'il est facile à imiter. »}",
+     "symboles": "",
+     "hypotheses": "III.B — La réception par le public, autre arcane majeur",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "Citation complète : « Le poète imitateur de son côté, manifestement, n'est pas naturellement porté vers ce principe rationnel de l'âme et, s'il veut maintenir sa réputation auprès du grand nombre, son savoir-faire ne tend pas à le conforter. Il vise plutôt le caractère excitable et bariolé, du fait qu'il est facile à imiter. »"
+    },
+    {
+     "intitule": "Platon, Ion — la chaîne des anneaux aimantés",
+     "latex": "\\text{« le spectateur [...] est le dernier de ces anneaux [...]. L'anneau du milieu, c'est toi, le rhapsode et l'acteur. Le premier anneau, c'est le poète lui-même. »}",
+     "symboles": "Image de la pierre d'Héraclée (l'aimant) : c'est le dieu, par la Muse, qui tire l'âme des hommes à travers la chaîne poète → rhapsode → spectateur.",
+     "hypotheses": "III.B — La réception par le public, autre arcane majeur",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "Citation complète : « Sais-tu donc que le spectateur dont tu parles est le dernier de ces anneaux dont je disais qu'ils tirent leur puissance de la pierre d'Héraclée et se la transmettent les uns aux autres ? L'anneau du milieu, c'est toi, le rhapsode et l'acteur. Le premier anneau, c'est le poète lui-même. Mais par l'intermédiaire de tous ces anneaux, c'est le dieu qui tire l'âme des hommes jusqu'où il veut, car c'est bien sa puissance qui passe au travers de ces anneaux, qui sont suspendus l'un à l'autre. Ainsi, comme c'est le cas avec la pierre que j'ai mentionnée, il se forme une chaîne fort longue de choreutes, de maîtres et de sous-maîtres de chœur, rattachés latéralement aux anneaux suspendus qui dépendent de la Muse. »"
+    }
+   ]
+  },
+  {
+   "titre": "Arcanes de la création — Citations de Zola (L'Œuvre)",
+   "programme": "PSI",
+   "formules": [
+    {
+     "intitule": "Zola, L'Œuvre — la femme nue de « Plein Air »",
+     "latex": "\\text{« comme si un autre l'avait peinte »}",
+     "symboles": "Au sujet de la femme nue du tableau « Plein Air » de Claude.",
+     "hypotheses": "I.A — Une inspiration qui dépasse l'artiste",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Zola, L'Œuvre — le « baquet aux injures »",
+     "latex": "\\text{« la vie enfin, la vie totale, universelle, qui va d'un bout de l'animalité à l'autre, sans haut ni bas, sans beauté ni laideur »}",
+     "symboles": "",
+     "hypotheses": "I.A — Une inspiration qui dépasse l'artiste",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "Citation complète : « Tout se trouvait jeté dans le baquet aux injures : son étude nouvelle de l'homme physiologique, le rôle tout-puissant rendu aux milieux, la vaste nature éternellement en création, la vie enfin, la vie totale, universelle, qui va d'un bout de l'animalité à l'autre, sans haut ni bas, sans beauté ni laideur [...] »"
+    },
+    {
+     "intitule": "Zola, L'Œuvre — l'hérédité, du génie à la folie",
+     "latex": "\\text{« ce détraquement héréditaire qui, pour quelques grammes de substance en plus ou en moins, au lieu de faire un grand homme, allait faire un fou »}",
+     "symboles": "Aussi : « cet inconnu héréditaire » ; dans les Dossiers préparatoires de Zola : « hérédité d'une névrose se tournant en génie ».",
+     "hypotheses": "I.A — Une inspiration qui dépasse l'artiste",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Zola, L'Œuvre — l'arbre bleu",
+     "latex": "\\text{« C'était vrai pourtant, l'arbre était bleu »}",
+     "symboles": "Le public « ne comprenait pas ».",
+     "hypotheses": "I.B — Un rapport au réel autre et exceptionnel",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Zola, L'Œuvre — Claude, l'obsession de sa toile",
+     "latex": "\\text{« C'était l'obsession, l'heure passée là-bas, sur le pont des Saints-Pères, qui lui rendait le sommeil impossible »}",
+     "symboles": "",
+     "hypotheses": "II.A — Technique indispensable, effort physique et mental éreintant",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "Citation complète : « C'était l'obsession, l'heure passée là-bas, sur le pont des Saints-Pères, qui lui rendait le sommeil impossible, et qui l'avait ramené en face de sa toile, dévoré du besoin de la revoir, malgré la nuit. »"
+    },
+    {
+     "intitule": "Zola, L'Œuvre — Sandoz : le germe qui ronge",
+     "latex": "\\text{« C'est le germe apporté dans le crâne, qui mange la cervelle, qui envahit le tronc, les membres, qui ronge le corps entier. »}",
+     "symboles": "Sandoz, l'écrivain (double de Zola).",
+     "hypotheses": "II.A — Technique indispensable, effort physique et mental éreintant",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "Citation complète : « C'est le germe apporté dans le crâne, qui mange la cervelle, qui envahit le tronc, les membres, qui ronge le corps entier. [...] jamais je n'ai le pouvoir d'arrêter l'œuvre en train, dont la végétation continue, jusqu'au fond de mon sommeil... »"
+    },
+    {
+     "intitule": "Zola, L'Œuvre — le travail héroïque de Claude",
+     "latex": "\\text{« De ce travail héroïque, il sortit une ébauche magistrale, une de ces ébauches où le génie flambe »}",
+     "symboles": "Aussi : « Énervé, impatient, il la cernait d'un trait vigoureux » ; « maniant des brosses énormes, dépensant une force musculaire à remuer des montagnes ».",
+     "hypotheses": "II.A — Technique indispensable, effort physique et mental éreintant",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "Citation complète : « Il passa outre, quitte à corriger plus tard, il couvrit la toile violemment, pris d'une telle fièvre, qu'il vivait sur son échelle les journées entières, maniant des brosses énormes, dépensant une force musculaire à remuer des montagnes. [...] De ce travail héroïque, il sortit une ébauche magistrale, une de ces ébauches où le génie flambe [...]. »"
+    },
+    {
+     "intitule": "Zola, L'Œuvre — Claude : apprendre son métier",
+     "latex": "\\text{« on doit apprendre son métier. Seulement, ce n'est guère bon de l'apprendre sous la férule de professeurs »}",
+     "symboles": "",
+     "hypotheses": "II.B — Une quête d'endurance et de patience",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "Citation complète : « [...] on doit apprendre son métier. Seulement, ce n'est guère bon de l'apprendre sous la férule de professeurs qui vous entrent de force dans la caboche leur vision à eux »"
+    },
+    {
+     "intitule": "Zola, L'Œuvre — Mahoudeau et la misère",
+     "latex": "\\text{« Chienne de misère, va ! »}",
+     "symboles": "Mahoudeau, le sculpteur.",
+     "hypotheses": "II.C — Les conditions matérielles, arcane qui remet en cause l'inspiration",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Zola, L'Œuvre — les fous rires du Salon",
+     "latex": "\\text{« L'explosion continuait, s'aggravait dans une gamme ascendante de fous rires. »}",
+     "symboles": "Le public du Salon des Refusés devant le tableau de Claude.",
+     "hypotheses": "III.A — L'attention au public, source de la création",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "Citation complète : « L'explosion continuait, s'aggravait dans une gamme ascendante de fous rires. Dès la porte, il voyait se fendre les mâchoires des visiteurs, se rapetisser les yeux, s'élargir le visage ; et c'étaient des souffles tempétueux d'hommes gras, des grincements rouillés d'hommes maigres, dominés par les petites flûtes aiguës des femmes. En face, contre la cimaise, des jeunes gens se renversaient, comme si on leur avait chatouillé les côtes. Une dame venait de se laisser tomber sur une banquette, les genoux serrés, étouffant, tâchant de reprendre haleine dans son mouchoir. »"
+    },
+    {
+     "intitule": "Zola, L'Œuvre — Fagerolles",
+     "latex": "\\text{« tout le truc consiste à lui voler son originalité et à l'accommoder à la sauce veule de l'École des Beaux-Arts. »}",
+     "symboles": "Fagerolles plaît au public en copiant Claude et en l'affadissant.",
+     "hypotheses": "III.B — La réception par le public, autre arcane majeur",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Zola, L'Œuvre — Claude face au public",
+     "latex": "\\text{« n'essaie point d'adoucir »}",
+     "symboles": "Au sujet de Claude : il « n'essaie point d'adoucir » son tableau.",
+     "hypotheses": "III.B — La réception par le public, autre arcane majeur",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    }
+   ]
+  },
+  {
+   "titre": "Arcanes de la création — Citations de Woolf (Une chambre à soi)",
+   "programme": "PSI",
+   "formules": [
+    {
+     "intitule": "Woolf, Une chambre à soi — la sœur de Shakespeare",
+     "latex": "\\text{« Elle avait la fantaisie la plus vive, un don, comme son frère, pour le chant des mots. »}",
+     "symboles": "Judith, la sœur fictive de Shakespeare.",
+     "hypotheses": "I.A — Une inspiration qui dépasse l'artiste",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Woolf, Une chambre à soi — l'esprit de Shakespeare",
+     "latex": "\\text{« esprit incandescent »}",
+     "symboles": "Au sujet de Shakespeare : un « esprit incandescent ».",
+     "hypotheses": "I.A — Une inspiration qui dépasse l'artiste",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Woolf, Une chambre à soi — Mary Carmichael, pas un génie",
+     "latex": "\\text{« Elle n'était pas un ‘génie’ – c'était évident »}",
+     "symboles": "Suite : « elle était douée d'une sensibilité très large, vive et libre, qui réagissait à des contacts presque imperceptibles. »",
+     "hypotheses": "I.B — Un rapport au réel autre et exceptionnel",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Woolf, Une chambre à soi — le monde n'en a pas besoin",
+     "latex": "\\text{« Le monde ne demande pas aux gens d'écrire des poèmes et des romans et des histoires ; le monde n'en a pas besoin. »}",
+     "symboles": "",
+     "hypotheses": "I.C — La marginalisation, signe de l'exception (jusqu'à la folie)",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Woolf, Une chambre à soi — le poète pauvre",
+     "latex": "\\text{« le poète pauvre, aujourd'hui comme il y a deux siècles, finira comme un chien. »}",
+     "symboles": "",
+     "hypotheses": "I.C — La marginalisation, signe de l'exception (jusqu'à la folie)",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "Citation complète : « [...] par un défaut de notre prospérité commune, le poète pauvre, aujourd'hui comme il y a deux siècles, finira comme un chien. »"
+    },
+    {
+     "intitule": "Woolf, Une chambre à soi — la toile d'araignée",
+     "latex": "\\text{« la fiction ressemble à une toile d'araignée, qui pour être attachée de façon très fine est tout de même attachée à la vie par les quatre coins. »}",
+     "symboles": "Les œuvres sont le travail d'êtres humains qui souffrent, attachés à la santé, l'argent, les maisons.",
+     "hypotheses": "II.A — Technique indispensable, effort physique et mental éreintant",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "Citation complète : « [...] la fiction ressemble à une toile d'araignée, qui pour être attachée de façon très fine est tout de même attachée à la vie par les quatre coins. Souvent cette attache est à peine perceptible ; les pièces de Shakespeare, par exemple, semblent suspendues là, complètes, par elles-mêmes. Mais quand la toile est tirée de travers, accrochée d'un côté, déchirée au milieu, on se souvient que ces toiles ne sont pas tissées au beau milieu de l'air par des créatures désincarnées, mais qu'elles sont le travail d'êtres humains qui souffrent, et qui sont attachés à des choses grossièrement matérielles, comme la santé et l'argent et les maisons où nous vivons. »"
+    },
+    {
+     "intitule": "Woolf, Une chambre à soi — Mary casse la phrase et la séquence",
+     "latex": "\\text{« D'abord elle a cassé la phrase ; maintenant elle casse la séquence. »}",
+     "symboles": "",
+     "hypotheses": "II.A — Technique indispensable, effort physique et mental éreintant",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "Citation complète : « Mary trafique la séquence attendue. D'abord elle a cassé la phrase ; maintenant elle casse la séquence. Très bien, elle a entièrement le droit de faire les deux si elle le fait non par intérêt pour la casse, mais par intérêt pour la création. »"
+    },
+    {
+     "intitule": "Woolf, Une chambre à soi — le croquis du professeur",
+     "latex": "\\text{« c'est dans notre paresse, dans nos rêves, que la vérité engloutie fait parfois surface. »}",
+     "symboles": "",
+     "hypotheses": "II.B — Une quête d'endurance et de patience",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "Citation complète : « Quelle qu'en soit la raison, le professeur, sur mon croquis, était taillé pour avoir l'air très en colère et très laid, pendant qu'il écrivait son grand livre sur l'infériorité mentale, morale et physique des femmes. Gribouiller des dessins était le paresseux point d'orgue de cette infructueuse matinée de travail. Et pourtant c'est dans notre paresse, dans nos rêves, que la vérité engloutie fait parfois surface. »"
+    },
+    {
+     "intitule": "Woolf, Une chambre à soi — la thèse (argent et lieu)",
+     "latex": "\\text{« Une femme doit avoir de l'argent et un lieu à elle si elle veut écrire de la fiction. »}",
+     "symboles": "",
+     "hypotheses": "II.C — Les conditions matérielles, arcane qui remet en cause l'inspiration",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Woolf, Une chambre à soi — l'héritage",
+     "latex": "\\text{« Je suis logée, nourrie et blanchie pour toujours. »}",
+     "symboles": "La narratrice, après l'héritage de sa tante.",
+     "hypotheses": "II.C — Les conditions matérielles, arcane qui remet en cause l'inspiration",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Woolf, Une chambre à soi — les bas bleus",
+     "latex": "\\text{« Bas bleus que scribouiller démange. »}",
+     "symboles": "",
+     "hypotheses": "III.C — Sans solidarité, la genèse artistique risque d'avorter",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    }
+   ]
+  },
+  {
+   "titre": "Arcanes de la création — Exemples et références",
+   "programme": "PSI",
+   "formules": [
+    {
+     "intitule": "Andy Warhol (portraits de Marilyn)",
+     "latex": "\\text{Duplique le portrait de Marilyn, mais il y a de l'originalité dans le processus de duplication : il dénonce la société de consommation.}",
+     "symboles": "",
+     "hypotheses": "Artisan / artiste : la répétition peut être créatrice.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Nicolas Poussin, L'Inspiration du poète (vers 1630)",
+     "latex": "\\text{Le dieu Apollon dicte à Virgile (il montre du doigt ce que Virgile doit écrire) ; on voit une muse parmi les 9 : Calliope, muse de la poésie. La muse aide à la création.}",
+     "symboles": "",
+     "hypotheses": "I.A — Une inspiration qui dépasse l'artiste",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": "Tableau conservé au musée du Louvre."
+    },
+    {
+     "intitule": "Baudelaire et l'opium",
+     "latex": "\\text{La drogue permet à certains de déclencher la création : Baudelaire et l'opium.}",
+     "symboles": "Baudelaire : inspiration par un artifice ≠ Nicolas Poussin : inspiration par le dieu.",
+     "hypotheses": "I.A — Une inspiration qui dépasse l'artiste",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Brouillons d'écrivains (4 exemples)",
+     "latex": "\\text{Victor Hugo, L'Homme qui rit ; Flaubert, Madame Bovary ; les « paperoles » de Marcel Proust ; les autoportraits d'Antonin Artaud.}",
+     "symboles": "L'écrivain n'est pas inspiré mais travaille (rature, temps).",
+     "hypotheses": "II.A — Technique indispensable, effort physique et mental éreintant",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Victor Hugo (brouillons)",
+     "latex": "\\text{Opérations de suppression et de remplacement.}",
+     "symboles": "",
+     "hypotheses": "II.A — Technique indispensable, effort physique et mental éreintant",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Marcel Proust",
+     "latex": "\\text{Les « paperoles » : papiers collés ajoutés au manuscrit.}",
+     "symboles": "",
+     "hypotheses": "II.A — Technique indispensable, effort physique et mental éreintant",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Antonin Artaud",
+     "latex": "\\text{Écriture en fulguration + autoportraits.}",
+     "symboles": "",
+     "hypotheses": "II.A — Technique indispensable, effort physique et mental éreintant",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Nietzsche et le génie",
+     "latex": "\\text{Contre la notion de génie artistique : met en avant la réalité du travail artistique, souligne la fréquence de la médiocrité des productions, dit qu'il y a conscience et volonté dans la création artistique.}",
+     "symboles": "",
+     "hypotheses": "II — le travail met en doute le génie.",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Henri Michaux",
+     "latex": "\\text{Instinct + spontanéité ; l'aquarelle : une tête qui apparaît et c'est la nôtre.}",
+     "symboles": "Passage relu sur la fiche manuscrite : à vérifier.",
+     "hypotheses": "I.A — Une inspiration qui dépasse l'artiste",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Jean Dubuffet, « L'homme du commun »",
+     "latex": "\\text{L'artiste est un « chasseur d'occasions ».}",
+     "symboles": "Les artistes modernes exposent leurs travaux de recherche et d'essais.",
+     "hypotheses": "II.B — Une quête d'endurance et de patience",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Paul Valéry, Tel quel",
+     "latex": "\\text{Recueil qui donne une image réaliste du travail d'invention poétique : 1re phase combinatoire et imaginative, 2e phase critique (compréhension, sélection).}",
+     "symboles": "Le génie est plus dans la critique que dans l'imagination.",
+     "hypotheses": "II.A — Technique indispensable, effort physique et mental éreintant",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Montaigne et les inventions",
+     "latex": "\\text{« Les inventions s'entre-produisent l'une l'autre. »}",
+     "symboles": "Contre la croyance populaire de l'artiste isolé : difficile de trouver un artiste qui n'appartient à aucune école ni sans influence ; dans l'œuvre, les artistes veulent révolutionner l'art ensemble (pas d'original seul).",
+     "hypotheses": "III.C — Sans solidarité, la genèse artistique risque d'avorter",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    },
+    {
+     "intitule": "Zola, L'Œuvre — la collaboration",
+     "latex": "\\text{Repas avec Sandoz : collaboration de travail ; le père Malgras reconnaît la valeur de Lantier : Malgras + Lantier, collaboration de travail.}",
+     "symboles": "Malgras : le marchand de tableaux.",
+     "hypotheses": "III.C — Sans solidarité, la genèse artistique risque d'avorter",
+     "unites": "",
+     "erreursFrequentes": "",
+     "exemple": ""
+    }
+   ]
+  }
+ ]
+}

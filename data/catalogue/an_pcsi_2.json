@@ -1,0 +1,566 @@
+{
+ "version": 1,
+ "modeles": [
+  {
+   "cle": "an3.vlim",
+   "formule": "physique.pcsi.2.2.f07",
+   "enonce": "Une bille de masse $m = {m}$ tombe avec un frottement $-\\alpha\\vec{v}$, $\\alpha = {a}$. Calcule sa vitesse limite ($g = 9{,}81\\ \\mathrm{m\\,s^{-2}}$).",
+   "variables": [
+    {
+     "nom": "m",
+     "min": 1,
+     "max": 50,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{g}",
+     "entier": false
+    },
+    {
+     "nom": "a",
+     "min": 1,
+     "max": 50,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{g\\,s^{-1}}",
+     "entier": false
+    }
+   ],
+   "calcul": "m*9.81/a",
+   "symbole": "v_\\ell",
+   "unite": "\\mathrm{m\\,s^{-1}}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an3.periode_pendule",
+   "formule": "physique.pcsi.2.2.f09",
+   "enonce": "Pendule simple de longueur $\\ell = {l}$. Calcule la période des petites oscillations ($g = 9{,}81\\ \\mathrm{m\\,s^{-2}}$).",
+   "variables": [
+    {
+     "nom": "l",
+     "min": 0.1,
+     "max": 2.0,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{m}",
+     "entier": false
+    }
+   ],
+   "calcul": "2*pi*sqrt(l/9.81)",
+   "symbole": "T_0",
+   "unite": "\\mathrm{s}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an3.ec",
+   "formule": "physique.pcsi.2.3.f02",
+   "enonce": "Une voiture de masse $m = {m}$ roule à $v = {v}$. Calcule son énergie cinétique.",
+   "variables": [
+    {
+     "nom": "m",
+     "min": 800,
+     "max": 2000,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{kg}",
+     "entier": false
+    },
+    {
+     "nom": "v",
+     "min": 30,
+     "max": 130,
+     "chiffres": 2,
+     "facteur": 0.2777777777777778,
+     "unite": "\\mathrm{km/h}",
+     "entier": false
+    }
+   ],
+   "calcul": "0.5*m*v^2",
+   "symbole": "\\mathcal{E}_c",
+   "unite": "\\mathrm{kJ}",
+   "facteur": 1000.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an3.chute_vitesse",
+   "formule": "physique.pcsi.2.3.f06",
+   "enonce": "Un objet est lâché sans vitesse d'une hauteur $h = {h}$. Calcule sa vitesse au sol (frottements négligés, $g = 9{,}81$ SI).",
+   "variables": [
+    {
+     "nom": "h",
+     "min": 1,
+     "max": 50,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{m}",
+     "entier": false
+    }
+   ],
+   "calcul": "sqrt(2*9.81*h)",
+   "symbole": "v",
+   "unite": "\\mathrm{m\\,s^{-1}}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an3.rayon_cyclo",
+   "formule": "physique.pcsi.2.4.f04",
+   "enonce": "Un électron ($m = 9{,}11\\times10^{-31}$ kg, $e = 1{,}60\\times10^{-19}$ C) de vitesse $v = {v}$ entre orthogonalement dans $B = {B}$. Calcule le rayon de sa trajectoire.",
+   "variables": [
+    {
+     "nom": "v",
+     "min": 1,
+     "max": 9,
+     "chiffres": 2,
+     "facteur": 1000000.0,
+     "unite": "10^6\\,\\mathrm{m\\,s^{-1}}",
+     "entier": false
+    },
+    {
+     "nom": "B",
+     "min": 1,
+     "max": 50,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{mT}",
+     "entier": false
+    }
+   ],
+   "calcul": "9.11e-31*v/(1.60e-19*B)",
+   "symbole": "R",
+   "unite": "\\mathrm{mm}",
+   "facteur": 0.001,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an3.orbite",
+   "formule": "physique.pcsi.2.6.f04",
+   "enonce": "Satellite en orbite circulaire à l'altitude $h = {h}$ ($R_T = 6370$ km, $\\mathcal{G}M_T = 3{,}99\\times10^{14}$ SI). Calcule sa période.",
+   "variables": [
+    {
+     "nom": "h",
+     "min": 300,
+     "max": 36000,
+     "chiffres": 2,
+     "facteur": 1000.0,
+     "unite": "\\mathrm{km}",
+     "entier": false
+    }
+   ],
+   "calcul": "2*pi*sqrt((6.37e6+h)^3/3.99e14)",
+   "symbole": "T",
+   "unite": "\\mathrm{min}",
+   "facteur": 60,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an3.liberation",
+   "formule": "physique.pcsi.2.6.f07",
+   "enonce": "Astre de masse $M = {M}$ et de rayon $R = {R}$. Calcule la vitesse de libération ($\\mathcal{G} = 6{,}67\\times10^{-11}$ SI).",
+   "variables": [
+    {
+     "nom": "M",
+     "min": 1,
+     "max": 9,
+     "chiffres": 2,
+     "facteur": 1e+23,
+     "unite": "10^{23}\\,\\mathrm{kg}",
+     "entier": false
+    },
+    {
+     "nom": "R",
+     "min": 1000,
+     "max": 6000,
+     "chiffres": 2,
+     "facteur": 1000.0,
+     "unite": "\\mathrm{km}",
+     "entier": false
+    }
+   ],
+   "calcul": "sqrt(2*6.67e-11*M/R)",
+   "symbole": "v_\\ell",
+   "unite": "\\mathrm{km\\,s^{-1}}",
+   "facteur": 1000.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an3.ec_rot",
+   "formule": "physique.pcsi.2.7.f03",
+   "enonce": "Volant de moment d'inertie $J = {J}$ tournant à $N = {N}$. Calcule son énergie cinétique.",
+   "variables": [
+    {
+     "nom": "J",
+     "min": 0.01,
+     "max": 2.0,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{kg\\,m^2}",
+     "entier": false
+    },
+    {
+     "nom": "N",
+     "min": 100,
+     "max": 3000,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{tr/min}",
+     "entier": false
+    }
+   ],
+   "calcul": "0.5*J*(N*2*pi/60)^2",
+   "symbole": "\\mathcal{E}_c",
+   "unite": "\\mathrm{J}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an3.gp_n",
+   "formule": "physique.pcsi.3.1.f01",
+   "enonce": "Un gaz parfait occupe $V = {V}$ sous $P = {P}$ à $\\theta = {t}$. Calcule la quantité de matière ($R = 8{,}314$ SI).",
+   "variables": [
+    {
+     "nom": "V",
+     "min": 1,
+     "max": 50,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{L}",
+     "entier": false
+    },
+    {
+     "nom": "P",
+     "min": 1.0,
+     "max": 5.0,
+     "chiffres": 2,
+     "facteur": 100000.0,
+     "unite": "\\mathrm{bar}",
+     "entier": false
+    },
+    {
+     "nom": "t",
+     "min": 0,
+     "max": 80,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "^\\circ\\mathrm{C}",
+     "entier": false
+    }
+   ],
+   "calcul": "P*V/(8.314*(t+273.15))",
+   "symbole": "n",
+   "unite": "\\mathrm{mol}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an3.laplace",
+   "formule": "physique.pcsi.3.3.f04",
+   "enonce": "De l'air ($\\gamma = 1{,}4$) à $T_1 = {T1}$ subit une compression adiabatique réversible de $P_1 = 1{,}0$ bar à $P_2 = {P2}$. Calcule $T_2$.",
+   "variables": [
+    {
+     "nom": "T1",
+     "min": 280,
+     "max": 320,
+     "chiffres": 3,
+     "facteur": 1.0,
+     "unite": "\\mathrm{K}",
+     "entier": false
+    },
+    {
+     "nom": "P2",
+     "min": 2,
+     "max": 20,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{bar}",
+     "entier": false
+    }
+   ],
+   "calcul": "T1*P2^((1.4-1)/1.4)",
+   "symbole": "T_2",
+   "unite": "\\mathrm{K}",
+   "facteur": 1.0,
+   "tolerance": 0.02
+  },
+  {
+   "cle": "an3.melange",
+   "formule": "physique.pcsi.3.3.f06",
+   "enonce": "On mélange $m_1 = {m1}$ d'eau à $\\theta_1 = {t1}$ et $m_2 = {m2}$ d'eau à $\\theta_2 = {t2}$ (calorimètre parfait). Calcule la température finale.",
+   "variables": [
+    {
+     "nom": "m1",
+     "min": 100,
+     "max": 500,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{g}",
+     "entier": false
+    },
+    {
+     "nom": "t1",
+     "min": 10,
+     "max": 30,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "^\\circ\\mathrm{C}",
+     "entier": false
+    },
+    {
+     "nom": "m2",
+     "min": 100,
+     "max": 500,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{g}",
+     "entier": false
+    },
+    {
+     "nom": "t2",
+     "min": 50,
+     "max": 90,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "^\\circ\\mathrm{C}",
+     "entier": false
+    }
+   ],
+   "calcul": "(m1*t1+m2*t2)/(m1+m2)",
+   "symbole": "\\theta_f",
+   "unite": "^\\circ\\mathrm{C}",
+   "facteur": 1.0,
+   "tolerance": 0.02
+  },
+  {
+   "cle": "an3.carnot",
+   "formule": "physique.pcsi.3.5.f02",
+   "enonce": "Moteur ditherme entre $\\theta_c = {tc}$ et $\\theta_f = {tf}$. Calcule le rendement de Carnot.",
+   "variables": [
+    {
+     "nom": "tc",
+     "min": 200,
+     "max": 800,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "^\\circ\\mathrm{C}",
+     "entier": false
+    },
+    {
+     "nom": "tf",
+     "min": 5,
+     "max": 40,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "^\\circ\\mathrm{C}",
+     "entier": false
+    }
+   ],
+   "calcul": "1-(tf+273.15)/(tc+273.15)",
+   "symbole": "\\eta_C",
+   "unite": "",
+   "facteur": 1.0,
+   "tolerance": 0.02
+  },
+  {
+   "cle": "an3.pac",
+   "formule": "physique.pcsi.3.5.f04",
+   "enonce": "Pompe à chaleur entre l'extérieur à $\\theta_f = {tf}$ et une maison à $\\theta_c = {tc}$. Calcule l'efficacité maximale.",
+   "variables": [
+    {
+     "nom": "tf",
+     "min": -10,
+     "max": 10,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "^\\circ\\mathrm{C}",
+     "entier": false
+    },
+    {
+     "nom": "tc",
+     "min": 18,
+     "max": 22,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "^\\circ\\mathrm{C}",
+     "entier": false
+    }
+   ],
+   "calcul": "(tc+273.15)/(tc-tf)",
+   "symbole": "e_{\\max}",
+   "unite": "",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an3.pression_eau",
+   "formule": "physique.pcsi.3.6.f02",
+   "enonce": "Calcule la pression à $h = {h}$ sous la surface de l'eau ($P_0 = 1{,}013$ bar, $\\rho = 1000\\ \\mathrm{kg\\,m^{-3}}$, $g = 9{,}81$).",
+   "variables": [
+    {
+     "nom": "h",
+     "min": 1,
+     "max": 100,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{m}",
+     "entier": false
+    }
+   ],
+   "calcul": "1.013e5+1000*9.81*h",
+   "symbole": "P",
+   "unite": "\\mathrm{bar}",
+   "facteur": 100000.0,
+   "tolerance": 0.02
+  },
+  {
+   "cle": "an3.archimede",
+   "formule": "physique.pcsi.3.6.f04",
+   "enonce": "Un objet de volume $V = {V}$ est totalement immergé dans l'eau ($\\rho = 1000\\ \\mathrm{kg\\,m^{-3}}$). Calcule la poussée d'Archimède.",
+   "variables": [
+    {
+     "nom": "V",
+     "min": 0.1,
+     "max": 20,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{L}",
+     "entier": false
+    }
+   ],
+   "calcul": "1000*V*9.81",
+   "symbole": "\\Pi",
+   "unite": "\\mathrm{N}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an3.solenoide",
+   "formule": "physique.pcsi.1.7.f05",
+   "enonce": "Solénoïde de $N = {N}$ spires sur $\\ell = {l}$, parcouru par $i = {i}$. Calcule le champ $B$ à l'intérieur ($\\mu_0 = 4\\pi\\times10^{-7}$ SI).",
+   "variables": [
+    {
+     "nom": "N",
+     "min": 100,
+     "max": 2000,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": true
+    },
+    {
+     "nom": "l",
+     "min": 10,
+     "max": 50,
+     "chiffres": 2,
+     "facteur": 0.01,
+     "unite": "\\mathrm{cm}",
+     "entier": false
+    },
+    {
+     "nom": "i",
+     "min": 0.1,
+     "max": 5.0,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "\\mathrm{A}",
+     "entier": false
+    }
+   ],
+   "calcul": "4*pi*1e-7*N/l*i",
+   "symbole": "B",
+   "unite": "\\mathrm{mT}",
+   "facteur": 0.001,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an3.faraday",
+   "formule": "physique.pcsi.1.7.f02",
+   "enonce": "Une bobine de $N = {N}$ spires de surface $S = {S}$ voit le champ (orthogonal) passer de 0 à $B = {B}$ en $\\Delta t = {t}$, régulièrement. Calcule $|e|$.",
+   "variables": [
+    {
+     "nom": "N",
+     "min": 10,
+     "max": 500,
+     "chiffres": 2,
+     "facteur": 1.0,
+     "unite": "",
+     "entier": true
+    },
+    {
+     "nom": "S",
+     "min": 5,
+     "max": 50,
+     "chiffres": 2,
+     "facteur": 0.0001,
+     "unite": "\\mathrm{cm^2}",
+     "entier": false
+    },
+    {
+     "nom": "B",
+     "min": 10,
+     "max": 500,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{mT}",
+     "entier": false
+    },
+    {
+     "nom": "t",
+     "min": 10,
+     "max": 500,
+     "chiffres": 2,
+     "facteur": 0.001,
+     "unite": "\\mathrm{ms}",
+     "entier": false
+    }
+   ],
+   "calcul": "N*S*B/t",
+   "symbole": "|e|",
+   "unite": "\\mathrm{V}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an3.photon",
+   "formule": "physique.pcsi.1.8.f01",
+   "enonce": "Calcule l'énergie (en eV) d'un photon de longueur d'onde $\\lambda = {l}$ ($h = 6{,}63\\times10^{-34}$ J s, $c = 3{,}00\\times10^8$ SI, $1\\ \\mathrm{eV} = 1{,}60\\times10^{-19}$ J).",
+   "variables": [
+    {
+     "nom": "l",
+     "min": 200,
+     "max": 900,
+     "chiffres": 3,
+     "facteur": 1e-09,
+     "unite": "\\mathrm{nm}",
+     "entier": false
+    }
+   ],
+   "calcul": "6.63e-34*3.00e8/l/1.60e-19",
+   "symbole": "E",
+   "unite": "\\mathrm{eV}",
+   "facteur": 1.0,
+   "tolerance": 0.03
+  },
+  {
+   "cle": "an3.debroglie",
+   "formule": "physique.pcsi.1.8.f02",
+   "enonce": "Calcule la longueur d'onde de de Broglie d'un électron ($m = 9{,}11\\times10^{-31}$ kg) de vitesse $v = {v}$.",
+   "variables": [
+    {
+     "nom": "v",
+     "min": 1,
+     "max": 9,
+     "chiffres": 2,
+     "facteur": 1000000.0,
+     "unite": "10^6\\,\\mathrm{m\\,s^{-1}}",
+     "entier": false
+    }
+   ],
+   "calcul": "6.63e-34/(9.11e-31*v)",
+   "symbole": "\\lambda",
+   "unite": "\\mathrm{nm}",
+   "facteur": 1e-09,
+   "tolerance": 0.03
+  }
+ ]
+}

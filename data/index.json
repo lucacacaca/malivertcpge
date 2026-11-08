@@ -1,0 +1,51 @@
+{
+ "formules": [
+  "formules_allemand.json",
+  "formules_chimie.json",
+  "formules_maths_pcsi_analyse.json",
+  "formules_maths_psi.json",
+  "formules_physique_pcsi.json",
+  "formules_physique_pcsi_2.json",
+  "formules_physique_psi.json",
+  "formules_sii_pcsi.json",
+  "formules_sii_psi.json"
+ ],
+ "an": [
+  "an_chimie.json",
+  "an_pcsi_2.json",
+  "an_physique_sii.json",
+  "an_psi.json",
+  "an_sii_psi.json",
+  "an_supplement.json"
+ ],
+ "partage": [
+  {
+   "fichier": "francais_arcanes_creation.json",
+   "titre": "Les arcanes de la création",
+   "matiere": "Français-philosophie",
+   "description": "définitions, plan, citations de Platon, Zola et Woolf, exemples",
+   "source": "Fiches partagées : Les arcanes de la création"
+  },
+  {
+   "fichier": "fiches_physique_pcsi.json",
+   "titre": "Physique PCSI + incertitudes en TP",
+   "matiere": "Physique",
+   "description": "incertitudes (type A/B, propagation, z-score) et compléments PCSI",
+   "source": "Fiches partagées : physique PCSI"
+  },
+  {
+   "fichier": "fiches_sii_pcsi.json",
+   "titre": "SII PCSI : asservissements et cinématique",
+   "matiere": "Sciences industrielles (SII)",
+   "description": "1er et 2e ordre, Bode, stabilité, cinématique",
+   "source": "Fiches partagées : SII PCSI"
+  },
+  {
+   "fichier": "fiches_maths_pcsi.json",
+   "titre": "Maths PCSI : algèbre linéaire, intégration, DL",
+   "matiere": "Mathématiques",
+   "description": "espaces vectoriels, applications linéaires, bases, Taylor, DL",
+   "source": "Fiches partagées : maths PCSI"
+  }
+ ]
+}
