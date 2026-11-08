@@ -40,6 +40,26 @@ function carteCreneau(c, maintenant) {
   </button>`;
 }
 
+/** Durée (min) d'une colle / d'un DS : celle indiquée, sinon 1 h (colle) ou 4 h (DS). */
+const dureeEvt = (e) => e.duree ?? (e.type === "DS" || e.type === "EVALUATION" ? 240 : 60);
+
+function carteEvenementJour(e, enCours) {
+  const h = e.heure != null ? `${heureLisible(e.heure)}–${heureLisible(e.heure + dureeEvt(e))}` : "Journée";
+  return `<a class="creneau evt-jour${enCours ? " en-cours" : ""}" href="#/epreuve/${e.id}" style="--c:${(TYPES[e.type] || TYPES.AUTRE).coul}">
+    <span class="creneau-h">${h} · <b style="color:var(--c)">${(TYPES[e.type] || TYPES.AUTRE).lib.toUpperCase()}</b></span>
+    <span class="creneau-t">${titreColore(e)}</span>
+    ${e.salle || e.colleur ? `<span class="petit muet">${[e.salle, e.colleur].filter(Boolean).map(echapper).join(" · ")}</span>` : ""}</a>`;
+}
+
+/** Créneaux et colles / DS d'un jour, dans l'ordre des heures (sans heure : en haut). */
+function fusionner(cs, ep, min) {
+  const items = [
+    ...cs.map((c) => ({ t: c.debut, html: carteCreneau(c, min != null && c.debut <= min && c.fin > min) })),
+    ...ep.map((e) => ({ t: e.heure ?? -1, html: carteEvenementJour(e, min != null && e.heure != null && e.heure <= min && e.heure + dureeEvt(e) > min) })),
+  ];
+  return items.sort((a, b) => a.t - b.t).map((x) => x.html).join("");
+}
+
 /** Bloc de l'accueil : les cours d'aujourd'hui (ou de demain, une fois la journée finie). */
 export function blocEdtAccueil() {
   const liste = creneauxTous();
@@ -55,7 +75,7 @@ export function blocEdtAccueil() {
   }
   if (!cs.length) return "";
   return `<section><h2 class="titre-section">${titre}${typeSemaine(jour) ? ` · semaine ${typeSemaine(jour)}` : ""} <a class="lien petit" href="#/edt">Emploi du temps ›</a></h2>
-    <div class="liste-creneaux">${cs.map((c) => carteCreneau(c, jour === j && c.debut <= min && c.fin > min)).join("")}</div></section>`;
+    <div class="liste-creneaux">${fusionner(cs, tousLesEvenements().filter((e) => e.jour === jour && (jour !== j || e.heure == null || e.heure + dureeEvt(e) > min)), jour === j ? min : null)}</div></section>`;
 }
 
 // ------------------------------------------------------------------ Page Emploi du temps
@@ -88,8 +108,7 @@ export function vueEdt(el, nav, params) {
         const ep = evs.filter((e) => e.jour === jour);
         return `<div class="jour${jour === j ? " aujourdhui" : ""}">
           <h3>${NOMS_JOURS[i + 1]} <span class="muet">${court(jour)}</span></h3>
-          ${ep.map((e) => `<a class="evt-mini" href="#/epreuve/${e.id}" style="--c:${(TYPES[e.type] || TYPES.AUTRE).coul}">${e.heure != null ? heureLisible(e.heure) + " · " : ""}${titreColore(e)}</a>`).join("")}
-          ${cs.map((c) => carteCreneau(c, jour === j && c.debut <= min && c.fin > min)).join("") || (ep.length ? "" : `<p class="petit muet">—</p>`)}
+          ${fusionner(cs, ep, jour === j ? min : null) || `<p class="petit muet">—</p>`}
         </div>`;
       }).join("")}
     </div>

@@ -408,3 +408,4 @@ select { font: inherit; color: var(--texte); background: var(--fond); border: 1p
 .ligne.faite .texte-bouton > span:first-child { text-decoration: line-through; color: var(--muet); }
 .titre-section .bouton.petit { margin-left: auto; padding: 2px 12px; }
 .titre-section:has(.lien), .titre-section:has(.bouton) { display: flex; align-items: center; gap: 8px; }
+.evt-jour { text-decoration: none; color: var(--texte); border: 1px solid var(--c); border-left-width: 4px; background: color-mix(in srgb, var(--c) 12%, var(--surface-2)); }
