@@ -544,10 +544,60 @@ export function vueAide(el, nav) {
         <li>Les photos et PDF prennent de la place : fais une sauvegarde de temps en temps.</li>
       </ul>
 
+      <h2>Ajouter tes propres fiches de cours</h2>
+      <p>Les formules du catalogue ne suffisent pas ? Tu peux transformer <b>tes fiches de cours</b> (photos, PDF, notes manuscrites) en cartes de révision, avec l'aide de Claude :</p>
+      <ol>
+        <li>Touche <b>« Copier la demande pour Claude »</b> ci-dessous.</li>
+        <li>Ouvre <b>Claude</b> (claude.ai ou l'appli, le compte gratuit suffit), colle la demande et <b>joins les photos ou le PDF</b> de ta fiche. Précise la matière et le chapitre.</li>
+        <li>Claude te renvoie un fichier <b>.json</b> : enregistre-le sur ton téléphone ou ton PC.</li>
+        <li>Dans l'appli : <a href="#/matieres">Matières</a> → ta matière → <b>« Importer mes fiches (.json) »</b>. Les nouvelles formules arrivent dans le bon chapitre (créé s'il n'existe pas), sans doublon.</li>
+      </ol>
+      <p class="petit muet">Relis les formules importées (touche une formule pour voir sa fiche) : une photo floue peut donner une erreur. Tu peux aussi envoyer tes fiches au créateur de l'appli pour qu'il les ajoute aux <a href="#/partage">fiches partagées</a> de toute la classe.</p>
+      <div class="rangee-boutons"><button class="bouton primaire" id="copier-demande">📋 Copier la demande pour Claude</button></div>
+      <details class="replie"><summary>Voir la demande</summary><pre class="bloc-texte" id="demande-claude"></pre></details>
+
       <h2>Tes données</h2>
       <p>Tout reste <b>sur ton appareil</b> (rien n'est envoyé sur Internet). Fais une <a href="#/sauvegarde">sauvegarde</a> de temps en temps : elle protège ta progression et permet de passer du téléphone au PC (même format que l'appli Android).</p>
     </article>`;
+  el.querySelector("#demande-claude").textContent = DEMANDE_FICHES;
+  el.querySelector("#copier-demande").onclick = async () => {
+    try { await navigator.clipboard.writeText(DEMANDE_FICHES); toast("Demande copiée ✓ Colle-la dans Claude avec tes photos."); }
+    catch { el.querySelector("details.replie").open = true; toast("Copie impossible : sélectionne le texte de la demande."); }
+  };
 }
+
+/** Demande à coller dans Claude pour transformer une fiche de cours en fichier importable. */
+const DEMANDE_FICHES = `Je révise avec l'appli malivertcpge (prépa scientifique). Transforme la fiche de cours jointe (photos ou PDF) en un fichier JSON que je pourrai importer dans l'appli.
+
+Format exact (un fichier .json téléchargeable, UTF-8) :
+{
+ "chapitres": [
+  {
+   "titre": "Titre du chapitre",
+   "programme": "PCSI" ou "PSI" ou "LES_DEUX",
+   "formules": [
+    {
+     "intitule": "Nom court de la formule (ex. Théorème de Gauss)",
+     "latex": "la formule en LaTeX, sans $ autour (ex. \\oint \\vec E \\cdot \\dd\\vec S = \\frac{Q_{int}}{\\varepsilon_0})",
+     "symboles": "signification de chaque symbole, avec $...$ pour les maths",
+     "hypotheses": "conditions de validité",
+     "unites": "unités, ordre de grandeur",
+     "erreursFrequentes": "pièges classiques",
+     "exemple": "petit exemple d'application (facultatif)"
+    }
+   ]
+  }
+ ]
+}
+
+Règles :
+- une entrée par formule ou résultat à retenir (définitions et théorèmes compris) ; plusieurs lignes : \\begin{gathered} ... \\\\ ... \\end{gathered} ;
+- n'invente rien : recopie fidèlement ma fiche, et signale-moi à part les erreurs que tu y vois ;
+- laisse "" pour les champs que la fiche ne donne pas ;
+- pour une matière littéraire ou une langue, mets le texte à retenir dans "latex" sous la forme \\text{ton texte} (une ligne par \\text{...}, séparées par \\\\) ;
+- dans le fichier JSON, chaque \\ du LaTeX doit être doublé (\\\\frac, \\\\\\\\) pour que le JSON soit valide.
+Matière et chapitre : [à compléter]`;
+
 
 // ------------------------------------------------------------------ Installation
 
