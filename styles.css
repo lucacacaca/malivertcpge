@@ -374,6 +374,37 @@ select { font: inherit; color: var(--texte); background: var(--fond); border: 1p
 .creneau-t { font-weight: 600; font-size: 14px; }
 .evt-mini { display: block; font-size: 13px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--c); color: var(--texte); text-decoration: none; background: rgba(255,255,255,.03); }
 .liste-creneaux { display: flex; flex-direction: column; gap: 6px; }
-.titre-section .lien { float: right; text-transform: none; letter-spacing: 0; font-weight: 400; }
+.titre-section .lien { margin-left: auto; text-transform: none; letter-spacing: 0; font-weight: 400; }
 @media (min-width: 900px) { .semaine .creneau-t { font-size: 13px; } .semaine .creneau .petit, .evt-mini { font-size: 12px; } .jour h3 { font-size: 14px; } }
 @media (min-width: 1300px) { body:not(.en-seance) #contenu:has(.semaine) { max-width: 1100px; } }
+
+/* ---------------------------------------------------------------- W3 : cours, TD, à faire, TIPE */
+.grille-photos { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; margin: 10px 0 14px; }
+.vignette { aspect-ratio: 3 / 4; border: 1px solid var(--bord); border-radius: 10px; overflow: hidden; padding: 0; background: var(--surface-2); cursor: pointer; }
+.vignette img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.vignette.ajout { display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 26px; color: var(--muet); border-style: dashed; }
+.vignette.ajout small { font-size: 12px; }
+.ico-doc { font-size: 24px; }
+.note-cours { background: var(--surface); border: 1px solid var(--bord); border-radius: 12px; padding: 12px 14px; cursor: pointer; }
+.texte-note { white-space: pre-wrap; margin-top: 6px; max-height: 260px; overflow: hidden; color: var(--texte); }
+.visionneuse { position: fixed; inset: 0; z-index: 80; background: rgba(0, 0, 0, .94); display: flex; flex-direction: column; }
+.vis-haut { display: flex; align-items: center; gap: 10px; justify-content: flex-end; padding: calc(10px + env(safe-area-inset-top)) 12px 10px; color: #fff; }
+.vis-haut span { margin-right: auto; }
+.vis-haut .icone { font-size: 22px; color: #fff; background: none; border: 0; }
+.vis-image { flex: 1; overflow: auto; display: flex; align-items: center; justify-content: center; touch-action: pinch-zoom; }
+.vis-image img { max-width: 100%; max-height: 100%; }
+.vis-nav { position: absolute; top: 50%; transform: translateY(-50%); font-size: 40px; color: #fff; background: rgba(255,255,255,.08); border: 0; border-radius: 10px; padding: 6px 12px; cursor: pointer; }
+.vis-nav.g { left: 8px; } .vis-nav.d { right: 8px; }
+.exo { padding: 8px 10px; }
+.exo .ligne-texte { color: var(--texte); text-decoration: none; }
+.statut { flex: none; min-width: 88px; font-size: 12px; font-weight: 700; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--c); color: var(--c); background: transparent; cursor: pointer; }
+.statut-choix.actif { border-color: var(--c); background: color-mix(in srgb, var(--c) 25%, transparent); }
+.sous-titre a { color: inherit; text-decoration: none; }
+.bloc-texte { white-space: pre-wrap; background: var(--fond); border: 1px solid var(--bord); border-radius: 10px; padding: 10px; font: 13px/1.4 var(--police); }
+.ajout-rapide { display: flex; gap: 8px; }
+.ajout-rapide input { flex: 1; }
+.tache input[type=checkbox], .ligne > input[type=checkbox] { width: 22px; height: 22px; accent-color: var(--primaire); flex: none; }
+.texte-bouton { background: none; border: 0; padding: 0; text-align: left; cursor: pointer; color: var(--texte); font: inherit; }
+.ligne.faite .texte-bouton > span:first-child { text-decoration: line-through; color: var(--muet); }
+.titre-section .bouton.petit { margin-left: auto; padding: 2px 12px; }
+.titre-section:has(.lien), .titre-section:has(.bouton) { display: flex; align-items: center; gap: 8px; }

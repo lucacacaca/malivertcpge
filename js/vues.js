@@ -5,13 +5,14 @@ import { lesCatalogues, cataloguePour, ajouterChapitres, completerFormules, lire
 import { rendreMath, ficheFormule } from "./rendu.js";
 import { blocSemaineAccueil } from "./planning.js";
 import { blocEdtAccueil } from "./edt.js";
+import { ongletCours, ongletTd, blocTachesAccueil, brancherTaches } from "./w3.js";
 import { lesClasses, maClasse, formulaireClasse, lireFormulaireClasse, installerClasse, resumeInstallation } from "./classe.js";
 import {
   echapper, aujourdhui, debutDuJourMillis, dateLisible, delaiLisible, couleurHex, couleurArgb, dialogue, confirmer, toast,
   telecharger, choisirFichier, reglages, simplifier,
 } from "./util.js";
 
-export const VERSION_APPLI = "W2 · 1.0";
+export const VERSION_APPLI = "W3 · 1.0";
 
 const pct = (x) => Math.round(x * 100);
 const LIB_PROGRAMME = { PCSI: "PCSI", PSI: "PSI", LES_DEUX: "PCSI + PSI" };
@@ -91,6 +92,7 @@ export function vueAccueil(el, nav) {
     </section>
     <div id="maj-classe"></div>
     ${blocEdtAccueil()}
+    ${blocTachesAccueil()}
     ${blocSemaineAccueil()}
     <section>
       <h2 class="titre-section">Progression</h2>
@@ -103,8 +105,9 @@ export function vueAccueil(el, nav) {
         </div>`).join("") : `<p class="muet">Pas encore de formules. Va dans « Matières » pour ajouter des chapitres.</p>`}
     </section>
     ${jSauv === null || jSauv >= 7 ? `<div class="encart"><div><b>Sauvegarde</b><p class="petit">${jSauv === null ? "Tu n'as encore jamais fait de sauvegarde." : `Dernière sauvegarde il y a ${jSauv} jours.`} Elle protège ta progression et permet de passer au téléphone / au PC.</p></div><button class="bouton" data-nav="#/sauvegarde">Sauvegarder</button></div>` : ""}
-    <div class="encart discret"><div><b>Bientôt</b><p class="petit">TD, cours, TIPE, liste « À faire » et emploi du temps (étape W3).</p></div></div>
+    <div class="encart discret"><div><b>Astuce</b><p class="petit">Dans chaque chapitre : onglets Cours (photos, PDF, notes) et TD (exercices faits / à refaire). Plus → À faire et TIPE.</p></div></div>
   `;
+  brancherTaches(el, nav);
   // Mise à jour du colloscope / de l'emploi du temps de la classe disponible ?
   const c = maClasse();
   if (c) lesClasses().then((idx) => {
@@ -178,6 +181,7 @@ export async function vueMatiere(el, id, nav) {
     <div class="rangee-boutons">
       ${visibles.length ? `<button class="bouton primaire" data-nav="#/seance?c=${visibles.map((c) => c.id).join(",")}&t=${encodeURIComponent(m.nom)}">▶ Réviser la matière</button>` : ""}
       ${cat ? `<button class="bouton" id="cat">+ Chapitres du catalogue</button>` : ""}
+      <a class="bouton" href="#/td/${id}">📋 Tous les TD</a>
       <button class="bouton" id="import">Importer mes fiches (.json)</button>
     </div>
     <div class="liste">${visibles.map(ligne).join("") || `<p class="muet">Aucun chapitre. ${cat ? "Ajoute-en depuis le catalogue." : "Importe tes fiches ou ajoute un chapitre."}</p>`}</div>
@@ -262,15 +266,27 @@ async function dialogueCatalogue(m, cat, nav) {
 
 // ------------------------------------------------------------------ Chapitre
 
-export function vueChapitre(el, id, nav) {
+export function vueChapitre(el, id, nav, params = new URLSearchParams()) {
   const c = un("SELECT c.*, m.nom AS matiereNom, m.couleur AS matiereCouleur FROM chapitres c INNER JOIN matieres m ON m.id = c.matiereId WHERE c.id = ?", [id]);
   if (!c) { el.innerHTML = `<p>Chapitre introuvable.</p>`; return; }
   const couleur = couleurHex(c.couleur ?? c.matiereCouleur);
   const fs = tous("SELECT * FROM formules WHERE chapitreId = ? ORDER BY ordre, id", [id]);
-  el.innerHTML = `
+  const onglet = params.get("onglet") || "formules";
+  const nbDocs = valeur("SELECT COUNT(*) FROM documents WHERE chapitreId = ?", [id]);
+  const nbEx = valeur("SELECT COUNT(*) FROM exercices WHERE chapitreId = ?", [id]);
+  const entete = `
     <a class="retour" href="#/matiere/${c.matiereId}">‹ ${echapper(c.matiereNom)}</a>
     <h1 class="titre-page">${echapper(c.titre)}</h1>
     <p class="petit muet">${LIB_PROGRAMME[c.programme] || ""}${c.reference ? ` · ${echapper(c.reference)}` : ""}</p>
+    <nav class="sous-onglets">${[["formules", `Formules (${fs.length})`], ["cours", `Cours${nbDocs ? ` (${nbDocs})` : ""}`], ["td", `TD${nbEx ? ` (${nbEx})` : ""}`]]
+      .map(([k, t]) => `<a href="#/chapitre/${id}${k === "formules" ? "" : "?onglet=" + k}" class="${k === onglet ? "actif" : ""}">${t}</a>`).join("")}</nav>`;
+  if (onglet !== "formules") {
+    el.innerHTML = entete + `<div id="zone-onglet"></div>`;
+    const zone = el.querySelector("#zone-onglet");
+    if (onglet === "cours") ongletCours(zone, id, nav); else ongletTd(zone, id, nav);
+    return;
+  }
+  el.innerHTML = `${entete}
     <div class="rangee-boutons">
       ${fs.length ? `<button class="bouton primaire" data-nav="#/seance?c=${id}&t=${encodeURIComponent(c.titre)}">▶ Réviser ce chapitre</button>` : ""}
       <button class="bouton discret" id="masquer">${c.masque ? "Afficher le chapitre" : "Masquer le chapitre"}</button>
@@ -364,6 +380,8 @@ export function vuePlus(el, nav) {
   el.innerHTML = `
     <h1 class="titre-page">Plus</h1>
     <div class="grille-choix">
+      <button class="choix" data-nav="#/taches"><b>✅ À faire</b><span>Ce que tu ne veux pas oublier, par importance et par date</span></button>
+      <button class="choix" data-nav="#/tipe"><b>🔬 TIPE</b><span>Échéances, tâches et achats</span></button>
       <button class="choix" data-nav="#/classe"><b>🏫 Ma classe</b><span>Groupe de colle, TD, TP, LV2 : colloscope et emploi du temps</span></button>
       <button class="choix" data-nav="#/sauvegarde"><b>💾 Sauvegarde</b><span>Exporter, restaurer, passer du téléphone au PC</span></button>
       <button class="choix" data-nav="#/partage"><b>📚 Fiches partagées</b><span>Fiches supplémentaires à ajouter</span></button>
@@ -515,6 +533,15 @@ export function vueAide(el, nav) {
         <li>À l'ouverture de l'appli, un rappel affiche les colles et DS des 2 prochains jours.</li>
         <li><a href="#/classe">Ma classe</a> : choisis ta classe, ton groupe de colle et tes groupes (TD, TP, LV2). Tes colles, les DS de la classe et ton <a href="#/edt">emploi du temps</a> s'installent tout seuls, et se mettent à jour avec l'appli.</li>
         <li>Dans <a href="#/resultats">Résultats</a>, ajoute tes notes : moyennes par matière, moyenne générale avec coefficients, courbes, cette année et l'année passée.</li>
+      </ul>
+
+      <h2>Cours, TD, À faire, TIPE</h2>
+      <ul>
+        <li>Dans un chapitre, l'onglet <b>Cours</b> garde tes pages de cours en photo, tes PDF et des notes écrites ; l'onglet <b>TD</b> liste tes exercices : touche le statut pour passer de « Pas fait » à « Fait », « Maîtrisé » ou « À refaire », ajoute la photo de l'énoncé et de la correction.</li>
+        <li>Avant une colle, sa page montre aussi les <b>TD de ses chapitres</b> : refais ceux « À refaire ».</li>
+        <li><a href="#/taches">À faire</a> : tout ce que tu ne veux pas oublier, avec importance et date. Les plus urgentes s'affichent sur l'accueil.</li>
+        <li><a href="#/tipe">TIPE</a> : échéances, tâches et liste d'achats.</li>
+        <li>Les photos et PDF prennent de la place : fais une sauvegarde de temps en temps.</li>
       </ul>
 
       <h2>Tes données</h2>

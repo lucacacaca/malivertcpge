@@ -26,4 +26,4 @@ Tout reste **sur ton appareil** : rien n'est envoyé sur internet. Pour changer 
 
 - **W1** : révisions, installation, tutoriel, sauvegarde ✓
 - **W2** : planning des colles et DS, notes et moyennes, ajout au calendrier ✓
-- **W3** : TD, cours, TIPE, à faire, emploi du temps
+- **W3** : cours (photos, PDF, notes), TD, à faire, TIPE, emploi du temps, « Ma classe » ✓

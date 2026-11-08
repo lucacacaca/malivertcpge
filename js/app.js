@@ -4,6 +4,7 @@ import { ouvrir, surChangement } from "./db.js";
 import { lancerSeance } from "./seance.js";
 import { lancerVisite } from "./tuto.js";
 import { vueEdt } from "./edt.js";
+import { vueExercice, vueTdMatiere, vueTaches, vueTipe } from "./w3.js";
 import { vueClasse } from "./classe.js";
 import { vuePlanning, vueEvenement, vueDetail, vueResultats, rappelOuverture } from "./planning.js";
 import {
@@ -84,28 +85,36 @@ async function route(garderDefilement = false) {
     return;
   }
   document.body.classList.toggle("sans-nav", morceaux[0] === "assistant");
+  // Chaque page s'affiche dans un bloc neuf (les écouteurs de la page précédente disparaissent avec).
   contenu.onclick = null;
-  const onglets = { accueil: "accueil", matieres: "matieres", matiere: "matieres", chapitre: "matieres", reviser: "reviser", planning: "planning", resultats: "planning", evenement: "planning", epreuve: "planning", edt: "planning", classe: "plus", plus: "plus", sauvegarde: "plus", partage: "plus", aide: "plus", installer: "plus" };
+  const vue = document.createElement("div");
+  vue.className = "vue";
+  contenu.replaceChildren(vue);
+  const onglets = { accueil: "accueil", matieres: "matieres", matiere: "matieres", chapitre: "matieres", exercice: "matieres", td: "matieres", taches: "plus", tipe: "plus", reviser: "reviser", planning: "planning", resultats: "planning", evenement: "planning", epreuve: "planning", edt: "planning", classe: "plus", plus: "plus", sauvegarde: "plus", partage: "plus", aide: "plus", installer: "plus" };
   marquerOnglet(onglets[morceaux[0]] || "accueil");
   try {
     switch (morceaux[0]) {
-      case "assistant": await vueAssistant(contenu, nav); break;
-      case "matieres": vueMatieres(contenu, nav); break;
-      case "matiere": await vueMatiere(contenu, Number(morceaux[1]), nav); break;
-      case "chapitre": vueChapitre(contenu, Number(morceaux[1]), nav); break;
-      case "reviser": vueReviser(contenu, nav); break;
-      case "plus": vuePlus(contenu, nav); break;
-      case "sauvegarde": vueSauvegarde(contenu, nav); break;
-      case "partage": await vuePartage(contenu, nav); break;
-      case "aide": vueAide(contenu, nav); break;
-      case "installer": vueInstaller(contenu, nav); break;
-      case "planning": vuePlanning(contenu, nav, params); break;
-      case "evenement": vueEvenement(contenu, Number(morceaux[1]) || 0, nav); break;
-      case "epreuve": vueDetail(contenu, Number(morceaux[1]) || 0, nav, params); break;
-      case "resultats": vueResultats(contenu, nav, params); break;
-      case "edt": vueEdt(contenu, nav, params); break;
-      case "classe": await vueClasse(contenu, nav); break;
-      default: vueAccueil(contenu, nav);
+      case "assistant": await vueAssistant(vue, nav); break;
+      case "matieres": vueMatieres(vue, nav); break;
+      case "matiere": await vueMatiere(vue, Number(morceaux[1]), nav); break;
+      case "chapitre": vueChapitre(vue, Number(morceaux[1]), nav, params); break;
+      case "exercice": vueExercice(vue, Number(morceaux[1]), nav); break;
+      case "td": vueTdMatiere(vue, Number(morceaux[1])); break;
+      case "taches": vueTaches(vue, nav); break;
+      case "tipe": vueTipe(vue, nav); break;
+      case "reviser": vueReviser(vue, nav); break;
+      case "plus": vuePlus(vue, nav); break;
+      case "sauvegarde": vueSauvegarde(vue, nav); break;
+      case "partage": await vuePartage(vue, nav); break;
+      case "aide": vueAide(vue, nav); break;
+      case "installer": vueInstaller(vue, nav); break;
+      case "planning": vuePlanning(vue, nav, params); break;
+      case "evenement": vueEvenement(vue, Number(morceaux[1]) || 0, nav); break;
+      case "epreuve": vueDetail(vue, Number(morceaux[1]) || 0, nav, params); break;
+      case "resultats": vueResultats(vue, nav, params); break;
+      case "edt": vueEdt(vue, nav, params); break;
+      case "classe": await vueClasse(vue, nav); break;
+      default: vueAccueil(vue, nav);
     }
   } catch (e) {
     console.error(e);

@@ -1,6 +1,6 @@
 // Service worker : garde l'appli sur l'appareil pour qu'elle marche HORS LIGNE.
 // Fichier généré par outils/construire.py (ne pas modifier à la main).
-const VERSION = "3c7addcac4";
+const VERSION = "78ae931fd0";
 const CACHE = "malivertcpge-" + VERSION;
 const FICHIERS = [
   "./",
@@ -19,6 +19,7 @@ const FICHIERS = [
   "js/tuto.js",
   "js/util.js",
   "js/vues.js",
+  "js/w3.js",
   "vendor/jszip.min.js",
   "vendor/sql-wasm.js",
   "vendor/sql-wasm.wasm",

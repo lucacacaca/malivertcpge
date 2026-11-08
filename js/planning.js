@@ -2,6 +2,7 @@
 // rappels à l'ouverture et ajout au calendrier (.ics). Même base que l'appli Android.
 
 import { tous, un, valeur, executer, dernierId, transaction } from "./db.js";
+import { blocTdEpreuve } from "./w3.js";
 import {
   echapper, aujourdhui, dateLisible, delaiLisible, couleurHex, dialogue, confirmer, toast,
   telecharger, choisirFichier, reglages, simplifier,
@@ -535,8 +536,10 @@ export function vueDetail(el, id, nav, params) {
         <div class="barre"><div style="width:${pct(p.progression)}%;background:var(--primaire)"></div></div>
         <span class="petit muet">${echapper(p.matiere)} · ${p.nbFormules} formule(s) · ${p.ancrees} carte(s) bien ancrée(s)${p.dues ? ` · ${p.dues} à revoir` : ""}</span></a>`).join("")}</div>`
       : `<p class="muet">${e?.matiereSansProgramme ? "Pas de programme pour cette matière." : "Aucun chapitre au programme : touche « ✎ Modifier » pour les cocher."}</p>`) : ""}
-    ${prepa && prog.length ? `<p class="petit muet">Les TD de ces chapitres apparaîtront ici à l'étape W3.</p>` : ""}
+    ${prepa && prog.length ? `<div id="td-epreuve"></div>` : ""}
   `;
+  const zoneTd = el.querySelector("#td-epreuve");
+  if (zoneTd) blocTdEpreuve(zoneTd, prog.map((p) => p.chapitreId));
   const cal = el.querySelector("#calendrier");
   if (cal) cal.onclick = () => ajouterAuCalendrier([e], `${simplifier(titreAffiche(e)).replace(/[^a-z0-9]+/g, "_")}.ics`);
   const bn = el.querySelector("#note");
