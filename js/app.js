@@ -3,9 +3,10 @@
 import { ouvrir, surChangement } from "./db.js";
 import { lancerSeance } from "./seance.js";
 import { lancerVisite } from "./tuto.js";
+import { vuePlanning, vueEvenement, vueDetail, vueResultats, rappelOuverture } from "./planning.js";
 import {
   vueAccueil, vueMatieres, vueMatiere, vueChapitre, vueReviser, vuePlus, vueSauvegarde, vuePartage,
-  vueAide, vueInstaller, vueBientot, vueAssistant,
+  vueAide, vueInstaller, vueAssistant,
 } from "./vues.js";
 import { reglages, toast } from "./util.js";
 
@@ -82,7 +83,7 @@ async function route(garderDefilement = false) {
   }
   document.body.classList.toggle("sans-nav", morceaux[0] === "assistant");
   contenu.onclick = null;
-  const onglets = { accueil: "accueil", matieres: "matieres", matiere: "matieres", chapitre: "matieres", reviser: "reviser", planning: "planning", resultats: "planning", plus: "plus", sauvegarde: "plus", partage: "plus", aide: "plus", installer: "plus" };
+  const onglets = { accueil: "accueil", matieres: "matieres", matiere: "matieres", chapitre: "matieres", reviser: "reviser", planning: "planning", resultats: "planning", evenement: "planning", epreuve: "planning", plus: "plus", sauvegarde: "plus", partage: "plus", aide: "plus", installer: "plus" };
   marquerOnglet(onglets[morceaux[0]] || "accueil");
   try {
     switch (morceaux[0]) {
@@ -96,8 +97,10 @@ async function route(garderDefilement = false) {
       case "partage": await vuePartage(contenu, nav); break;
       case "aide": vueAide(contenu, nav); break;
       case "installer": vueInstaller(contenu, nav); break;
-      case "planning": vueBientot(contenu, "planning"); break;
-      case "resultats": vueBientot(contenu, "resultats"); break;
+      case "planning": vuePlanning(contenu, nav, params); break;
+      case "evenement": vueEvenement(contenu, Number(morceaux[1]) || 0, nav); break;
+      case "epreuve": vueDetail(contenu, Number(morceaux[1]) || 0, nav, params); break;
+      case "resultats": vueResultats(contenu, nav, params); break;
       default: vueAccueil(contenu, nav);
     }
   } catch (e) {
@@ -129,7 +132,9 @@ async function demarrer() {
   surChangement(() => route(true));
   window.addEventListener("hashchange", () => route());
   document.getElementById("chargement").remove();
-  route();
+  await route();
+  // Rappel des colles / DS proches (une fois par jour), sauf pendant l'assistant ou une séance.
+  if (reglages.lire("assistantFait", false) && !/^#\/(seance|assistant)/.test(location.hash)) rappelOuverture(nav).catch(console.error);
 }
 
 if ("serviceWorker" in navigator) {

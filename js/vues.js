@@ -3,12 +3,13 @@
 import { tous, un, valeur, executer, dernierId, exporterSauvegarde, analyserSauvegarde, restaurerSauvegarde, resumeSauvegarde, nomSauvegarde, reinitialiser } from "./db.js";
 import { lesCatalogues, cataloguePour, ajouterChapitres, completerFormules, lireFiches, importerFiches, fichesPartagees, ajouterFichesPartagees } from "./catalogue.js";
 import { rendreMath, ficheFormule } from "./rendu.js";
+import { blocSemaineAccueil } from "./planning.js";
 import {
   echapper, aujourdhui, debutDuJourMillis, dateLisible, delaiLisible, couleurHex, couleurArgb, dialogue, confirmer, toast,
   telecharger, choisirFichier, reglages, simplifier,
 } from "./util.js";
 
-export const VERSION_APPLI = "W1 · 1.0";
+export const VERSION_APPLI = "W2 · 1.0";
 
 const pct = (x) => Math.round(x * 100);
 const LIB_PROGRAMME = { PCSI: "PCSI", PSI: "PSI", LES_DEUX: "PCSI + PSI" };
@@ -70,7 +71,6 @@ export function vueAccueil(el, nav) {
     const m = parMatiere.get(p.matiereId);
     if (p.nbFormules > 0) { m.somme += p.progression; m.n++; }
   }
-  const objectifs = tous("SELECT * FROM objectifs WHERE jour >= ? ORDER BY jour LIMIT 3", [aujourdhui()]);
   const jSauv = joursDepuisSauvegarde();
   const heure = new Date().getHours();
   const salut = heure < 6 ? "Bonne nuit" : heure < 18 ? "Bonjour" : "Bonsoir";
@@ -87,11 +87,7 @@ export function vueAccueil(el, nav) {
       <button class="bouton primaire large" id="btn-reviser" data-nav="#/seance">▶ Réviser maintenant</button>
       <p class="petit muet centre">${s.dues ? "On commence par faire le tour de tes formules, puis les cartes dues." : s.jamais ? `${s.jamais} formule(s) jamais vue(s) t'attendent.` : "Tout est à jour : une petite séance d'entretien ?"}</p>
     </section>
-    ${objectifs.length ? `<section><h2 class="titre-section">Colles et DS à préparer</h2>${objectifs.map((o) => `
-      <div class="ligne">
-        <div class="ligne-texte"><b>${echapper(o.titre)}</b><span class="petit muet">${dateLisible(o.jour)} · ${delaiLisible(o.jour)}</span></div>
-        <button class="bouton petit" data-nav="#/seance?o=${o.id}">Réviser</button>
-      </div>`).join("")}</section>` : ""}
+    ${blocSemaineAccueil()}
     <section>
       <h2 class="titre-section">Progression</h2>
       ${parMatiere.size ? [...parMatiere.values()].filter((m) => m.n).map((m) => `
@@ -103,7 +99,7 @@ export function vueAccueil(el, nav) {
         </div>`).join("") : `<p class="muet">Pas encore de formules. Va dans « Matières » pour ajouter des chapitres.</p>`}
     </section>
     ${jSauv === null || jSauv >= 7 ? `<div class="encart"><div><b>Sauvegarde</b><p class="petit">${jSauv === null ? "Tu n'as encore jamais fait de sauvegarde." : `Dernière sauvegarde il y a ${jSauv} jours.`} Elle protège ta progression et permet de passer au téléphone / au PC.</p></div><button class="bouton" data-nav="#/sauvegarde">Sauvegarder</button></div>` : ""}
-    <div class="encart discret"><div><b>Bientôt</b><p class="petit">Planning des colles et DS, notes et moyennes (étape W2), puis TD, cours, TIPE et emploi du temps (W3).</p></div></div>
+    <div class="encart discret"><div><b>Bientôt</b><p class="petit">TD, cours, TIPE, liste « À faire » et emploi du temps (étape W3).</p></div></div>
   `;
 }
 
@@ -497,6 +493,15 @@ export function vueAide(el, nav) {
         <li><b>Avant une colle ou un DS</b>, révise depuis la colle (mode DS : les révisions sont resserrées pour tout revoir avant l'épreuve).</li>
       </ul>
 
+      <h2>Planning, colles et DS</h2>
+      <ul>
+        <li>Dans <a href="#/planning">Planning</a>, ajoute tes colles et DS avec <b>+ Ajouter</b>, puis coche les <b>chapitres au programme</b>. L'appli crée alors une révision ciblée (Réviser → Colles et DS).</li>
+        <li>Tu peux aussi <b>importer un fichier</b> : envoie une photo de ton colloscope à Claude, qui te prépare le fichier (même format que l'appli Android).</li>
+        <li>Touche une colle pour voir la <b>progression de ses chapitres</b>, la réviser ou l'<b>ajouter au calendrier</b> de ton téléphone. Le calendrier te rappelle la veille et 1 h avant.</li>
+        <li>À l'ouverture de l'appli, un rappel affiche les colles et DS des 2 prochains jours.</li>
+        <li>Dans <a href="#/resultats">Résultats</a>, ajoute tes notes : moyennes par matière, moyenne générale avec coefficients, courbes, cette année et l'année passée.</li>
+      </ul>
+
       <h2>Tes données</h2>
       <p>Tout reste <b>sur ton appareil</b> (rien n'est envoyé sur Internet). Fais une <a href="#/sauvegarde">sauvegarde</a> de temps en temps : elle protège ta progression et permet de passer du téléphone au PC (même format que l'appli Android).</p>
     </article>`;
@@ -533,18 +538,6 @@ export function vueInstaller(el, nav) {
     <p class="petit muet">Mises à jour : elles s'installent toutes seules à l'ouverture de l'appli (connexion Internet nécessaire de temps en temps).</p>`;
   const b = el.querySelector("#installer");
   if (b) b.onclick = () => nav.installer();
-}
-
-// ------------------------------------------------------------------ Bientôt (W2 / W3)
-
-export function vueBientot(el, quoi) {
-  const textes = {
-    planning: ["Planning", "Colles, DS et évaluations, programmes, révision ciblée avant chaque épreuve, ajout au calendrier du téléphone."],
-    resultats: ["Résultats", "Notes, moyennes par matière et générale, graphiques, cette année / année passée."],
-  };
-  const [t, d] = textes[quoi] || ["Bientôt", ""];
-  el.innerHTML = `<h1 class="titre-page">${t}</h1><div class="encart discret"><div><b>Arrive à l'étape W2</b><p>${d}</p>
-    <p class="petit">Si tu as restauré une sauvegarde de l'appli Android, tes données sont déjà là : elles s'afficheront ici dès la prochaine version.</p></div></div>`;
 }
 
 // ------------------------------------------------------------------ Assistant de départ

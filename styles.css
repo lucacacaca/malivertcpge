@@ -302,3 +302,51 @@ input:focus-visible, button:focus-visible, a:focus-visible { outline: 2px solid 
 .visite-bulle p { margin: 6px 0 0; }
 .visite-compteur { font-size: 12px; color: var(--primaire); }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* ---------------------------------------------------------------- Planning et résultats (W2) */
+.entete-page { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.onglets { display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 0 16px; }
+.onglet { padding: 8px 14px; border-radius: 999px; border: 1px solid var(--bord); color: var(--muet); text-decoration: none; font-size: 14px; }
+.onglet.actif { background: var(--primaire); color: var(--primaire-texte); border-color: var(--primaire); font-weight: 600; }
+.encadre-semaines { border-color: rgba(124, 156, 255, .5); background: linear-gradient(180deg, rgba(124, 156, 255, .10), var(--surface)); }
+.enc-titre { font-size: 15px; margin: 4px 0 6px; }
+.enc-titre:not(:first-child) { margin-top: 14px; }
+.enc-ligne { display: flex; gap: 10px; align-items: stretch; padding: 5px 0; color: var(--texte); text-decoration: none; }
+.trait { width: 4px; border-radius: 2px; flex: none; align-self: stretch; min-height: 30px; }
+.evt { display: flex; flex-direction: column; gap: 2px; background: var(--surface); border: 1px solid var(--bord); border-left: 6px solid var(--c);
+  border-radius: 12px; padding: 12px 14px; color: var(--texte); text-decoration: none; }
+.evt:hover { background: var(--surface-2); }
+.evt.passe { opacity: .5; }
+.evt-type { font-size: 11px; font-weight: 700; letter-spacing: .06em; color: var(--c); text-transform: uppercase; }
+.evt-titre { font-size: 17px; }
+.titre-page.sans-marge { margin-top: 2px; }
+.replie.alerte > summary { color: var(--rate); font-weight: 600; }
+.lien-bloc { display: block; padding: 4px 8px 4px 0; color: var(--texte); text-decoration: none; }
+.liste-import { padding-left: 18px; font-size: 14px; max-height: 50vh; overflow: auto; }
+.puces { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 12px; }
+.puce-choix { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--bord);
+  background: var(--surface); cursor: pointer; font-size: 14px; }
+.puce-choix.actif { border-color: var(--primaire); background: rgba(124, 156, 255, .18); color: var(--texte); font-weight: 600; }
+.sous-titre { font-size: 15px; margin: 14px 0 4px; color: var(--muet); font-weight: 600; }
+.deux-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.deux-col .champ { margin: 6px 0; }
+textarea { font: inherit; color: var(--texte); background: var(--fond); border: 1px solid var(--bord); border-radius: 10px; padding: 12px; width: 100%; resize: vertical; }
+input[type=date], input[type=time] { color-scheme: dark; }
+.interrupteur small { color: var(--muet); }
+.barre-bas { position: sticky; bottom: calc(var(--nav-h) + 8px); padding-top: 12px; z-index: 2; }
+@media (min-width: 900px) { .barre-bas { bottom: 12px; } }
+.texte-rouge { color: var(--rate) !important; }
+.ligne-titre { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.ligne.colonne { flex-direction: column; align-items: stretch; gap: 6px; }
+.gros { font-size: 20px; }
+.tres-gros { font-size: 30px; font-weight: 700; line-height: 1.2; }
+button.ligne { width: 100%; text-align: left; cursor: pointer; font: inherit; }
+.carte-resultat { background: var(--surface); border: 1px solid var(--bord); border-radius: 14px; padding: 14px; cursor: pointer; }
+.carte-resultat p { margin: 4px 0 8px; }
+.carte-resultat .notes { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; cursor: default; }
+.zone-graphique { position: relative; }
+.graphique { display: block; width: 100%; }
+.points-graphique { position: absolute; inset: 0; pointer-events: none; }
+.points-graphique span { position: absolute; width: 9px; height: 9px; border-radius: 50%; transform: translate(-50%, -50%); }
+.ligne-coef { flex-direction: row; align-items: center; justify-content: space-between; }
+.ligne-coef input { width: 90px !important; }

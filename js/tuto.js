@@ -1,10 +1,11 @@
 // Visite guidée : des bulles qui présentent les boutons principaux (au premier lancement).
 
 const ETAPES = [
-  { sel: null, titre: "Bienvenue 👋", texte: "Petite visite de l'appli en 6 étapes. Tu pourras la revoir dans Plus → Visite guidée." },
+  { sel: null, titre: "Bienvenue 👋", texte: "Petite visite de l'appli en 7 étapes. Tu pourras la revoir dans Plus → Visite guidée." },
   { sel: "#btn-reviser", titre: "Réviser", texte: "Le bouton le plus important : il lance une séance avec toutes tes formules. 10–15 minutes par jour suffisent." },
   { sel: "[data-onglet='matieres']", titre: "Matières", texte: "Tes chapitres et tes fiches. Touche une formule pour voir sa fiche complète, la mettre en favori ou ne plus la réviser." },
   { sel: "[data-onglet='reviser']", titre: "Choisir quoi réviser", texte: "Révision libre, favoris, ou seulement certains chapitres (avant une colle par exemple)." },
+  { sel: "[data-onglet='planning']", titre: "Planning", texte: "Tes colles et DS avec leur programme, l'ajout au calendrier, et tes notes (Résultats)." },
   { sel: "[data-onglet='plus']", titre: "Plus", texte: "Sauvegarde (même format que l'appli Android), fiches partagées, aide et installation." },
   { sel: null, titre: "Pendant une séance", texte: "Réponds d'abord dans ta tête ou sur un brouillon, puis « Afficher la réponse » et sois honnête : Raté, Difficile, Bien ou Facile. L'appli s'occupe de te redemander chaque formule au bon moment." },
 ];

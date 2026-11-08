@@ -1,6 +1,6 @@
 // Service worker : garde l'appli sur l'appareil pour qu'elle marche HORS LIGNE.
 // Fichier généré par outils/construire.py (ne pas modifier à la main).
-const VERSION = "4d094279ea";
+const VERSION = "3108a372f1";
 const CACHE = "malivertcpge-" + VERSION;
 const FICHIERS = [
   "./",
@@ -11,6 +11,7 @@ const FICHIERS = [
   "js/catalogue.js",
   "js/db.js",
   "js/domaine.js",
+  "js/planning.js",
   "js/rendu.js",
   "js/seance.js",
   "js/tuto.js",

@@ -25,5 +25,5 @@ Tout reste **sur ton appareil** : rien n'est envoyé sur internet. Pour changer 
 ### Étapes
 
 - **W1** : révisions, installation, tutoriel, sauvegarde ✓
-- **W2** : planning des colles et DS, notes et moyennes, ajout au calendrier
+- **W2** : planning des colles et DS, notes et moyennes, ajout au calendrier ✓
 - **W3** : TD, cours, TIPE, à faire, emploi du temps
