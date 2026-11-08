@@ -1,6 +1,6 @@
 // Service worker : garde l'appli sur l'appareil pour qu'elle marche HORS LIGNE.
 // Fichier généré par outils/construire.py (ne pas modifier à la main).
-const VERSION = "4ab3be4bf1";
+const VERSION = "d54781395c";
 const CACHE = "malivertcpge-" + VERSION;
 const FICHIERS = [
   "./",

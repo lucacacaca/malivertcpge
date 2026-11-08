@@ -3,10 +3,10 @@
  "id": "psi-2026",
  "nom": "PSI",
  "annee": "2026-2027",
- "version": 1,
+ "version": 2,
  "maj": "2026-11-08",
  "filiere": "PSI",
- "description": "Colloscope, DS / DM et emploi du temps de la PSI.",
+ "description": "Colloscope (15 groupes), DS / DM et emploi du temps de la PSI du lycée Victor Hugo.",
  "groupesColle": [
   "1",
   "2",
@@ -22,8 +22,7 @@
   "12",
   "13",
   "14",
-  "15",
-  "16"
+  "15"
  ],
  "options": [
   {
@@ -36,11 +35,35 @@
   },
   {
    "cle": "tp",
-   "libelle": "Groupe de TP (S.I., physique, info)",
+   "libelle": "Groupe de TP (a, b ou c, comme sur le colloscope)",
    "choix": [
     "A",
-    "B"
-   ]
+    "B",
+    "C"
+   ],
+   "selonGroupe": {
+    "A": [
+     7,
+     9,
+     11,
+     13,
+     15
+    ],
+    "B": [
+     6,
+     8,
+     10,
+     12,
+     14
+    ],
+    "C": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   }
   },
   {
    "cle": "lv2",
@@ -154,6 +177,3247 @@
   }
  ],
  "colles": {
+  "1": [
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-04",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-11-05",
+    "heure": "18:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-10",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-12",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-11-16",
+    "heure": "17:30",
+    "colleur": "M. Courtin",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-19",
+    "heure": "17:00",
+    "colleur": "M. Courtin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-25",
+    "heure": "18:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-26",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-12-02",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-12-03",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-12-08",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-12-09",
+    "heure": "18:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-12-15",
+    "heure": "16:00",
+    "colleur": "M. Lemaire",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-12-17",
+    "heure": "17:00",
+    "colleur": "M. Courtin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-01-12",
+    "heure": "16:00",
+    "colleur": "M. Jounieaux"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-01-13",
+    "heure": "18:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-01-19",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-01-20",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-01-26",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-01-28",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-02-02",
+    "heure": "16:00",
+    "colleur": "M. Lemaire",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-02-03",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E104"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-02-09",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-02-11",
+    "heure": "17:30",
+    "colleur": "Mme Bourdelin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-02-17",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-02-18",
+    "heure": "18:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-03-10",
+    "heure": "18:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-03-11",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-03-15",
+    "heure": "17:30",
+    "colleur": "M. Courtin",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-18",
+    "heure": "17:00",
+    "colleur": "M. Courtin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-03-23",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-03-24",
+    "heure": "18:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-03-31",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-04-01",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   }
+  ],
+  "2": [
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-03",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-05",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-11-09",
+    "heure": "17:30",
+    "colleur": "M. Courtin",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-11",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-17",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-18",
+    "heure": "18:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-11-25",
+    "heure": "16:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-26",
+    "heure": "17:00",
+    "colleur": "M. Courtin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-12-01",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-12-03",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-12-07",
+    "heure": "17:30",
+    "colleur": "M. Courtin",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-12-10",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-12-15",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-12-16",
+    "heure": "18:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-01-12",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-01-13",
+    "heure": "16:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-01-19",
+    "heure": "16:00",
+    "colleur": "M. Jounieaux"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-01-20",
+    "heure": "18:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-01-25",
+    "heure": "17:30",
+    "colleur": "M. Courtin",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-01-26",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-02-03",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-02-04",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-02-10",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E104"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-02-11",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-02-16",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-02-17",
+    "heure": "18:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-03-08",
+    "heure": "17:30",
+    "colleur": "M. Courtin",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-10",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-03-16",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-03-18",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-03-24",
+    "heure": "16:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-25",
+    "heure": "17:00",
+    "colleur": "M. Courtin"
+   }
+  ],
+  "3": [
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-04",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E104"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-11-05",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-10",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-11",
+    "heure": "18:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-18",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-11-18",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-24",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-26",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-12-02",
+    "heure": "16:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-12-03",
+    "heure": "17:00",
+    "colleur": "M. Courtin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-12-09",
+    "heure": "18:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-12-10",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-12-14",
+    "heure": "17:30",
+    "colleur": "M. Courtin",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-12-17",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-01-13",
+    "heure": "18:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-01-14",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-01-19",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-01-20",
+    "heure": "16:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-01-26",
+    "heure": "16:00",
+    "colleur": "M. Jounieaux"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-01-27",
+    "heure": "18:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-02-01",
+    "heure": "17:30",
+    "colleur": "M. Courtin",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-02-02",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-02-09",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-02-11",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-02-17",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E104"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-02-18",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-03-09",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-03-11",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-17",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-03-17",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-03-24",
+    "heure": "18:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-03-25",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-03-31",
+    "heure": "16:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-04-01",
+    "heure": "17:00",
+    "colleur": "M. Courtin"
+   }
+  ],
+  "4": [
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-03",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-04",
+    "heure": "18:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-11",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E104"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-11-12",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-17",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-19",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-11-23",
+    "heure": "17:30",
+    "colleur": "M. Courtin",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-24",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-12-01",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-12-02",
+    "heure": "18:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-12-09",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-12-10",
+    "heure": "17:00",
+    "colleur": "M. Courtin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-12-15",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-12-17",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-01-11",
+    "heure": "17:30",
+    "colleur": "M. Courtin",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-01-14",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-01-20",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-01-21",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-01-26",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-01-27",
+    "heure": "16:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-02-02",
+    "heure": "16:00",
+    "colleur": "M. Jounieaux"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-02-03",
+    "heure": "18:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-02-08",
+    "heure": "17:30",
+    "colleur": "M. Courtin",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-02-09",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-02-16",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-02-18",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-10",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E104"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-03-11",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-03-16",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-03-17",
+    "heure": "18:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-03-22",
+    "heure": "17:30",
+    "colleur": "M. Courtin",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-23",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   }
+  ],
+  "5": [
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-11-02",
+    "heure": "17:30",
+    "colleur": "M. Courtin",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-03",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-11",
+    "heure": "18:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-12",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-18",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E104"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-11-19",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-24",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-25",
+    "heure": "18:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-11-30",
+    "heure": "17:30",
+    "colleur": "M. Courtin",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-12-01",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-12-08",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-12-10",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-12-16",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-12-17",
+    "heure": "18:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-01-12",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-01-13",
+    "heure": "18:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-01-18",
+    "heure": "17:30",
+    "colleur": "M. Courtin",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-01-21",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-01-26",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-01-27",
+    "heure": "18:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-02-02",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-02-03",
+    "heure": "16:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-02-09",
+    "heure": "16:00",
+    "colleur": "M. Jounieaux"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-02-10",
+    "heure": "18:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-02-15",
+    "heure": "17:30",
+    "colleur": "M. Courtin",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-02-16",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-03-09",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-03-10",
+    "heure": "18:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-17",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E104"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-03-18",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-03-23",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-03-25",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-03-29",
+    "heure": "17:30",
+    "colleur": "M. Courtin",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-30",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   }
+  ],
+  "6": [
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-04",
+    "heure": "18:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-05",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-10",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-11-12",
+    "heure": "18:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-17",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-19",
+    "heure": "16:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-11-24",
+    "heure": "17:00",
+    "colleur": "M. Lemaire",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-25",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E104"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-12-01",
+    "heure": "16:00",
+    "colleur": "M. Jounieaux"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-12-03",
+    "heure": "15:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-12-09",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-12-10",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-12-16",
+    "heure": "17:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-12-17",
+    "heure": "15:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-01-12",
+    "heure": "16:00",
+    "colleur": "M. Lemaire",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-01-14",
+    "heure": "17:00",
+    "colleur": "M. Courtin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-01-19",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-01-21",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-01-27",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-01-28",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-02-03",
+    "heure": "18:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-02-04",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-02-09",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-02-09",
+    "heure": "17:00",
+    "colleur": "M. Lemaire",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-02-17",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-02-18",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-09",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-03-11",
+    "heure": "18:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-03-17",
+    "heure": "18:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-03-18",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-03-23",
+    "heure": "17:00",
+    "colleur": "M. Lemaire",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-24",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E104"
+   }
+  ],
+  "7": [
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-03",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-11-04",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-10",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-12",
+    "heure": "16:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-17",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-11-19",
+    "heure": "18:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-24",
+    "heure": "16:00",
+    "colleur": "M. Jounieaux"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-26",
+    "heure": "15:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-12-01",
+    "heure": "17:00",
+    "colleur": "M. Lemaire",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-12-02",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E104"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-12-09",
+    "heure": "17:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-12-10",
+    "heure": "15:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-12-16",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-12-17",
+    "heure": "15:00",
+    "colleur": "M. Courtin",
+    "salle": "E101b"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-01-14",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-01-14",
+    "heure": "17:30",
+    "colleur": "Mme Bourdelin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-01-19",
+    "heure": "16:00",
+    "colleur": "M. Lemaire",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-01-21",
+    "heure": "17:00",
+    "colleur": "M. Courtin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-01-27",
+    "heure": "18:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-01-28",
+    "heure": "15:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-02-03",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-02-04",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-02-09",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-02-11",
+    "heure": "16:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-02-16",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-02-17",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-03-09",
+    "heure": "16:00",
+    "colleur": "M. Jounieaux"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-03-11",
+    "heure": "15:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-16",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-03-18",
+    "heure": "18:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-03-24",
+    "heure": "17:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-03-25",
+    "heure": "15:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-03-30",
+    "heure": "17:00",
+    "colleur": "M. Lemaire",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-31",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E104"
+   }
+  ],
+  "8": [
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-04",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-05",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-10",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-11-11",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-18",
+    "heure": "18:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-19",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-11-24",
+    "heure": "16:00",
+    "colleur": "M. Lemaire",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-25",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-12-01",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-12-03",
+    "heure": "16:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-12-08",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-12-09",
+    "heure": "16:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-12-15",
+    "heure": "16:00",
+    "colleur": "M. Jounieaux"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-12-17",
+    "heure": "15:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-01-12",
+    "heure": "17:00",
+    "colleur": "M. Lemaire",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-01-14",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101b"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-01-20",
+    "heure": "17:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-01-21",
+    "heure": "15:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-01-28",
+    "heure": "17:00",
+    "colleur": "M. Courtin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-01-28",
+    "heure": "18:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-02-02",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-02-04",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-02-09",
+    "heure": "16:00",
+    "colleur": "M. Lemaire",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-02-11",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-02-17",
+    "heure": "17:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-02-18",
+    "heure": "15:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-09",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-03-10",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-03-17",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-03-18",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-03-23",
+    "heure": "16:00",
+    "colleur": "M. Lemaire",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-24",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   }
+  ],
+  "9": [
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-11-03",
+    "heure": "16:00",
+    "colleur": "M. Lemaire",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-05",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-11",
+    "heure": "18:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-12",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-17",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-11-18",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-24",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-26",
+    "heure": "16:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-12-01",
+    "heure": "16:00",
+    "colleur": "M. Lemaire",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-12-02",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-12-08",
+    "heure": "16:00",
+    "colleur": "M. Jounieaux"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-12-10",
+    "heure": "15:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-12-16",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E104"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-12-17",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-01-13",
+    "heure": "17:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-01-14",
+    "heure": "15:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-01-20",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-01-21",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101b"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-01-28",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-01-28",
+    "heure": "17:30",
+    "colleur": "Mme Bourdelin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-02-04",
+    "heure": "17:00",
+    "colleur": "M. Courtin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-02-04",
+    "heure": "18:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-02-10",
+    "heure": "18:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-02-11",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-02-16",
+    "heure": "16:00",
+    "colleur": "M. Lemaire",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-02-18",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-03-09",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-03-11",
+    "heure": "16:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-16",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-03-17",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-03-23",
+    "heure": "16:00",
+    "colleur": "M. Jounieaux"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-03-25",
+    "heure": "15:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-03-30",
+    "heure": "16:00",
+    "colleur": "M. Lemaire",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-31",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   }
+  ],
+  "10": [
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-04",
+    "heure": "17:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-05",
+    "heure": "15:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-11-11",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-12",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-18",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-19",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-24",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-11-26",
+    "heure": "18:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-12-02",
+    "heure": "18:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-12-03",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-12-08",
+    "heure": "16:00",
+    "colleur": "M. Lemaire",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-12-09",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E104"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-12-15",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-12-17",
+    "heure": "16:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-01-12",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-01-13",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-01-19",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-01-21",
+    "heure": "15:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-01-26",
+    "heure": "16:00",
+    "colleur": "M. Lemaire",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-01-28",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101b"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-02-03",
+    "heure": "17:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-02-04",
+    "heure": "15:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-02-10",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-02-11",
+    "heure": "17:00",
+    "colleur": "M. Courtin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-02-16",
+    "heure": "16:00",
+    "colleur": "M. Jounieaux"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-02-18",
+    "heure": "15:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-03-10",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-11",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-03-17",
+    "heure": "17:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-03-18",
+    "heure": "15:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-23",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-03-25",
+    "heure": "18:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   }
+  ],
+  "11": [
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-11-03",
+    "heure": "17:00",
+    "colleur": "M. Lemaire",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-05",
+    "heure": "17:00",
+    "colleur": "M. Courtin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-11",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-12",
+    "heure": "17:30",
+    "colleur": "Mme Bourdelin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-11-18",
+    "heure": "16:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-19",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-25",
+    "heure": "18:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-26",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-12-01",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-12-02",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-12-08",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-12-10",
+    "heure": "16:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-12-15",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-12-16",
+    "heure": "16:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-01-13",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-01-14",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-01-19",
+    "heure": "17:00",
+    "colleur": "M. Lemaire",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-01-21",
+    "heure": "15:00",
+    "colleur": "M. Courtin",
+    "salle": "E101b"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-01-27",
+    "heure": "17:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-01-28",
+    "heure": "15:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-02-04",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101b"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-02-04",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-02-10",
+    "heure": "18:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-02-11",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-02-16",
+    "heure": "17:00",
+    "colleur": "M. Lemaire",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-02-18",
+    "heure": "17:00",
+    "colleur": "M. Courtin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-03-10",
+    "heure": "18:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-03-11",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-03-17",
+    "heure": "16:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-18",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-03-23",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-03-25",
+    "heure": "16:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-30",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-03-31",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   }
+  ],
+  "12": [
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-03",
+    "heure": "16:00",
+    "colleur": "M. Jounieaux"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-05",
+    "heure": "15:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-11-10",
+    "heure": "17:00",
+    "colleur": "M. Lemaire",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-12",
+    "heure": "17:00",
+    "colleur": "M. Courtin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-18",
+    "heure": "17:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-19",
+    "heure": "15:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-11-25",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-26",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-12-02",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-12-03",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-12-08",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-12-09",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-12-16",
+    "heure": "18:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-12-17",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-01-13",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-01-14",
+    "heure": "18:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-01-19",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-01-21",
+    "heure": "16:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-01-27",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E104"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-01-27",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-02-02",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-02-04",
+    "heure": "15:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-02-11",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101b"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-02-11",
+    "heure": "18:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-02-16",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-02-18",
+    "heure": "16:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-03-09",
+    "heure": "17:00",
+    "colleur": "M. Lemaire",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-11",
+    "heure": "17:00",
+    "colleur": "M. Courtin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-03-16",
+    "heure": "16:00",
+    "colleur": "M. Jounieaux"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-03-18",
+    "heure": "15:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-03-24",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-25",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   }
+  ],
+  "13": [
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-11-04",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-05",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101b"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-11",
+    "heure": "17:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-12",
+    "heure": "15:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-11-17",
+    "heure": "17:00",
+    "colleur": "M. Lemaire",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-19",
+    "heure": "15:00",
+    "colleur": "M. Courtin",
+    "salle": "E101b"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-25",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-26",
+    "heure": "17:30",
+    "colleur": "Mme Bourdelin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-12-03",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101b"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-12-03",
+    "heure": "18:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-12-09",
+    "heure": "18:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-12-10",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-12-15",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-12-16",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-01-12",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-01-14",
+    "heure": "16:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-01-20",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-01-21",
+    "heure": "18:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-01-27",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-01-28",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-02-03",
+    "heure": "18:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-02-04",
+    "heure": "15:00",
+    "colleur": "M. Courtin",
+    "salle": "E101b"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-02-10",
+    "heure": "17:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-02-11",
+    "heure": "15:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-02-17",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-02-18",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101b"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-03-10",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-03-11",
+    "heure": "17:30",
+    "colleur": "Mme Bourdelin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-03-16",
+    "heure": "17:00",
+    "colleur": "M. Lemaire",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-18",
+    "heure": "15:00",
+    "colleur": "M. Courtin",
+    "salle": "E101b"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-03-24",
+    "heure": "18:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-03-25",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-04-01",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101b"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-04-01",
+    "heure": "18:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   }
+  ],
   "14": [
    {
     "type": "COLLE",
@@ -174,16 +3438,16 @@
     "matiere": "Chimie",
     "date": "2026-11-10",
     "heure": "16:00",
-    "salle": "C008",
-    "colleur": "Lemaire"
+    "colleur": "M. Lemaire",
+    "salle": "C008"
    },
    {
     "type": "COLLE",
     "matiere": "Physique",
     "date": "2026-11-12",
     "heure": "16:00",
-    "salle": "E101b",
-    "colleur": "Courtin"
+    "colleur": "M. Courtin",
+    "salle": "E101b"
    },
    {
     "type": "COLLE",
@@ -204,16 +3468,16 @@
     "matiere": "Physique",
     "date": "2026-11-26",
     "heure": "16:00",
-    "salle": "E101b",
-    "colleur": "Courtin"
+    "colleur": "M. Courtin",
+    "salle": "E101b"
    },
    {
     "type": "COLLE",
     "matiere": "SI",
     "date": "2026-11-26",
     "heure": "17:00",
-    "salle": "Labo SI",
-    "colleur": "Guillermin"
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
    },
    {
     "type": "COLLE",
@@ -234,16 +3498,16 @@
     "matiere": "Chimie",
     "date": "2026-12-08",
     "heure": "17:00",
-    "salle": "E101a",
-    "colleur": "Lemaire"
+    "colleur": "M. Lemaire",
+    "salle": "E101a"
    },
    {
     "type": "COLLE",
     "matiere": "Physique",
     "date": "2026-12-10",
     "heure": "16:00",
-    "salle": "E101b",
-    "colleur": "Courtin"
+    "colleur": "M. Courtin",
+    "salle": "E101b"
    },
    {
     "type": "COLLE",
@@ -264,16 +3528,16 @@
     "matiere": "Physique",
     "date": "2027-01-13",
     "heure": "16:00",
-    "salle": "E104",
-    "colleur": "Courtin"
+    "colleur": "M. Courtin",
+    "salle": "E104"
    },
    {
     "type": "COLLE",
     "matiere": "SI",
     "date": "2027-01-14",
     "heure": "17:00",
-    "salle": "Labo SI",
-    "colleur": "Guillermin"
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
    },
    {
     "type": "COLLE",
@@ -294,16 +3558,16 @@
     "matiere": "Chimie",
     "date": "2027-01-26",
     "heure": "17:00",
-    "salle": "E101a",
-    "colleur": "Lemaire"
+    "colleur": "M. Lemaire",
+    "salle": "E101a"
    },
    {
     "type": "COLLE",
     "matiere": "Physique",
     "date": "2027-01-27",
     "heure": "17:00",
-    "salle": "E101a",
-    "colleur": "Courtin"
+    "colleur": "M. Courtin",
+    "salle": "E101a"
    },
    {
     "type": "COLLE",
@@ -324,16 +3588,16 @@
     "matiere": "SI",
     "date": "2027-02-10",
     "heure": "16:00",
-    "salle": "E002",
-    "colleur": "Guillermin"
+    "colleur": "M. Guillermin",
+    "salle": "E002"
    },
    {
     "type": "COLLE",
     "matiere": "Physique",
     "date": "2027-02-10",
     "heure": "17:00",
-    "salle": "E101a",
-    "colleur": "Courtin"
+    "colleur": "M. Courtin",
+    "salle": "E101a"
    },
    {
     "type": "COLLE",
@@ -354,16 +3618,16 @@
     "matiere": "Chimie",
     "date": "2027-03-09",
     "heure": "16:00",
-    "salle": "C008",
-    "colleur": "Lemaire"
+    "colleur": "M. Lemaire",
+    "salle": "C008"
    },
    {
     "type": "COLLE",
     "matiere": "Physique",
     "date": "2027-03-11",
     "heure": "16:00",
-    "salle": "E101b",
-    "colleur": "Courtin"
+    "colleur": "M. Courtin",
+    "salle": "E101b"
    },
    {
     "type": "COLLE",
@@ -384,16 +3648,274 @@
     "matiere": "Physique",
     "date": "2027-03-25",
     "heure": "16:00",
-    "salle": "E101b",
-    "colleur": "Courtin"
+    "colleur": "M. Courtin",
+    "salle": "E101b"
    },
    {
     "type": "COLLE",
     "matiere": "SI",
     "date": "2027-03-25",
     "heure": "17:00",
-    "salle": "Labo SI",
-    "colleur": "Guillermin"
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   }
+  ],
+  "15": [
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-11-04",
+    "heure": "16:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-05",
+    "heure": "15:00",
+    "colleur": "M. Courtin",
+    "salle": "E101b"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-10",
+    "heure": "16:00",
+    "colleur": "M. Jounieaux"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-12",
+    "heure": "15:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-11-17",
+    "heure": "16:00",
+    "colleur": "M. Lemaire",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-19",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101b"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-25",
+    "heure": "17:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-26",
+    "heure": "15:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-12-03",
+    "heure": "15:00",
+    "colleur": "M. Courtin",
+    "salle": "E101b"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-12-03",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-12-09",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-12-10",
+    "heure": "17:30",
+    "colleur": "Mme Bourdelin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-12-15",
+    "heure": "17:00",
+    "colleur": "M. Lemaire",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-12-17",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101b"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-01-12",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-01-14",
+    "heure": "15:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-01-20",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E104"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-01-21",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-01-26",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-01-28",
+    "heure": "16:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-02-02",
+    "heure": "17:00",
+    "colleur": "M. Lemaire",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-02-03",
+    "heure": "17:00",
+    "colleur": "M. Courtin",
+    "salle": "E101a"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-02-10",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-02-11",
+    "heure": "15:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-02-17",
+    "heure": "16:00",
+    "colleur": "M. Guillermin",
+    "salle": "E002"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-02-18",
+    "heure": "15:00",
+    "colleur": "M. Courtin",
+    "salle": "E101b"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-03-10",
+    "heure": "17:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-03-11",
+    "heure": "15:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-03-16",
+    "heure": "16:00",
+    "colleur": "M. Lemaire",
+    "salle": "C008"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-18",
+    "heure": "16:00",
+    "colleur": "M. Courtin",
+    "salle": "E101b"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-03-24",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-03-25",
+    "heure": "17:30",
+    "colleur": "Mme Bourdelin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-04-01",
+    "heure": "15:00",
+    "colleur": "M. Courtin",
+    "salle": "E101b"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-04-01",
+    "heure": "17:00",
+    "colleur": "M. Guillermin",
+    "salle": "Labo SI"
    }
   ]
  },

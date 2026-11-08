@@ -127,6 +127,16 @@ export async function installerClasse(choix, { edt = true } = {}) {
 
 // ------------------------------------------------------------------ Formulaire (assistant et page « Ma classe »)
 
+/** Choix d'une option ; s'il n'est pas fait, déduit du groupe de colle quand c'est possible (TP a / b / c). */
+function choixOption(o, etat) {
+  if (etat.options?.[o.cle]) return etat.options[o.cle];
+  if (o.selonGroupe && etat.groupe) {
+    const v = Object.keys(o.selonGroupe).find((k) => o.selonGroupe[k].map(String).includes(String(etat.groupe)));
+    if (v) { etat.options = { ...(etat.options || {}), [o.cle]: v }; return v; }
+  }
+  return "";
+}
+
 /** HTML du choix de classe et de groupes. État : {id, groupe, options}. */
 export async function formulaireClasse(etat) {
   const idx = await lesClasses();
@@ -145,7 +155,7 @@ export async function formulaireClasse(etat) {
           </select></label>
         ${(classe.options || []).map((o) => `<label class="champ"><span>${echapper(o.libelle)}</span>
           <select name="opt-${o.cle}"><option value="">— choisir —</option>
-            ${o.choix.map((v) => `<option ${etat.options?.[o.cle] === v ? "selected" : ""}>${echapper(v)}</option>`).join("")}</select></label>`).join("")}
+            ${o.choix.map((v) => `<option ${choixOption(o, etat) === v ? "selected" : ""}>${echapper(v)}</option>`).join("")}</select></label>`).join("")}
         ${etat.groupe && !dispo.has(etat.groupe) ? `<p class="petit avertissement">Le colloscope du groupe ${echapper(etat.groupe)} n'est pas encore dans l'appli : les DS et l'emploi du temps commun seront installés, et tes colles arriveront avec une prochaine mise à jour (ou ajoute-les à la main dans Planning).</p>` : ""}
       </div>` : ""}`;
 }
