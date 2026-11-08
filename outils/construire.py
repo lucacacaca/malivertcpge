@@ -33,6 +33,18 @@ index = {
 with open("data/index.json", "w", encoding="utf-8") as f:
     json.dump(index, f, ensure_ascii=False, indent=1)
 
+# Classes (colloscope + emploi du temps) : data/classes/*.json → data/classes/index.json
+classes = []
+for n in sorted(os.listdir("data/classes")):
+    if n.endswith(".json") and n != "index.json":
+        with open("data/classes/" + n, encoding="utf-8") as fh:
+            c = json.load(fh)
+        classes.append({"id": c["id"], "nom": c["nom"], "annee": c.get("annee", ""), "filiere": c.get("filiere", ""),
+                        "description": c.get("description", ""), "fichier": n, "version": c.get("version", 1),
+                        "groupesDisponibles": sorted(c.get("colles", {}).keys(), key=lambda g: (len(g), g))})
+with open("data/classes/index.json", "w", encoding="utf-8") as f:
+    json.dump({"classes": classes}, f, ensure_ascii=False, indent=1)
+
 fichiers = ["./", "index.html", "styles.css", "manifest.webmanifest"]
 for dossier in ["js", "vendor", "data", "icons"]:
     for racine, _, noms in os.walk(dossier):

@@ -350,3 +350,30 @@ button.ligne { width: 100%; text-align: left; cursor: pointer; font: inherit; }
 .points-graphique span { position: absolute; width: 9px; height: 9px; border-radius: 50%; transform: translate(-50%, -50%); }
 .ligne-coef { flex-direction: row; align-items: center; justify-content: space-between; }
 .ligne-coef input { width: 90px !important; }
+
+/* ---------------------------------------------------------------- Classe et emploi du temps */
+select { font: inherit; color: var(--texte); background: var(--fond); border: 1px solid var(--bord); border-radius: 10px; padding: 11px 12px; min-height: 44px; width: 100%; color-scheme: dark; }
+.bloc-groupes { background: var(--surface); border: 1px solid var(--bord); border-radius: 12px; padding: 4px 14px 8px; margin: 8px 0; }
+.sous-onglets { display: flex; gap: 4px; background: var(--surface); border: 1px solid var(--bord); border-radius: 12px; padding: 4px; margin-bottom: 8px; overflow-x: auto; }
+.sous-onglets a { flex: 1; text-align: center; padding: 8px 10px; border-radius: 9px; color: var(--muet); text-decoration: none; font-size: 14px; white-space: nowrap; }
+.sous-onglets a.actif { background: var(--surface-3); color: var(--texte); font-weight: 600; }
+.nav-semaine { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 4px 0 14px; }
+.nav-semaine .icone { font-size: 26px; text-decoration: none; padding: 4px 14px; border: 1px solid var(--bord); border-radius: 10px; color: var(--texte); }
+.badge-ab { display: inline-block; font-size: 11px; font-weight: 700; padding: 0 6px; border-radius: 6px; background: var(--surface-3); color: var(--muet); }
+.badge-ab.grand { font-size: 13px; padding: 2px 8px; color: var(--primaire); }
+.semaine { display: grid; gap: 10px; grid-template-columns: 1fr; margin-bottom: 14px; }
+@media (min-width: 900px) { .semaine { grid-template-columns: repeat(var(--n), minmax(0, 1fr)); gap: 8px; } .semaine .creneau { padding: 8px; } }
+.jour { background: var(--surface); border: 1px solid var(--bord); border-radius: 12px; padding: 10px; display: flex; flex-direction: column; gap: 6px; }
+.jour.aujourdhui { border-color: var(--primaire); }
+.jour h3 { margin: 0 0 2px; font-size: 15px; }
+.creneau { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; text-align: left; width: 100%; background: var(--surface-2); border: 0; border-left: 4px solid var(--c);
+  border-radius: 8px; padding: 8px 10px; cursor: pointer; }
+.creneau:hover { background: var(--surface-3); }
+.creneau.en-cours { outline: 2px solid var(--primaire); }
+.creneau-h { font-size: 12px; color: var(--muet); }
+.creneau-t { font-weight: 600; font-size: 14px; }
+.evt-mini { display: block; font-size: 13px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--c); color: var(--texte); text-decoration: none; background: rgba(255,255,255,.03); }
+.liste-creneaux { display: flex; flex-direction: column; gap: 6px; }
+.titre-section .lien { float: right; text-transform: none; letter-spacing: 0; font-weight: 400; }
+@media (min-width: 900px) { .semaine .creneau-t { font-size: 13px; } .semaine .creneau .petit, .evt-mini { font-size: 12px; } .jour h3 { font-size: 14px; } }
+@media (min-width: 1300px) { body:not(.en-seance) #contenu:has(.semaine) { max-width: 1100px; } }

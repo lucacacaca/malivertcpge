@@ -1,0 +1,16 @@
+{
+ "classes": [
+  {
+   "id": "psi-2026",
+   "nom": "PSI",
+   "annee": "2026-2027",
+   "filiere": "PSI",
+   "description": "Colloscope, DS / DM et emploi du temps de la PSI.",
+   "fichier": "psi-2026.json",
+   "version": 1,
+   "groupesDisponibles": [
+    "14"
+   ]
+  }
+ ]
+}

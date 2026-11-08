@@ -1,0 +1,690 @@
+{
+ "format": 1,
+ "id": "psi-2026",
+ "nom": "PSI",
+ "annee": "2026-2027",
+ "version": 1,
+ "maj": "2026-11-08",
+ "filiere": "PSI",
+ "description": "Colloscope, DS / DM et emploi du temps de la PSI.",
+ "groupesColle": [
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "10",
+  "11",
+  "12",
+  "13",
+  "14",
+  "15",
+  "16"
+ ],
+ "options": [
+  {
+   "cle": "td",
+   "libelle": "Groupe de TD",
+   "choix": [
+    "gr1",
+    "gr2"
+   ]
+  },
+  {
+   "cle": "tp",
+   "libelle": "Groupe de TP (S.I., physique, info)",
+   "choix": [
+    "A",
+    "B"
+   ]
+  },
+  {
+   "cle": "lv2",
+   "libelle": "LV2",
+   "choix": [
+    "Allemand",
+    "Espagnol",
+    "Aucune"
+   ]
+  }
+ ],
+ "commun": [
+  {
+   "type": "DS",
+   "matiere": "Français-philosophie",
+   "date": "2026-11-07"
+  },
+  {
+   "type": "DS",
+   "matiere": "Mathématiques",
+   "date": "2026-11-14"
+  },
+  {
+   "type": "DS",
+   "matiere": "Physique",
+   "date": "2026-11-21"
+  },
+  {
+   "type": "AUTRE",
+   "matiere": "SI",
+   "date": "2026-11-23",
+   "titre": "DM donné cette semaine"
+  },
+  {
+   "type": "DS",
+   "matiere": "SI",
+   "date": "2026-11-28"
+  },
+  {
+   "type": "DS",
+   "matiere": "Mathématiques",
+   "date": "2026-12-05"
+  },
+  {
+   "type": "DS",
+   "matiere": "Physique",
+   "date": "2026-12-12"
+  },
+  {
+   "type": "AUTRE",
+   "matiere": "Mathématiques",
+   "date": "2026-12-14",
+   "titre": "DM donné cette semaine"
+  },
+  {
+   "type": "DS",
+   "date": "2027-01-04",
+   "titre": "Concours blanc (semaine du 4 janvier)"
+  },
+  {
+   "type": "DS",
+   "matiere": "Mathématiques",
+   "date": "2027-01-23"
+  },
+  {
+   "type": "DS",
+   "matiere": "Physique",
+   "date": "2027-01-30"
+  },
+  {
+   "type": "DS",
+   "matiere": "Mathématiques",
+   "date": "2027-02-06"
+  },
+  {
+   "type": "DS",
+   "matiere": "Français-philosophie",
+   "date": "2027-02-13"
+  },
+  {
+   "type": "AUTRE",
+   "matiere": "Mathématiques",
+   "date": "2027-02-15",
+   "titre": "DM donné cette semaine"
+  },
+  {
+   "type": "AUTRE",
+   "matiere": "SI",
+   "date": "2027-03-08",
+   "titre": "DM donné cette semaine"
+  },
+  {
+   "type": "DS",
+   "matiere": "SI",
+   "date": "2027-03-12"
+  },
+  {
+   "type": "DS",
+   "matiere": "Anglais",
+   "date": "2027-03-12"
+  },
+  {
+   "type": "DS",
+   "matiere": "Mathématiques",
+   "date": "2027-03-20"
+  },
+  {
+   "type": "DS",
+   "matiere": "Physique",
+   "date": "2027-03-27"
+  }
+ ],
+ "colles": {
+  "14": [
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-03",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-05",
+    "heure": "16:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-11-10",
+    "heure": "16:00",
+    "salle": "C008",
+    "colleur": "Lemaire"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-12",
+    "heure": "16:00",
+    "salle": "E101b",
+    "colleur": "Courtin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-11-17",
+    "heure": "16:00",
+    "colleur": "M. Jounieaux"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-11-19",
+    "heure": "15:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-11-26",
+    "heure": "16:00",
+    "salle": "E101b",
+    "colleur": "Courtin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2026-11-26",
+    "heure": "17:00",
+    "salle": "Labo SI",
+    "colleur": "Guillermin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-12-02",
+    "heure": "17:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-12-03",
+    "heure": "15:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2026-12-08",
+    "heure": "17:00",
+    "salle": "E101a",
+    "colleur": "Lemaire"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2026-12-10",
+    "heure": "16:00",
+    "salle": "E101b",
+    "colleur": "Courtin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2026-12-16",
+    "heure": "17:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2026-12-17",
+    "heure": "17:30",
+    "colleur": "M. Barthélémy"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-01-13",
+    "heure": "16:00",
+    "salle": "E104",
+    "colleur": "Courtin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-01-14",
+    "heure": "17:00",
+    "salle": "Labo SI",
+    "colleur": "Guillermin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-01-20",
+    "heure": "18:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-01-21",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-01-26",
+    "heure": "17:00",
+    "salle": "E101a",
+    "colleur": "Lemaire"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-01-27",
+    "heure": "17:00",
+    "salle": "E101a",
+    "colleur": "Courtin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-02-02",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-02-04",
+    "heure": "16:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-02-10",
+    "heure": "16:00",
+    "salle": "E002",
+    "colleur": "Guillermin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-02-10",
+    "heure": "17:00",
+    "salle": "E101a",
+    "colleur": "Courtin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-02-17",
+    "heure": "18:00",
+    "colleur": "M. Tessier"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-02-18",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Chimie",
+    "date": "2027-03-09",
+    "heure": "16:00",
+    "salle": "C008",
+    "colleur": "Lemaire"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-11",
+    "heure": "16:00",
+    "salle": "E101b",
+    "colleur": "Courtin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Mathématiques",
+    "date": "2027-03-16",
+    "heure": "16:00",
+    "colleur": "M. Bernard"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Anglais",
+    "date": "2027-03-18",
+    "heure": "16:00",
+    "colleur": "Mme Lasserre"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "Physique",
+    "date": "2027-03-25",
+    "heure": "16:00",
+    "salle": "E101b",
+    "colleur": "Courtin"
+   },
+   {
+    "type": "COLLE",
+    "matiere": "SI",
+    "date": "2027-03-25",
+    "heure": "17:00",
+    "salle": "Labo SI",
+    "colleur": "Guillermin"
+   }
+  ]
+ },
+ "edt": {
+  "semaineA": "2026-10-26",
+  "creneaux": [
+   {
+    "jour": "lundi",
+    "debut": "8h",
+    "fin": "10h",
+    "matiere": "anglais",
+    "intitule": "Cours",
+    "salle": "E101",
+    "prof": "Lasserre"
+   },
+   {
+    "jour": "lundi",
+    "debut": "10h",
+    "fin": "12h",
+    "matiere": "physique",
+    "intitule": "Cours (1 sem. sur 2)",
+    "salle": "E101",
+    "prof": "Courtin",
+    "semaines": "A"
+   },
+   {
+    "jour": "lundi",
+    "debut": "10h",
+    "fin": "12h",
+    "matiere": "maths",
+    "intitule": "Cours (1 sem. sur 2)",
+    "salle": "E101",
+    "prof": "Bernard",
+    "semaines": "B"
+   },
+   {
+    "jour": "lundi",
+    "debut": "13h",
+    "fin": "15h",
+    "matiere": "tipe",
+    "intitule": "TIPE",
+    "salle": "E003",
+    "prof": "Guillermin"
+   },
+   {
+    "jour": "lundi",
+    "debut": "15h",
+    "fin": "17h",
+    "matiere": "si",
+    "intitule": "TP S.I. (gr BA)",
+    "salle": "E003",
+    "prof": "Guillermin",
+    "semaines": "A",
+    "pour": {
+     "tp": "B"
+    }
+   },
+   {
+    "jour": "lundi",
+    "debut": "15h",
+    "fin": "17h",
+    "matiere": "physique",
+    "intitule": "TP (gr 12)",
+    "salle": "D106",
+    "prof": "Courtin",
+    "semaines": "B",
+    "pour": {
+     "tp": "B"
+    }
+   },
+   {
+    "jour": "lundi",
+    "debut": "17h",
+    "fin": "17h30",
+    "matiere": "physique",
+    "intitule": "TD (gr 21)",
+    "semaines": "A",
+    "pour": {
+     "tp": "B"
+    }
+   },
+   {
+    "jour": "lundi",
+    "debut": "17h",
+    "fin": "19h",
+    "matiere": "si",
+    "intitule": "TP S.I. (gr AB)",
+    "salle": "E003",
+    "prof": "Guillermin",
+    "semaines": "B",
+    "pour": {
+     "tp": "B"
+    }
+   },
+   {
+    "jour": "mardi",
+    "debut": "8h",
+    "fin": "10h",
+    "matiere": "maths",
+    "intitule": "Cours",
+    "salle": "E101",
+    "prof": "Bernard"
+   },
+   {
+    "jour": "mardi",
+    "debut": "10h",
+    "fin": "12h",
+    "matiere": "physique",
+    "intitule": "Cours",
+    "salle": "E101",
+    "prof": "Courtin"
+   },
+   {
+    "jour": "mardi",
+    "debut": "13h",
+    "fin": "14h",
+    "matiere": "physique",
+    "intitule": "Cours",
+    "salle": "E101",
+    "prof": "Courtin"
+   },
+   {
+    "jour": "mardi",
+    "debut": "14h",
+    "fin": "15h",
+    "matiere": "maths",
+    "intitule": "TD gr2",
+    "salle": "E002",
+    "pour": {
+     "td": "gr2"
+    }
+   },
+   {
+    "jour": "mardi",
+    "debut": "15h",
+    "fin": "16h",
+    "matiere": "physique",
+    "intitule": "TD gr2",
+    "salle": "E101",
+    "pour": {
+     "td": "gr2"
+    }
+   },
+   {
+    "jour": "mercredi",
+    "debut": "8h",
+    "fin": "10h",
+    "matiere": "maths",
+    "intitule": "Cours",
+    "salle": "E101",
+    "prof": "Bernard"
+   },
+   {
+    "jour": "mercredi",
+    "debut": "10h",
+    "fin": "11h",
+    "matiere": "si",
+    "intitule": "Cours",
+    "salle": "E101",
+    "prof": "Guillermin"
+   },
+   {
+    "jour": "mercredi",
+    "debut": "11h",
+    "fin": "12h",
+    "matiere": "info",
+    "intitule": "Cours",
+    "salle": "E101",
+    "prof": "Guillermin"
+   },
+   {
+    "jour": "mercredi",
+    "debut": "13h",
+    "fin": "14h",
+    "matiere": "physique",
+    "intitule": "phys 1/Q",
+    "salle": "E101"
+   },
+   {
+    "jour": "mercredi",
+    "debut": "13h",
+    "fin": "13h30",
+    "matiere": "physique",
+    "intitule": "TD gr2",
+    "pour": {
+     "td": "gr2"
+    }
+   },
+   {
+    "jour": "mercredi",
+    "debut": "14h",
+    "fin": "16h",
+    "matiere": "physique",
+    "intitule": "TP (gr 21)",
+    "salle": "D106",
+    "prof": "Courtin",
+    "semaines": "A",
+    "pour": {
+     "tp": "B"
+    }
+   },
+   {
+    "jour": "mercredi",
+    "debut": "14h",
+    "fin": "16h",
+    "matiere": "info",
+    "intitule": "TP info (gr 12)",
+    "salle": "E005",
+    "prof": "Guillermin",
+    "semaines": "B",
+    "pour": {
+     "tp": "B"
+    }
+   },
+   {
+    "jour": "jeudi",
+    "debut": "8h",
+    "fin": "10h",
+    "matiere": "maths",
+    "intitule": "Cours",
+    "salle": "E101",
+    "prof": "Bernard"
+   },
+   {
+    "jour": "jeudi",
+    "debut": "10h",
+    "fin": "11h",
+    "matiere": "maths",
+    "intitule": "TD gr2",
+    "salle": "E101",
+    "pour": {
+     "td": "gr2"
+    }
+   },
+   {
+    "jour": "jeudi",
+    "debut": "11h",
+    "fin": "12h",
+    "matiere": "si",
+    "intitule": "TD S.I. gr2",
+    "salle": "E003",
+    "pour": {
+     "td": "gr2"
+    }
+   },
+   {
+    "jour": "jeudi",
+    "debut": "13h",
+    "fin": "15h",
+    "matiere": "français",
+    "intitule": "Lettres",
+    "salle": "E101",
+    "prof": "Caquel"
+   },
+   {
+    "jour": "vendredi",
+    "debut": "8h",
+    "fin": "10h",
+    "matiere": "physique",
+    "intitule": "Cours",
+    "salle": "E101",
+    "prof": "Courtin"
+   },
+   {
+    "jour": "vendredi",
+    "debut": "10h",
+    "fin": "12h",
+    "matiere": "maths",
+    "intitule": "Cours",
+    "salle": "E101",
+    "prof": "Bernard"
+   },
+   {
+    "jour": "vendredi",
+    "debut": "13h",
+    "fin": "15h",
+    "matiere": "allemand",
+    "intitule": "Cours",
+    "salle": "A108",
+    "prof": "Descamps",
+    "pour": {
+     "lv2": "Allemand"
+    }
+   },
+   {
+    "jour": "vendredi",
+    "debut": "15h",
+    "fin": "17h",
+    "intitule": "EPS",
+    "prof": "Hebert, Savaroc"
+   }
+  ]
+ }
+}

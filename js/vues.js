@@ -4,6 +4,8 @@ import { tous, un, valeur, executer, dernierId, exporterSauvegarde, analyserSauv
 import { lesCatalogues, cataloguePour, ajouterChapitres, completerFormules, lireFiches, importerFiches, fichesPartagees, ajouterFichesPartagees } from "./catalogue.js";
 import { rendreMath, ficheFormule } from "./rendu.js";
 import { blocSemaineAccueil } from "./planning.js";
+import { blocEdtAccueil } from "./edt.js";
+import { lesClasses, maClasse, formulaireClasse, lireFormulaireClasse, installerClasse, resumeInstallation } from "./classe.js";
 import {
   echapper, aujourdhui, debutDuJourMillis, dateLisible, delaiLisible, couleurHex, couleurArgb, dialogue, confirmer, toast,
   telecharger, choisirFichier, reglages, simplifier,
@@ -87,6 +89,8 @@ export function vueAccueil(el, nav) {
       <button class="bouton primaire large" id="btn-reviser" data-nav="#/seance">▶ Réviser maintenant</button>
       <p class="petit muet centre">${s.dues ? "On commence par faire le tour de tes formules, puis les cartes dues." : s.jamais ? `${s.jamais} formule(s) jamais vue(s) t'attendent.` : "Tout est à jour : une petite séance d'entretien ?"}</p>
     </section>
+    <div id="maj-classe"></div>
+    ${blocEdtAccueil()}
     ${blocSemaineAccueil()}
     <section>
       <h2 class="titre-section">Progression</h2>
@@ -101,6 +105,15 @@ export function vueAccueil(el, nav) {
     ${jSauv === null || jSauv >= 7 ? `<div class="encart"><div><b>Sauvegarde</b><p class="petit">${jSauv === null ? "Tu n'as encore jamais fait de sauvegarde." : `Dernière sauvegarde il y a ${jSauv} jours.`} Elle protège ta progression et permet de passer au téléphone / au PC.</p></div><button class="bouton" data-nav="#/sauvegarde">Sauvegarder</button></div>` : ""}
     <div class="encart discret"><div><b>Bientôt</b><p class="petit">TD, cours, TIPE, liste « À faire » et emploi du temps (étape W3).</p></div></div>
   `;
+  // Mise à jour du colloscope / de l'emploi du temps de la classe disponible ?
+  const c = maClasse();
+  if (c) lesClasses().then((idx) => {
+    const info = idx.find((x) => x.id === c.id);
+    const zone = el.querySelector("#maj-classe");
+    if (zone && info && info.version > (c.version || 1)) {
+      zone.innerHTML = `<div class="encart accent"><div><b>Colloscope mis à jour</b><p class="petit">Une nouvelle version du colloscope / de l'emploi du temps de ta classe est disponible.</p></div><a class="bouton primaire" href="#/classe">Voir</a></div>`;
+    }
+  });
 }
 
 // ------------------------------------------------------------------ Matières
@@ -351,6 +364,7 @@ export function vuePlus(el, nav) {
   el.innerHTML = `
     <h1 class="titre-page">Plus</h1>
     <div class="grille-choix">
+      <button class="choix" data-nav="#/classe"><b>🏫 Ma classe</b><span>Groupe de colle, TD, TP, LV2 : colloscope et emploi du temps</span></button>
       <button class="choix" data-nav="#/sauvegarde"><b>💾 Sauvegarde</b><span>Exporter, restaurer, passer du téléphone au PC</span></button>
       <button class="choix" data-nav="#/partage"><b>📚 Fiches partagées</b><span>Fiches supplémentaires à ajouter</span></button>
       <button class="choix" data-nav="#/aide"><b>❓ Comment ça marche</b><span>La répétition espacée et comment bien réviser</span></button>
@@ -499,6 +513,7 @@ export function vueAide(el, nav) {
         <li>Tu peux aussi <b>importer un fichier</b> : envoie une photo de ton colloscope à Claude, qui te prépare le fichier (même format que l'appli Android).</li>
         <li>Touche une colle pour voir la <b>progression de ses chapitres</b>, la réviser ou l'<b>ajouter au calendrier</b> de ton téléphone. Le calendrier te rappelle la veille et 1 h avant.</li>
         <li>À l'ouverture de l'appli, un rappel affiche les colles et DS des 2 prochains jours.</li>
+        <li><a href="#/classe">Ma classe</a> : choisis ta classe, ton groupe de colle et tes groupes (TD, TP, LV2). Tes colles, les DS de la classe et ton <a href="#/edt">emploi du temps</a> s'installent tout seuls, et se mettent à jour avec l'appli.</li>
         <li>Dans <a href="#/resultats">Résultats</a>, ajoute tes notes : moyennes par matière, moyenne générale avec coefficients, courbes, cette année et l'année passée.</li>
       </ul>
 
@@ -547,6 +562,7 @@ export async function vueAssistant(el, nav) {
   const ms = tous("SELECT * FROM matieres ORDER BY ordre");
   const partage = await fichesPartagees();
   let etape = 0;
+  const formClasse = { id: "", groupe: "", options: {} };
   const choix = { filiere: "PSI_PCSI", matieres: new Set(ms.filter((m) => !/tipe/i.test(m.nom)).map((m) => m.id)), partage: new Set() };
 
   const etapes = [
@@ -554,13 +570,13 @@ export async function vueAssistant(el, nav) {
       <div class="assistant-logo">∑</div>
       <h1>Bienvenue sur malivertcpge</h1>
       <p>L'appli pour <b>apprendre et retenir ses formules de prépa</b> : fiches, cartes de révision, QCM piégés, applications numériques, et un programme de révision qui s'adapte à toi.</p>
-      <p class="muet">On règle tout en 3 étapes (1 minute).</p>
+      <p class="muet">On règle tout en 4 étapes (1 minute).</p>
       <div class="pile-boutons">
         <button class="bouton primaire large" data-a="suivant">Commencer</button>
         <button class="bouton discret" data-a="restaurer">J'ai déjà une sauvegarde (appli Android ou web)</button>
       </div>`,
     () => `
-      <div class="etape">Étape 1 / 3</div>
+      <div class="etape">Étape 1 / 4</div>
       <h1>Ta classe</h1>
       <p class="muet">Pour choisir les chapitres à ajouter. Tu pourras en ajouter ou en retirer plus tard.</p>
       ${[["PCSI", "PCSI", "1re année"], ["PSI_PCSI", "PSI + révisions de PCSI", "2e année, avec les chapitres de 1re année"], ["PSI", "PSI seulement", "2e année"]]
@@ -568,18 +584,24 @@ export async function vueAssistant(el, nav) {
       <p class="petit muet">Les chapitres de physique et de chimie de PSI suivent le cours de M. Courtin (lycée Victor Hugo) ; les autres suivent le programme officiel.</p>
       <div class="rangee-boutons fin"><button class="bouton discret" data-a="precedent">Retour</button><button class="bouton primaire" data-a="suivant">Suivant</button></div>`,
     () => `
-      <div class="etape">Étape 2 / 3</div>
+      <div class="etape">Étape 2 / 4</div>
       <h1>Tes matières</h1>
       <p class="muet">Décoche celles que tu ne veux pas réviser (elles seront masquées, pas supprimées).</p>
       ${ms.map((m) => `<label class="case"><input type="checkbox" value="${m.id}" ${choix.matieres.has(m.id) ? "checked" : ""}>
         <span><span class="pastille" style="background:${couleurHex(m.couleur)}"></span> ${echapper(m.nom)}</span></label>`).join("")}
       <div class="rangee-boutons fin"><button class="bouton discret" data-a="precedent">Retour</button><button class="bouton primaire" data-a="suivant">Suivant</button></div>`,
     () => `
-      <div class="etape">Étape 3 / 3</div>
+      <div class="etape">Étape 3 / 4</div>
       <h1>Fiches en plus</h1>
       <p class="muet">Des fiches partagées par le créateur de l'appli, en plus du catalogue. Facultatif : tu pourras les ajouter plus tard (Plus → Fiches partagées).</p>
       ${partage.map((p, i) => `<label class="case"><input type="checkbox" value="${i}" ${choix.partage.has(i) ? "checked" : ""}>
         <span><b>${echapper(p.titre)}</b><br><small class="muet">${echapper(p.matiere)} · ${echapper(p.description)}</small></span></label>`).join("")}
+      <div class="rangee-boutons fin"><button class="bouton discret" data-a="precedent">Retour</button><button class="bouton primaire" data-a="suivant">Suivant</button></div>`,
+    async () => `
+      <div class="etape">Étape 4 / 4</div>
+      <h1>Colles et emploi du temps</h1>
+      <p class="muet">Si ta classe est dans la liste, choisis ton groupe de colle et tes groupes : tes colles, les DS et ton emploi du temps s'installent tout seuls. Modifiable plus tard (Plus → Ma classe).</p>
+      <div id="formulaire-classe">${await formulaireClasse(formClasse)}</div>
       <div class="rangee-boutons fin"><button class="bouton discret" data-a="precedent">Retour</button><button class="bouton primaire" data-a="terminer">C'est parti !</button></div>`,
   ];
 
@@ -588,9 +610,16 @@ export async function vueAssistant(el, nav) {
     if (r) choix.filiere = r.value;
     if (etape === 2) choix.matieres = new Set([...el.querySelectorAll("input[type=checkbox]:checked")].map((i) => Number(i.value)));
     if (etape === 3) choix.partage = new Set([...el.querySelectorAll("input[type=checkbox]:checked")].map((i) => Number(i.value)));
+    if (etape === 4) Object.assign(formClasse, lireFormulaireClasse(el));
   }
-  function afficher() {
-    el.innerHTML = `<div class="assistant">${etapes[etape]()}</div>`;
+  async function afficher() {
+    el.innerHTML = `<div class="assistant">${await etapes[etape]()}</div>`;
+    const f = el.querySelector("#formulaire-classe");
+    if (f) f.onchange = async (e) => {
+      Object.assign(formClasse, lireFormulaireClasse(el));
+      if (e.target.name === "classe") { formClasse.groupe = ""; formClasse.options = {}; }
+      f.innerHTML = await formulaireClasse(formClasse);
+    };
   }
   async function terminer() {
     el.innerHTML = `<div class="assistant"><h1>Préparation…</h1><p class="muet">Ajout des chapitres et des formules.</p></div>`;
@@ -609,8 +638,12 @@ export async function vueAssistant(el, nav) {
       const [, f] = await ajouterFichesPartagees(partage[i]);
       nbF += f;
     }
+    let texteClasse = "";
+    if (formClasse.id) {
+      try { texteClasse = " · " + resumeInstallation(await installerClasse(formClasse)); } catch (e) { console.error(e); }
+    }
     reglages.ecrire("assistantFait", true);
-    toast(`${nbC} chapitres et ${nbF} formules ajoutés ✓`, 4000);
+    toast(`${nbC} chapitres et ${nbF} formules ajoutés ✓${texteClasse}`, 5000);
     nav.aller("#/accueil");
     setTimeout(() => nav.visite(), 600);
   }
@@ -626,5 +659,5 @@ export async function vueAssistant(el, nav) {
     }
     afficher();
   };
-  afficher();
+  await afficher();
 }

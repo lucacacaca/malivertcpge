@@ -67,6 +67,12 @@ function finMillis(e) {
   return minuitLocal(e.jour) + (e.heure + d) * 60000;
 }
 
+/** Onglets en haut des pages Colles et DS / Emploi du temps / Résultats. */
+export function ongletsPlanning(actif) {
+  return `<nav class="sous-onglets">${[["planning", "Colles et DS"], ["edt", "Emploi du temps"], ["resultats", "Résultats"]]
+    .map(([k, t]) => `<a href="#/${k}" class="${k === actif ? "actif" : ""}">${t}</a>`).join("")}</nav>`;
+}
+
 // ------------------------------------------------------------------ Lecture des événements
 
 const SQL_EVT = `SELECT evenements.*, matieres.nom AS matiereNom, matieres.couleur AS matiereCouleur,
@@ -186,7 +192,7 @@ function supprimerEvenement(id) {
 
 const ALIAS = { math: "mathematiques", maths: "mathematiques", si: "sciencesindustriellessii", s2i: "sciencesindustriellessii", sii: "sciencesindustriellessii", info: "informatique", philo: "francaisphilosophie", francais: "francaisphilosophie" };
 const compact = (s) => simplifier(s).replace(/[^a-z0-9]/g, "");
-function matiereDe(nom, matieres) {
+export function matiereDe(nom, matieres) {
   if (!String(nom || "").trim()) return null;
   const n = ALIAS[compact(nom)] || compact(nom);
   return matieres.find((m) => compact(m.nom) === n)
@@ -217,7 +223,7 @@ export function lirePlanning(texte, matieres) {
   return { evenements, erreurs };
 }
 
-function importer(liste) {
+export function importer(liste) {
   return transaction(() => {
     let n = 0, nbNotes = 0;
     for (const e of liste) {
@@ -347,7 +353,8 @@ export function vuePlanning(el, nav, params) {
     .map(([t, l]) => `<h3 class="enc-titre">${t}</h3>${l.length ? l.map(ligneEnc).join("") : `<p class="petit muet">Rien de prévu.</p>`}`).join("");
 
   el.innerHTML = `
-    <div class="entete-page"><h1 class="titre-page">Planning</h1><a class="bouton petit" href="#/resultats">Résultats ›</a></div>
+    ${ongletsPlanning("planning")}
+    <h1 class="titre-page">Colles et DS</h1>
     <div class="onglets">
       <a class="onglet${passee ? "" : " actif"}" href="#/planning">Cette année (${libelleAnnee(debut)})</a>
       <a class="onglet${passee ? " actif" : ""}" href="#/planning?annee=passee">Année passée (${listePassee.length})</a>
@@ -357,6 +364,7 @@ export function vuePlanning(el, nav, params) {
     <div class="rangee-boutons">
       <a class="bouton primaire" href="#/evenement/0">+ Ajouter</a>
       <button class="bouton" id="importer">Importer un fichier</button>
+      <a class="bouton" href="#/classe">Ma classe</a>
       ${passee ? "" : `<button class="bouton" id="calendrier" ${aVenirCal.length ? "" : "disabled"}>📅 Tout ajouter au calendrier</button>`}
     </div>
     ${passee ? "" : `<label class="interrupteur"><input type="checkbox" id="passes" ${afficherPasse ? "checked" : ""}><span>Afficher les événements passés</span></label>`}
@@ -625,7 +633,8 @@ export function vueResultats(el, nav, params) {
   const aNoter = passee ? [] : tousLesEvenements().filter((e) => e.type !== "AUTRE" && e.jour <= jour && e.jour >= jour - 45 && !dejaNotes.has(e.id)).sort((a, b) => b.jour - a.jour);
 
   el.innerHTML = `
-    <div class="entete-page"><h1 class="titre-page">Résultats</h1><a class="bouton petit" href="#/planning">‹ Planning</a></div>
+    ${ongletsPlanning("resultats")}
+    <h1 class="titre-page">Résultats</h1>
     <div class="onglets">
       <a class="onglet${passee ? "" : " actif"}" href="#/resultats">Cette année (${libelleAnnee(debut)})</a>
       <a class="onglet${passee ? " actif" : ""}" href="#/resultats?annee=passee">Année passée (${nbPassees})</a>
