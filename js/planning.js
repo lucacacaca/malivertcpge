@@ -3,6 +3,7 @@
 
 import { tous, un, valeur, executer, dernierId, transaction } from "./db.js";
 import { blocTdEpreuve } from "./w3.js";
+import { cataloguePour, nbFormulesCatalogue, ajouterChapitres } from "./catalogue.js";
 import {
   echapper, aujourdhui, dateLisible, delaiLisible, couleurHex, dialogue, confirmer, toast,
   telecharger, choisirFichier, reglages, simplifier,
@@ -388,16 +389,38 @@ export function vueEvenement(el, id, nav) {
   const e = id ? un("SELECT * FROM evenements WHERE id = ?", [id]) : null;
   if (id && !e) { el.innerHTML = `<p class="muet">Événement introuvable.</p>`; return; }
   const matieres = tous("SELECT id, nom, couleur FROM matieres WHERE masquee = 0 ORDER BY ordre, id");
-  const chapitres = tous(`SELECT chapitres.id, chapitres.titre, chapitres.matiereId FROM chapitres INNER JOIN matieres ON matieres.id = chapitres.matiereId
+  const chapitres = tous(`SELECT chapitres.id, chapitres.titre, chapitres.matiereId, chapitres.programme, chapitres.cleCatalogue FROM chapitres INNER JOIN matieres ON matieres.id = chapitres.matiereId
     WHERE chapitres.masque = 0 AND matieres.masquee = 0 ORDER BY matieres.ordre, chapitres.ordre, chapitres.id`);
   const coches = new Set(e ? tous("SELECT chapitreId FROM evenement_chapitres WHERE evenementId = ?", [e.id]).map((c) => c.chapitreId) : []);
   const S = {
     type: e?.type || "COLLE", matiereId: e?.matiereId ?? null, jour: e?.jour ?? aujourdhui() + 1,
     heure: e ? e.heure : 18 * 60, duree: e?.duree ?? null, preparer: e ? (e.objectifId != null || coches.size === 0) : true,
+    // Programme affiché : PSI si tu as des chapitres de PSI, sinon PCSI si tu en as ("" = tout).
+    filtre: !chapitres.some((c) => c.programme === "PSI") && chapitres.some((c) => c.programme === "PCSI") ? "PCSI" : "PSI",
   };
+  // Chapitres du catalogue pas encore dans la matière choisie (clés cochées → ajoutés à l'enregistrement).
+  const aAjouter = new Set();
+  let catalogueMatiere = [];
+  const presentsCatalogue = new Set(tous("SELECT matiereId || ':' || cleCatalogue AS k FROM chapitres WHERE cleCatalogue IS NOT NULL").map((l) => l.k));
+  const nbFormulesCat = new Map();
+  async function chargerCatalogue() {
+    catalogueMatiere = [];
+    const m = matieres.find((x) => x.id === S.matiereId);
+    if (m) {
+      const cat = await cataloguePour(m.nom);
+      if (cat && S.matiereId === m.id) {
+        catalogueMatiere = cat.chapitres.filter((c) => !presentsCatalogue.has(`${m.id}:${c.cle}`));
+        for (const c of catalogueMatiere) if (!nbFormulesCat.has(c.cle)) nbFormulesCat.set(c.cle, await nbFormulesCatalogue(c.cle));
+      }
+    }
+    dessiner();
+  }
+  const visible = (programme) => !S.filtre || programme === S.filtre || programme === "LES_DEUX";
 
   function dessiner() {
-    const chapsAffiches = S.matiereId ? chapitres.filter((c) => c.matiereId === S.matiereId) : chapitres;
+    const chapsAffiches = (S.matiereId ? chapitres.filter((c) => c.matiereId === S.matiereId) : chapitres)
+      .filter((c) => visible(c.programme) || !c.cleCatalogue || coches.has(c.id));
+    const manquants = catalogueMatiere.filter((c) => visible(c.programme) || aAjouter.has(c.cle));
     const parMatiere = new Map();
     for (const c of chapsAffiches) { if (!parMatiere.has(c.matiereId)) parMatiere.set(c.matiereId, []); parMatiere.get(c.matiereId).push(c); }
     const estDs = S.type === "DS" || S.type === "EVALUATION";
@@ -410,10 +433,16 @@ export function vueEvenement(el, id, nav) {
     el.querySelector("#info-duree").textContent = S.duree == null ? "Durée non précisée : choisis 3 h ou 4 h." : h != null ? `De ${heureLisible(h)} à ${heureLisible(h + S.duree)}` : `${S.duree / 60} h`;
     el.querySelector("#bloc-colleur").hidden = S.type !== "COLLE";
     el.querySelector("#bloc-preparer").hidden = !aPreparer(S.type);
+    el.querySelector("#programmes").innerHTML = [["PSI", "PSI"], ["PCSI", "PCSI"], ["", "Tout"]].map(([p, lib]) =>
+      `<button type="button" class="puce-choix${S.filtre === p ? " actif" : ""}" data-programme="${p}">${lib}</button>`).join("");
+    el.querySelector("#catalogue-manquant").innerHTML = manquants.length ? `
+      <details class="replie" open><summary>Pas encore dans tes chapitres</summary>
+      <p class="petit muet">Coche-les : ils seront ajoutés à la matière avec leurs formules en enregistrant.</p>
+      ${manquants.map((c) => `<label class="case"><input type="checkbox" data-cle="${echapper(c.cle)}" ${aAjouter.has(c.cle) ? "checked" : ""}><span>${echapper(c.titre)}<br><small class="muet">${c.programme === "LES_DEUX" ? "PCSI + PSI" : c.programme} · catalogue · ${nbFormulesCat.get(c.cle) ?? 0} formule(s)</small></span></label>`).join("")}</details>` : "";
     el.querySelector("#chapitres").innerHTML = chapsAffiches.length ? [...parMatiere.entries()].map(([mid, cs]) => `
       <details class="replie" ${S.matiereId ? "open" : ""}><summary>${echapper(matieres.find((m) => m.id === mid)?.nom || "")} <small class="muet">${cs.filter((c) => coches.has(c.id)).length} / ${cs.length}</small></summary>
       ${cs.map((c) => `<label class="case"><input type="checkbox" value="${c.id}" ${coches.has(c.id) ? "checked" : ""}><span>${echapper(c.titre)}</span></label>`).join("")}</details>`).join("")
-      : `<p class="petit muet">Aucun chapitre dans cette matière : ajoute-les dans l'onglet Matières, ou écris le programme en texte libre.</p>`;
+      : manquants.length ? "" : `<p class="petit muet">${S.matiereId ? "Aucun chapitre de ce programme dans cette matière : ajoute-les dans l'onglet Matières, ou écris le programme en texte libre." : "Aucun chapitre de ce programme : choisis une matière pour voir aussi ceux du catalogue, ou écris le programme en texte libre."}</p>`;
   }
 
   el.innerHTML = `
@@ -434,13 +463,16 @@ export function vueEvenement(el, id, nav) {
     <label class="interrupteur" id="bloc-preparer"><input type="checkbox" id="preparer" ${S.preparer ? "checked" : ""}>
       <span><b>Préparer en mode révision</b><br><small>Les chapitres cochés apparaissent dans Réviser → Colles et DS, avec des révisions rapprochées jusqu'au jour J.</small></span></label>
     <h3 class="sous-titre">Chapitres au programme</h3>
+    <div class="puces" id="programmes"></div>
     <div id="chapitres"></div>
+    <div id="catalogue-manquant"></div>
     ${e ? `<button class="bouton discret texte-rouge" id="supprimer">Supprimer cet événement…</button>` : ""}
     <div class="barre-bas"><button class="bouton primaire large" id="enregistrer">Enregistrer</button></div>
   `;
   dessiner();
+  chargerCatalogue();
   el.onclick = (ev) => {
-    const b = ev.target.closest("[data-type],[data-matiere],[data-duree]");
+    const b = ev.target.closest("[data-type],[data-matiere],[data-duree],[data-programme]");
     if (!b) return;
     if (b.dataset.type) {
       // Un nouveau DS commence par défaut à 8h.
@@ -448,18 +480,35 @@ export function vueEvenement(el, id, nav) {
       if (b.dataset.type === "DS" && S.type !== "DS" && (!e || !h.value)) h.value = versHeure(DEBUT_DS);
       S.type = b.dataset.type;
     }
-    if (b.dataset.matiere !== undefined) S.matiereId = b.dataset.matiere ? Number(b.dataset.matiere) : null;
+    if (b.dataset.programme !== undefined) S.filtre = b.dataset.programme;
+    if (b.dataset.matiere !== undefined) {
+      const avant = S.matiereId;
+      S.matiereId = b.dataset.matiere ? Number(b.dataset.matiere) : null;
+      if (S.matiereId !== avant) { aAjouter.clear(); catalogueMatiere = []; chargerCatalogue(); }
+    }
     if (b.dataset.duree) { const d = Number(b.dataset.duree); S.duree = S.duree === d ? null : d; }
     dessiner();
   };
   el.querySelector("#heure").oninput = () => dessiner();
+  el.querySelector("#catalogue-manquant").onchange = (ev) => {
+    const i = ev.target;
+    if (i.type === "checkbox") { i.checked ? aAjouter.add(i.dataset.cle) : aAjouter.delete(i.dataset.cle); }
+  };
   el.querySelector("#chapitres").onchange = (ev) => {
     const i = ev.target;
     if (i.type === "checkbox") { i.checked ? coches.add(Number(i.value)) : coches.delete(Number(i.value)); }
   };
-  el.querySelector("#enregistrer").onclick = () => {
+  el.querySelector("#enregistrer").onclick = async () => {
     const jour = depuisIso(el.querySelector("#date").value);
     if (jour == null) { toast("Choisis une date."); return; }
+    if (S.matiereId != null && aAjouter.size) {
+      const choisis = catalogueMatiere.filter((c) => aAjouter.has(c.cle));
+      await ajouterChapitres(S.matiereId, choisis);
+      for (const c of choisis) {
+        const id = un("SELECT id FROM chapitres WHERE matiereId = ? AND cleCatalogue = ?", [S.matiereId, c.cle])?.id;
+        if (id) coches.add(id);
+      }
+    }
     const nouveau = enregistrer({
       id: e?.id || 0, type: S.type, titre: el.querySelector("#titre").value.trim(), matiereId: S.matiereId, jour,
       heure: lireHeure(el.querySelector("#heure").value), duree: S.type === "DS" || S.type === "EVALUATION" ? S.duree : e?.duree ?? null,
