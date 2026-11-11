@@ -84,7 +84,22 @@ export async function ajouterChapitres(matiereId, chapitresCatalogue) {
       nbF += insererFormules(dernierId(), parChapitre.get(c.cle) || []);
     }
   });
+  if (nbC) await remettreDansLOrdre(matiereId);
   return [nbC, nbF];
+}
+
+/** Les places des chapitres du catalogue sont redistribuées dans l'ordre du catalogue (chapitres perso inchangés). */
+async function remettreDansLOrdre(matiereId) {
+  const rang = new Map((await lesCatalogues()).flatMap((cat) => cat.chapitres.map((c) => c.cle)).map((cle, i) => [cle, i]));
+  const actuels = tous("SELECT id, ordre, cleCatalogue FROM chapitres WHERE matiereId = ? ORDER BY ordre, id", [matiereId]);
+  const duCatalogue = actuels.filter((c) => rang.has(c.cleCatalogue)).sort((a, b) => rang.get(a.cleCatalogue) - rang.get(b.cleCatalogue));
+  let k = 0;
+  transaction(() => {
+    actuels.forEach((c, place) => {
+      const voulu = rang.has(c.cleCatalogue) ? duCatalogue[k++] : c;
+      if (voulu.ordre !== place) executer("UPDATE chapitres SET ordre = ? WHERE id = ?", [place, voulu.id]);
+    });
+  });
 }
 
 /** Ajoute, dans tous les chapitres du catalogue de la matière, les formules qui manquent. */
