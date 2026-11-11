@@ -2,7 +2,7 @@
 
 import { tous, un, executer, transaction } from "./db.js";
 import {
-  Reponse, LIBELLE_REPONSE, estUnEchec, appliquer, apercu, FileRevision, decouperTrou, questionTrou,
+  Reponse, LIBELLE_REPONSE, estUnEchec, estDue, appliquer, apercu, FileRevision, decouperTrou, questionTrou,
   tousLesLeurres, choisirLeurres, compacter, tirerAn, corrigerAn, VERDICTS, Nombres,
 } from "./domaine.js";
 import { modelesAn } from "./catalogue.js";
@@ -155,8 +155,23 @@ export async function lancerSeance(racine, options, onFermer) {
     return { boite: c.boite, prochaine: c.prochaine, nbRevisions: c.nbRevisions, nbEchecs: c.nbEchecs, echecsConsecutifs: c.echecsConsecutifs };
   }
 
+  /** Progression de la séance : tour des formules, puis cartes dues au départ. */
+  function initProgression(l) {
+    const avant = S.prog;
+    S.prog = {
+      formules: new Set(l.map((c) => c.formuleId)),
+      dues: new Set(l.filter((c) => estDue(etat(c), S.jour)).map((c) => c.id)),
+      vues: avant ? avant.vues : new Set(),
+      faites: avant ? avant.faites : new Set(),
+      palier: avant ? avant.palier : 0,
+    };
+    if (!avant) S.serie = 0;
+  }
+
   function demarrer(liste) {
     const l = retenues(liste);
+    S.prog = null;
+    initProgression(l);
     S.file = new FileRevision(l.map((c) => ({ id: c.id, groupe: c.formuleId, etat: etat(c) })), S.jour);
     S.vide = l.length === 0;
     S.nbReponses = 0; S.nbReussies = 0; S.ratees.clear(); S.message = ""; S.terminee = false;
@@ -164,6 +179,12 @@ export async function lancerSeance(racine, options, onFermer) {
   }
   function reconstruire() {
     const l = retenues([...S.cartes.values()].filter((c) => S.ctx.has(c.formuleId)));
+    if (S.prog) {
+      // On garde les cartes dues du départ (même si elles ne sont plus dues après la réponse).
+      const dues = S.prog.dues;
+      initProgression(l);
+      S.prog.dues = new Set([...dues].filter((id) => l.some((c) => c.id === id)));
+    }
     S.file = new FileRevision(l.map((c) => ({ id: c.id, groupe: c.formuleId, etat: etat(c) })), S.jour);
     S.vide = l.length === 0;
     passer();
@@ -218,6 +239,11 @@ export async function lancerSeance(racine, options, onFermer) {
     S.file.enregistrer(nouvelle.id, res.etat, estUnEchec(reponse));
     S.nbReponses++;
     if (estUnEchec(reponse)) S.ratees.add(nouvelle.id); else S.nbReussies++;
+    S.serie = estUnEchec(reponse) ? 0 : (S.serie || 0) + 1;
+    if (S.prog) {
+      S.prog.vues.add(nouvelle.formuleId);
+      if (S.prog.dues.has(nouvelle.id)) S.prog.faites.add(nouvelle.id);
+    }
     S.message = `« ${c.ctx.intitule} » : ${res.explication}`;
     executer("UPDATE cartes SET boite = ?, prochaine = ?, nbRevisions = ?, nbEchecs = ?, echecsConsecutifs = ?, derniere = ? WHERE id = ?",
       [nouvelle.boite, nouvelle.prochaine, nouvelle.nbRevisions, nouvelle.nbEchecs, nouvelle.echecsConsecutifs, maintenant, nouvelle.id]);
@@ -236,10 +262,16 @@ export async function lancerSeance(racine, options, onFermer) {
   function mettreAJourStatut(formuleId, reponse, carte) {
     const f = un("SELECT statut FROM formules WHERE id = ?", [formuleId]);
     if (!f) return;
-    let nouveau = f.statut;
-    if (estUnEchec(reponse) && carte.echecsConsecutifs >= 2) nouveau = "PRIORITAIRE";
-    else if (estUnEchec(reponse)) nouveau = f.statut === "PRIORITAIRE" ? "PRIORITAIRE" : "A_REVOIR";
+    // Mêmes règles que l'appli Android (SeanceViewModel.mettreAJourStatut).
+    const actuel = f.statut, reussie = reponse === "BIEN" || reponse === "FACILE";
+    let nouveau = actuel;
+    if (estUnEchec(reponse) && carte.nbRevisions <= 1) nouveau = actuel === "NON_EVALUEE" ? "EN_COURS" : actuel;
+    else if (estUnEchec(reponse) && carte.echecsConsecutifs >= 2) nouveau = "PRIORITAIRE";
+    else if (estUnEchec(reponse)) nouveau = actuel === "PRIORITAIRE" ? "PRIORITAIRE" : "A_REVOIR";
     else if (tous("SELECT boite FROM cartes WHERE formuleId = ?", [formuleId]).every((x) => x.boite >= 4)) nouveau = "MAITRISEE";
+    else if (actuel === "NON_EVALUEE") nouveau = "EN_COURS";
+    else if (reussie && actuel === "PRIORITAIRE") nouveau = "A_REVOIR";
+    else if (reussie && actuel === "A_REVOIR") nouveau = "EN_COURS";
     if (nouveau !== f.statut) executer("UPDATE formules SET statut = ? WHERE id = ?", [nouveau, formuleId]);
   }
 
@@ -258,7 +290,27 @@ export async function lancerSeance(racine, options, onFermer) {
         ${S.precedente ? `<button class="bouton discret petit" data-a="precedente" ${encore ? "" : "disabled"}>↶ Encore avant</button>` : ""}
         ${S.c && !S.terminee && !S.precedente ? `<button class="icone etoile${S.c.ctx.favori ? " active" : ""}" data-a="favori" aria-label="Favori">★</button>` : ""}
         ${!S.terminee ? `<div class="menu-zone"><button class="icone" data-a="menu" aria-label="Menu">⋮</button>${S.menu ? menu() : ""}</div>` : ""}
-      </header>`;
+      </header>${S.terminee ? "" : barreProgression()}`;
+  }
+
+  /** Barre de progression pour motiver : tour des formules, puis cartes du jour, puis bonus. */
+  function barreProgression() {
+    const p = S.prog;
+    if (!p || S.vide) return "";
+    const nbF = p.formules.size, vues = [...p.vues].filter((id) => p.formules.has(id)).length;
+    const nbD = p.dues.size, faites = [...p.faites].filter((id) => p.dues.has(id)).length;
+    const total = nbF + nbD, fait = vues + faites;
+    const pct = total ? Math.round((100 * fait) / total) : 100;
+    let lib;
+    if (vues < nbF) lib = `Tour des formules : ${vues} / ${nbF}`;
+    else if (faites < nbD) lib = `Cartes du jour : ${faites} / ${nbD}`;
+    else lib = "Objectif atteint ✓ — tout ce qui suit est du bonus";
+    const encouragement = pct >= 100 ? "" : pct >= 75 ? "Presque fini !" : pct >= 50 ? "Plus que la moitié !" : pct >= 25 ? "Bien lancé !" : "";
+    return `<div class="seance-progression${pct >= 100 ? " finie" : ""}">
+      <div class="sp-ligne"><span>${lib}</span><span>${S.serie >= 3 ? `🔥 ${S.serie} d'affilée · ` : ""}${pct} %</span></div>
+      <div class="sp-barre"><div style="width:${pct}%"></div></div>
+      ${encouragement ? `<div class="sp-mot">${encouragement}</div>` : ""}
+    </div>`;
   }
   function menu() {
     return `<div class="menu">

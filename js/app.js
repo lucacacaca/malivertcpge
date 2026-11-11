@@ -6,7 +6,7 @@ import { lancerVisite } from "./tuto.js";
 import { vueEdt } from "./edt.js";
 import { vueExercice, vueTdMatiere, vueTaches, vueTipe } from "./w3.js";
 import { vueClasse } from "./classe.js";
-import { vuePlanning, vueEvenement, vueDetail, vueResultats, rappelOuverture } from "./planning.js";
+import { vuePlanning, vueEvenement, vueDetail, vueResultats, rappelOuverture, demanderNotes } from "./planning.js";
 import {
   vueAccueil, vueMatieres, vueMatiere, vueChapitre, vueReviser, vuePlus, vueSauvegarde, vuePartage,
   vueAide, vueInstaller, vueAssistant,
@@ -148,6 +148,10 @@ async function demarrer() {
   await route();
   // Rappel des colles / DS proches (une fois par jour), sauf pendant l'assistant ou une séance.
   if (reglages.lire("assistantFait", false) && !/^#\/(seance|assistant)/.test(location.hash)) rappelOuverture(nav).catch(console.error);
+  // Appli restée ouverte : à la fin d'une colle, on demande la note (vérifié chaque minute).
+  setInterval(() => {
+    if (reglages.lire("assistantFait", false) && document.visibilityState === "visible") demanderNotes(nav).catch(console.error);
+  }, 60000);
 }
 
 if ("serviceWorker" in navigator) {

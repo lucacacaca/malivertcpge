@@ -409,3 +409,32 @@ select { font: inherit; color: var(--texte); background: var(--fond); border: 1p
 .titre-section .bouton.petit { margin-left: auto; padding: 2px 12px; }
 .titre-section:has(.lien), .titre-section:has(.bouton) { display: flex; align-items: center; gap: 8px; }
 .evt-jour { text-decoration: none; color: var(--texte); border: 1px solid var(--c); border-left-width: 4px; background: color-mix(in srgb, var(--c) 12%, var(--surface-2)); }
+
+/* Barre de progression de la séance */
+.seance-progression { padding: 6px 16px 4px; }
+.seance-progression .sp-ligne { display: flex; justify-content: space-between; gap: 8px; font-size: .82rem; color: var(--muet, #888); }
+.seance-progression .sp-barre { height: 8px; border-radius: 99px; background: var(--surface-3); overflow: hidden; margin-top: 4px; }
+.seance-progression .sp-barre > div { height: 100%; border-radius: 99px; background: var(--primaire, #6b8cff); transition: width .35s ease; }
+.seance-progression.finie .sp-barre > div { background: var(--bien); }
+.seance-progression .sp-mot { font-size: .78rem; margin-top: 2px; color: var(--primaire, #6b8cff); font-weight: 600; }
+
+/* Mini emploi du temps de la semaine (page Planning) */
+.edt-semaine { margin-bottom: 14px; }
+.edt-semaine .enc-titre { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.edt-semaine .enc-titre .lien { margin-left: auto; }
+.es-grille { display: grid; grid-template-columns: 26px repeat(var(--n), minmax(0, 1fr)); column-gap: 3px; }
+.es-entete { text-align: center; font-size: 12px; font-weight: 600; padding-bottom: 4px; line-height: 1.1; }
+.es-entete small { display: block; font-weight: 400; color: var(--muet); font-size: 10px; }
+.es-entete.auj { color: var(--primaire); }
+.es-heures { position: relative; grid-column: 1; }
+.es-heures span { position: absolute; right: 2px; transform: translateY(-50%); font-size: 9px; color: var(--muet); }
+.es-heures span:first-child { transform: none; }
+.es-jour { position: relative; border-radius: 6px; background: repeating-linear-gradient(to bottom, var(--surface-2) 0, var(--surface-2) calc(var(--h) - 1px), var(--bord) calc(var(--h) - 1px), var(--bord) var(--h)); }
+.es-jour.auj { outline: 1px solid var(--primaire); }
+.es-bloc { position: absolute; box-sizing: border-box; border-radius: 4px; overflow: hidden; padding: 1px 2px; text-decoration: none;
+  background: color-mix(in srgb, var(--c) 30%, var(--surface)); border-left: 3px solid var(--c); color: var(--texte); font-size: 10px; line-height: 1.15; }
+.es-bloc span { display: block; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.es-bloc small { display: block; color: var(--muet); font-size: 9px; }
+.es-bloc.evt { background: color-mix(in srgb, var(--c) 55%, var(--surface)); border: 1px solid var(--c); border-left-width: 3px; z-index: 1; }
+.es-maintenant { position: absolute; left: 0; right: 0; height: 2px; background: var(--rate); z-index: 2; }
+@media (min-width: 700px) { .es-bloc { font-size: 12px; } }

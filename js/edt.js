@@ -78,6 +78,65 @@ export function blocEdtAccueil() {
     <div class="liste-creneaux">${fusionner(cs, tousLesEvenements().filter((e) => e.jour === jour && (jour !== j || e.heure == null || e.heure + dureeEvt(e) > min)), jour === j ? min : null)}</div></section>`;
 }
 
+// ------------------------------------------------------------------ Encadré de la semaine (page Planning)
+
+const ABREGES = [[/math/i, "Maths"], [/phys/i, "Phys."], [/chim/i, "Chimie"], [/sciences ind|\bs\.?i\.?i?\b|sii/i, "S.I."],
+  [/info/i, "Info"], [/fran|philo/i, "Fr-Philo"], [/angl/i, "Angl."], [/allem/i, "All."], [/espag/i, "Esp."], [/tipe/i, "TIPE"], [/eps|sport/i, "EPS"]];
+const abreger = (nom) => { const n = String(nom || ""); const a = ABREGES.find(([r]) => r.test(n)); return a ? a[1] : n.slice(0, 6); };
+
+/** Mini emploi du temps de la semaine (cours + colles / DS), en grille. */
+export function blocEdtSemaine() {
+  const liste = creneauxTous();
+  const j = aujourdhui();
+  const js = ((j + 3) % 7 + 7) % 7 + 1;
+  let l = lundi(j);
+  // Le week-end (sans cours le samedi), on montre la semaine qui vient.
+  if (js === 7 || (js === 6 && !liste.some((c) => c.jour === 6))) l += 7;
+  const evs = tousLesEvenements().filter((e) => e.jour >= l && e.jour < l + 7);
+  if (!liste.length && !evs.length) return "";
+  const nbJours = liste.some((c) => c.jour === 6) || evs.some((e) => e.jour === l + 5) ? 6 : 5;
+  const jours = Array.from({ length: nbJours }, (_, i) => {
+    const jour = l + i;
+    const items = [
+      ...creneauxDuJour(jour, liste).map((c) => ({ debut: c.debut, fin: c.fin, lib: abreger(c.matiereNom || c.intitule), coul: c.matiereCouleur != null ? couleurHex(c.matiereCouleur) : "#607d8b",
+        href: `#/edt?s=${l}`, info: `${titreCreneau(c)} · ${heureLisible(c.debut)}–${heureLisible(c.fin)}${c.salle ? " · " + c.salle : ""}` })),
+      ...evs.filter((e) => e.jour === jour).map((e) => {
+        const debut = e.heure ?? 8 * 60;
+        return { debut, fin: debut + dureeEvt(e), evt: true, lib: (TYPES[e.type] || TYPES.AUTRE).lib + " " + abreger(e.matiereNom || ""), coul: (TYPES[e.type] || TYPES.AUTRE).coul,
+          href: `#/epreuve/${e.id}`, info: `${(TYPES[e.type] || TYPES.AUTRE).lib} ${e.matiereNom || ""}${e.heure != null ? " · " + heureLisible(e.heure) : ""}${e.salle ? " · " + e.salle : ""}` };
+      }),
+    ].sort((a, b) => a.debut - b.debut || a.fin - b.fin);
+    // Chevauchements : côte à côte (une « voie » par bloc qui se superpose).
+    const voies = [];
+    for (const it of items) {
+      let v = voies.findIndex((fin) => fin <= it.debut);
+      if (v < 0) { v = voies.length; voies.push(0); }
+      voies[v] = it.fin; it.voie = v;
+    }
+    for (const it of items) it.nbVoies = Math.max(1, ...items.filter((x) => x.debut < it.fin && x.fin > it.debut).map((x) => x.voie + 1));
+    return { jour, items };
+  });
+  const tout = jours.flatMap((d) => d.items);
+  const hMin = Math.min(8, ...tout.map((x) => Math.floor(x.debut / 60)));
+  const hMax = Math.max(18, ...tout.map((x) => Math.ceil(x.fin / 60)));
+  const H = 26; // pixels par heure
+  const d = new Date(), min = d.getHours() * 60 + d.getMinutes();
+  const t = typeSemaine(l);
+  return `<section class="carte-acc edt-semaine">
+    <h3 class="enc-titre">Emploi du temps · ${l === lundi(j) ? "cette semaine" : "semaine prochaine"}${t ? ` <span class="badge-ab">${t}</span>` : ""} <a class="lien petit" href="#/edt?s=${l}">Détail ›</a></h3>
+    ${liste.length ? "" : `<p class="petit muet">Pas encore de cours : <a href="#/classe">choisis ta classe</a> pour remplir l'emploi du temps.</p>`}
+    <div class="es-grille" style="--n:${nbJours};--h:${H}px">
+      <div class="es-entete"></div>${jours.map((x, i) => `<div class="es-entete${x.jour === j ? " auj" : ""}">${NOMS_JOURS[i + 1].slice(0, 3)}<small>${court(x.jour).replace(/\.$/, "")}</small></div>`).join("")}
+      <div class="es-heures" style="height:${(hMax - hMin) * H}px">${Array.from({ length: hMax - hMin }, (_, k) => `<span style="top:${k * H}px">${hMin + k}h</span>`).join("")}</div>
+      ${jours.map((x) => `<div class="es-jour${x.jour === j ? " auj" : ""}" style="height:${(hMax - hMin) * H}px">
+        ${x.jour === j && min >= hMin * 60 && min <= hMax * 60 ? `<div class="es-maintenant" style="top:${((min - hMin * 60) / 60) * H}px"></div>` : ""}
+        ${x.items.map((it) => `<a class="es-bloc${it.evt ? " evt" : ""}" href="${it.href}" title="${echapper(it.info)}" style="--c:${it.coul};top:${((it.debut - hMin * 60) / 60) * H}px;height:${Math.max(12, ((it.fin - it.debut) / 60) * H - 2)}px;left:${(100 * it.voie) / it.nbVoies}%;width:calc(${100 / it.nbVoies}% - 2px)">
+          <span>${echapper(it.lib)}</span>${(it.fin - it.debut) >= 90 ? `<small>${heureLisible(it.debut)}</small>` : ""}</a>`).join("")}
+      </div>`).join("")}
+    </div>
+  </section>`;
+}
+
 // ------------------------------------------------------------------ Page Emploi du temps
 
 export function vueEdt(el, nav, params) {

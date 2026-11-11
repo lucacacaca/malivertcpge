@@ -3,6 +3,7 @@
 
 import { tous, un, valeur, executer, dernierId, transaction } from "./db.js";
 import { blocTdEpreuve } from "./w3.js";
+import { blocEdtSemaine } from "./edt.js";
 import { cataloguePour, nbFormulesCatalogue, ajouterChapitres } from "./catalogue.js";
 import {
   echapper, aujourdhui, dateLisible, delaiLisible, couleurHex, dialogue, confirmer, toast,
@@ -362,7 +363,7 @@ export function vuePlanning(el, nav, params) {
       <a class="onglet${passee ? " actif" : ""}" href="#/planning?annee=passee">Année passée (${listePassee.length})</a>
     </div>
     ${passee ? `<p class="petit muet">Colles, DS et évaluations de l'année ${libelleAnnee(debutPassee)}. Pour ajouter ta feuille de colles de l'an dernier : envoie-en une photo à Claude, puis « Importer un fichier » avec le fichier qu'il te prépare.</p>`
-      : `<section class="carte-acc encadre-semaines">${encadre}</section>`}
+      : `<section class="carte-acc encadre-semaines">${encadre}</section>${blocEdtSemaine()}`}
     <div class="rangee-boutons">
       <a class="bouton primaire" href="#/evenement/0">+ Ajouter</a>
       <button class="bouton" id="importer">Importer un fichier</button>
@@ -599,6 +600,7 @@ export function vueDetail(el, id, nav, params) {
 
 /** Une fois par jour : rappelle les colles / DS d'aujourd'hui, demain et après-demain. */
 export async function rappelOuverture(nav) {
+  await demanderNotes(nav);
   const j = aujourdhui();
   if (reglages.lire("rappelVu", null) === j) return;
   const evs = tous(SQL_EVT + " WHERE evenements.jour >= ? AND evenements.jour <= ?" + ORDRE_EVT, [j, j + 2])
@@ -621,6 +623,44 @@ export async function rappelOuverture(nav) {
     },
   });
   return r;
+}
+
+// ------------------------------------------------------------------ Fin de colle : « quelle note ? »
+
+const reportees = new Set();
+
+/** Colles terminées depuis moins de 7 jours et pas encore notées (toutes sauf l'anglais). */
+export function collesANoter() {
+  const j = aujourdhui(), maintenant = Date.now();
+  const notees = new Set(tous("SELECT evenementId FROM notes WHERE evenementId IS NOT NULL").map((r) => r.evenementId));
+  const ignorees = new Set(reglages.lire("notesIgnorees", []));
+  return tous(SQL_EVT + " WHERE evenements.type = 'COLLE' AND evenements.jour >= ? AND evenements.jour <= ?" + ORDRE_EVT, [j - 7, j])
+    .filter((e) => finMillis(e) <= maintenant && !notees.has(e.id) && !ignorees.has(e.id) && !reportees.has(e.id)
+      && !/anglais/i.test(e.matiereNom || ""))
+    .reverse();
+}
+
+/** Propose de saisir la note de chaque colle terminée. Renvoie true si un message a été montré. */
+export async function demanderNotes(nav) {
+  let montre = false;
+  for (const e of collesANoter()) {
+    if (document.querySelector(".modal-fond") || /^#\/(seance|assistant)/.test(location.hash)) break;
+    montre = true;
+    const r = await dialogue({
+      titre: "✍️ Colle terminée",
+      contenu: `<p>${titreColore(e)}</p><p class="petit muet">${dateLisible(e.jour)}${e.heure != null ? " à " + heureLisible(e.heure) : ""}${e.colleur ? " · " + echapper(e.colleur) : ""}</p>
+        <p>Quelle note as-tu eue ? Elle ira dans Résultats (moyennes, graphique).</p>`,
+      boutons: [
+        { texte: "Pas de note", valeur: "ignorer" },
+        { texte: "Plus tard", valeur: "plus-tard" },
+        { texte: "Ajouter la note", valeur: "noter", style: "primaire" },
+      ],
+    });
+    if (r === "ignorer") reglages.ecrire("notesIgnorees", [...reglages.lire("notesIgnorees", []), e.id].slice(-200));
+    else if (r === "noter") { if (await dialogueNote(noteDepuis(e))) nav.rafraichir(); else reportees.add(e.id); }
+    else { reportees.add(e.id); break; }
+  }
+  return montre;
 }
 
 // ------------------------------------------------------------------ Résultats
