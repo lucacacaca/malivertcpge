@@ -179,7 +179,7 @@ input:focus-visible, button:focus-visible, a:focus-visible { outline: 2px solid 
 .formule-titre { font-weight: 600; margin-bottom: 4px; }
 .formule-math, .formule-bloc { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
 .formule-bloc { padding: 4px 0; }
-.katex-display { margin: .4em 0; }
+.katex-display { margin: .4em 0; overflow-x: auto; overflow-y: hidden; padding: 2px 0; }
 .katex { font-size: 1.12em; }
 .texte-seul { font-size: 17px; line-height: 1.5; padding: 4px 0; }
 .erreur-latex { color: var(--rate); font-size: 14px; }
