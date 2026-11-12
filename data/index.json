@@ -2,6 +2,7 @@
  "formules": [
   "formules_allemand.json",
   "formules_chimie.json",
+  "formules_maths_dl_ordre3.json",
   "formules_maths_pcsi_analyse.json",
   "formules_maths_psi.json",
   "formules_physique_pcsi.json",

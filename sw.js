@@ -1,6 +1,6 @@
 // Service worker : garde l'appli sur l'appareil pour qu'elle marche HORS LIGNE.
 // Fichier généré par outils/construire.py (ne pas modifier à la main).
-const VERSION = "4830afdab4";
+const VERSION = "5433698c99";
 const CACHE = "malivertcpge-" + VERSION;
 const FICHIERS = [
   "./",
@@ -44,6 +44,7 @@ const FICHIERS = [
   "data/catalogue/an_supplement.json",
   "data/catalogue/formules_allemand.json",
   "data/catalogue/formules_chimie.json",
+  "data/catalogue/formules_maths_dl_ordre3.json",
   "data/catalogue/formules_maths_pcsi_analyse.json",
   "data/catalogue/formules_maths_psi.json",
   "data/catalogue/formules_physique_pcsi.json",
